@@ -1,0 +1,67 @@
+\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{adjustbox}
+\usepackage{algpseudocode}
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{placeins}
+\usepackage[utf8]{inputenc}
+\usepackage[labelfont=bf,labelsep=period,]{caption}
+\usepackage{pdfpages}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\pagenumbering{arabic}
+
+\begin{document}
+\includepdf[pages=1,fitpaper=true]{CoverPage.pdf}
+\setcounter{page}{1}
+
+\title{Integrated Automated Feeding and Watering System with Centralized Data Monitoring for Commercial Piggeries}
+
+\author{\IEEEauthorblockN{Pace, Vaun Michael C.$^{[1]}$, Parras, Paul Andrew F.$^{[1]}$, Soriano, Lorenz Anthony L.$^{[1]}$, \\Macapagal, Alvin Joseph S.$^{[2]}$, Campañera, Jan Dave Q.,$^{[2]}$}
+
+  \IEEEauthorblockA{\textit{$^{[1]}$Undergraduate Student, Department of Computer Engineering, University of San Carlos, Talamban, Cebu City, Philippines} \\
+    \textit{$^{[2]}$Faculty Member, Department of Computer Engineering, University of San Carlos, Talamban, Cebu City, Philippines}\\
+  pacevaun@gmail.com, parraspaul13874@gmail.com, lorenzal.soriano@gmail.com,\\ ajsmacapagal@usc.edu.ph, jdcampanera@usc.edu.ph}
+}
+
+\maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
+\begin{abstract}
+  Manual feeding and inadequate health monitoring in commercial piggeries contribute to feed waste, undetected illness, and preventable livestock losses. This paper presents the design and development of an integrated, hardwired automated feeding and watering system with centralized data monitoring for commercial piggeries. The system employs a main control module connected to multiple feeder modules via a wired network, integrating weight sensors, water flow sensors, and air quality sensors to ensure precise feed rationing and continuous environmental monitoring. Collected data is processed and displayed through a local user interface, enabling caretakers to track consumption patterns and detect early signs of illness in real time. By eliminating reliance on manual observation and wireless communication, the system offers a reliable and scalable solution for improving biosecurity, animal health management, and operational efficiency in swine production.
+\end{abstract}
+\begin{IEEEkeywords}
+  Livestock Automation, Precision Feeding, Biosecurity, Real-time Monitoring
+\end{IEEEkeywords}
+
+\input{Section1}
+\input{Section2}
+\input{Section3}
+\input{Section4}
+\input{Section5}
+\input{Section6}
+\input{Section7}
+
+%\section*{Acknowledgment}
+%This research was supported by Basic Science Research Program through the National Research %Foundation of Korea(NRF) funded by the Ministry of Education (NRF-2020R1I1A2073603) as well as %the Soonchunhyang University Research Fund.
+\bibliographystyle{ieeetr}
+\bibliography{source,reference}
+
+\end{document}

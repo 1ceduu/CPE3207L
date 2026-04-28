@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Manuscript Review}
+\textbf{Overall assessment.} The draft addresses an important problem and has a clear practical direction, but the current manuscript is not yet technically publishable because (i) the source does not compile from a clean build, and (ii) core technical claims (automated detection, reliability, and monitoring performance) are stated without methods or validation evidence in the included sections.
+
+\section*{Technical findings (priority first)}
+\begin{enumerate}[leftmargin=*,label=\textbf{T\arabic*.}]
+  \item \textbf{Classification: definite error}\\
+  \textbf{Location:} \texttt{TimTissis.tex}, preamble package block (lines 8, 18, 19).\\
+  \textbf{Problem:} The document loads \texttt{algorithmic}, \texttt{algpseudocode}, and \texttt{algorithm2e} together, which triggers \texttt{LaTeX Error: Command \textbackslash algorithmic already defined}. A clean compile with \texttt{pdflatex -halt-on-error} stops with a fatal error.\\
+  \textbf{Why it matters:} The manuscript is not reproducibly buildable from source, which blocks submission and collaboration.\\
+  \textbf{Suggested fix:} Keep one algorithm package family only. For example, remove \texttt{\textbackslash usepackage\{algorithmic\}} if \texttt{algpseudocode} is retained, or remove \texttt{algpseudocode}/\texttt{algorithm2e} if \texttt{algorithmic} is preferred.
+
+  \item \textbf{Classification: unsupported claim}\\
+  \textbf{Location:} Abstract (\texttt{TimTissis.tex}:48) and omitted body sections (\texttt{TimTissis.tex}:59--60).\\
+  \textbf{Problem:} The abstract states that the paper ``presents the design and development'' and ``offers a reliable and scalable solution,'' but the included manuscript contains introduction/problem/objectives/scope/significance only; methodology and evaluation sections are commented out.\\
+  \textbf{Why it matters:} Claim strength exceeds evidence shown in the manuscript.\\
+  \textbf{Suggested fix:} Either (a) downscope claims to a proposal/design concept, or (b) include methodology, implementation details, and quantitative validation results that justify reliability/scalability claims.
+
+  \item \textbf{Classification: likely issue (implementation ambiguity)}\\
+  \textbf{Location:} \texttt{Section2.tex}:5 and \texttt{Section5.tex}:11.\\
+  \textbf{Problem:} ``Rolling time window,'' ``defined standard,'' and alerting logic are not mathematically specified (window length, baseline estimator, threshold rule, update cadence, hysteresis, or false-alarm handling).\\
+  \textbf{Why it matters:} The central health-monitoring contribution cannot be reproduced or implemented consistently.\\
+  \textbf{Suggested fix:} Add a precise decision rule (equations or pseudocode), including baseline computation, deviation metric, thresholding, and alert state transitions.
+
+  \item \textbf{Classification: likely issue (units/definitions)}\\
+  \textbf{Location:} Abstract (\texttt{TimTissis.tex}:48), \texttt{Section2.tex}:5, \texttt{Section4.tex}:10.\\
+  \textbf{Problem:} Air-quality monitoring is described, but measured variables and safe limits are undefined (e.g., NH$_3$, H$_2$S, CO$_2$, units, calibration procedure, sensor placement, and sampling interval).\\
+  \textbf{Why it matters:} Without explicit quantities and units, ``toxicity alerts'' are not technically auditable and may be misinterpreted in deployment.\\
+  \textbf{Suggested fix:} Define each monitored variable, unit, threshold source, sensor specification, calibration method, and alert trigger condition.
+
+  \item \textbf{Classification: unsupported claim}\\
+  \textbf{Location:} \texttt{Section5.tex}:11.\\
+  \textbf{Problem:} The text claims planned validation ``will characterize detection reliability'' but no validation protocol, ground truth definition, or performance metrics are provided in the manuscript body.\\
+  \textbf{Why it matters:} Reliability statements are currently non-falsifiable.\\
+  \textbf{Suggested fix:} Add a validation subsection defining labeled health events, evaluation window, and metrics (e.g., sensitivity, precision/PPV, false-alert rate, and time-to-alert).
+
+  \item \textbf{Classification: likely issue (notation/terminology drift)}\\
+  \textbf{Location:} Abstract (``eliminating reliance on \ldots wireless communication,'' \texttt{TimTissis.tex}:48), \texttt{Section4.tex}:9, \texttt{Section5.tex}:11.\\
+  \textbf{Problem:} Connectivity terminology is not stable: ``hardwired'' and ``independent from internet connectivity'' appear alongside sensitivity to ``network connectivity'' interruptions, without clarifying whether this means local wired bus vs internet backhaul.\\
+  \textbf{Why it matters:} Ambiguity affects reliability and deployment assumptions.\\
+  \textbf{Suggested fix:} Explicitly separate local wired module network behavior from internet dependence, and state which functions degrade under each failure mode.
+\end{enumerate}
+
+\section*{Coverage checks explicitly completed}
+I checked for branch conventions, sign conventions, symbol definitions, dimensional consistency, and implementation ambiguity as required. The current included manuscript contains no explicit equations/derivations or symbol-heavy appendix formulas, so branch/sign checks were not applicable to written formulas. The main technical risks are implementation ambiguity and claim--evidence mismatch.
+
+\section*{Meaningful editorial findings}
+\begin{enumerate}[leftmargin=*,label=\textbf{E\arabic*.}]
+  \item \textbf{Location:} \texttt{Section2.tex}:3.\\
+  \textbf{Problem:} High-density language defects reduce meaning clarity in a critical problem-definition paragraph (e.g., ``physcial,'' ``innacuracy,'' ``indentifying,'' ``A pigs health,'' ``repspiratory,'' ``couoghs'').\\
+  \textbf{Why it matters:} This paragraph defines the core technical motivation; readability defects obscure scope and weaken credibility.\\
+  \textbf{Suggested fix:} Correct spelling/grammar and split long sentences into shorter declarative statements.\\
+  \textbf{Candidate rewrite:} ``Early illness detection based only on manual observation can miss subtle symptoms. Without consistent data logging, caretakers cannot reliably distinguish normal feeding variation from clinically relevant decline.''
+
+  \item \textbf{Location:} \texttt{Section5.tex}:11.\\
+  \textbf{Problem:} ``data-hacker layer'' is almost certainly a wording error (likely ``data-backed layer''); additional defects include ``basilines,'' ``agains,'' and missing space in ``timeliness.The''.\\
+  \textbf{Why it matters:} This is a key biosecurity paragraph; wording errors introduce ambiguity in technical meaning.\\
+  \textbf{Suggested fix:} Replace with precise terms and correct typos.\\
+  \textbf{Candidate rewrite:} ``This rule-based approach provides a non-invasive, data-backed layer of biosecurity support that can operate without internet connectivity.''
+
+  \item \textbf{Location:} \texttt{Section1.tex}:3, 6, 8--9.\\
+  \textbf{Problem:} Multiple sentence-boundary and grammar defects (e.g., ``stability.As,'' ``\ldots outlook.By,'' ``has since been heavily rely,'' ``every pigs'').\\
+  \textbf{Why it matters:} Frequent local defects in the introduction reduce professionalism and can blur quantitative claims.\\
+  \textbf{Suggested fix:} Apply a targeted copyedit pass to sentence boundaries, subject--verb agreement, and possessives.
+\end{enumerate}
+
+\section*{Proofing sweep (mandatory pattern scan + spot-check)}
+Bundled scan command run: \texttt{python scripts/proofing\_scan.py TimTissis.pdf --max-hits 80} (no hits), then spot-check scan on manuscript source files.
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Location:} \texttt{source.bib}:252 (scan hit \texttt{PUNC\_DOUBLE\_PERIOD}). \textbf{Problem:} Placeholder ellipsis in title (``and ...''). \textbf{Suggested fix:} Replace with the complete title.
+  \item \textbf{Location:} \texttt{Section1.tex}:3. \textbf{Problem:} Missing space after period (``stability.As''). \textbf{Suggested fix:} ``stability. As''.
+  \item \textbf{Location:} \texttt{Section1.tex}:8. \textbf{Problem:} Spacing artifact before comma (``behavior ,''). \textbf{Suggested fix:} ``behavior,''.
+  \item \textbf{Location:} \texttt{Section5.tex}:11. \textbf{Problem:} Missing space after period (``timeliness.The''). \textbf{Suggested fix:} ``timeliness. The''.
+\end{itemize}
+
+\section*{Highest-priority fixes}
+\begin{enumerate}[leftmargin=*]
+  \item Resolve the LaTeX package conflict so the manuscript compiles from source.
+  \item Align abstract/conclusion claim strength with currently included evidence, or add missing methodology and evaluation sections.
+  \item Specify the anomaly-detection algorithm and air-quality thresholds with explicit variables, units, and decision rules.
+  \item Clean high-impact language defects in Sections 1, 2, and 5.
+\end{enumerate}
+
+\section*{Items needing external verification}
+\begin{itemize}[leftmargin=*]
+  \item Macro-level numeric claims (global population, production shares, national valuation/loss/import totals) should be verified against primary sources (FAO/USDA/PSA/WOAH reports) rather than mixed secondary web sources.
+  \item Citation key \texttt{livestockproduction2026} is used heavily for core quantitative claims but has no author/institution metadata in \texttt{source.bib}; verify provenance and replace if needed.
+  \item News/blog-style references used for policy/economic statistics should be cross-checked with official statistical releases before final submission.
+\end{itemize}
+
+\end{document}

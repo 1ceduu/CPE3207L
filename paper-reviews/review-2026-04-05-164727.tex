@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\section*{Manuscript Review}
+
+\textbf{Overall assessment.} The draft addresses an important practical problem in swine farming and has a plausible systems-engineering direction. However, the current manuscript is not yet technically publishable because key evidence-bearing sections are incomplete, several central claims are stronger than the presented support, and a few quantitative/citation issues need correction before scientific claims can be trusted.
+
+\subsection*{Most important technical findings}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Location:} Abstract; Section~6 (Review of Related Literature); Section~7 (Methodology).\\
+        \textbf{Problem:} The title/abstract present a complete integrated embedded system, but the manuscript omits substantive related-work analysis and methodology details. Section~6 and Section~7 are effectively empty.\\
+        \textbf{Why it matters:} Without literature positioning and reproducible methods, claims of system integration, monitoring capability, and remote reporting cannot be evaluated or replicated.\\
+        \textbf{Classification:} \emph{Definite error} (structural incompleteness) and \emph{unsupported claim}.\\
+        \textbf{Suggested fix:} Fully populate Section~6 and Section~7 with: (i) a focused prior-work comparison table, (ii) system architecture, (iii) sensing/actuation flow, (iv) data model and logging cadence, (v) decision logic, and (vi) evaluation protocol and metrics.
+
+  \item \textbf{Location:} Section~2, paragraph~1--2; Section~3, opening paragraph; Section~5 (Animal Health and Biosecurity).\\
+        \textbf{Problem:} The text repeatedly claims early illness detection from feeding/drinking behavior and air quality, but no operational definition is provided (thresholds, baseline windows, anomaly criteria, false-alarm handling, or validation against health labels).\\
+        \textbf{Why it matters:} This creates implementation ambiguity and overstates capability relative to evidence currently shown.\\
+        \textbf{Classification:} \emph{Unsupported claim} and \emph{likely issue}.\\
+        \textbf{Suggested fix:} Add explicit detection logic (e.g., rolling z-score, percent-drop threshold, or rule set), define alert criteria, and report preliminary validation (sensitivity/specificity or precision/recall) against labeled events.
+
+  \item \textbf{Location:} Section~1, sentence: ``Pork is the second most produced meat behind poultry, with an estimated 120 metric tons of production in 2025.''\\
+        \textbf{Problem:} The unit magnitude appears implausible for global pork production; this likely should be \emph{million} metric tons.\\
+        \textbf{Why it matters:} Order-of-magnitude errors distort context and weaken confidence in the quantitative framing.\\
+        \textbf{Classification:} \emph{Likely issue}.\\
+        \textbf{Suggested fix:} Re-check the cited source and correct the unit/value; if the intended value is global output, report in million metric tons with the exact source year.
+
+  \item \textbf{Location:} Section~1 quantitative claims and corresponding entries in \texttt{source.bib} (notably \texttt{livestockproduction2026}, \texttt{piyush2025animal}, \texttt{pcaarrd2026}, \texttt{usda2026pork}).\\
+        \textbf{Problem:} Several core statistics rely on \texttt{@misc} citations with limited bibliographic traceability (missing URL/access date and, in some cases, weak source metadata).\\
+        \textbf{Why it matters:} Central numerical claims cannot be independently verified from the manuscript alone.\\
+        \textbf{Classification:} \emph{Needs external verification}.\\
+        \textbf{Suggested fix:} Replace or triangulate key numbers using primary datasets/reports (FAO, OECD--FAO Outlook, USDA/PSA), then include URL/DOI and access date for every web source.
+
+  \item \textbf{Location:} Whole manuscript (notation/equation audit scope).\\
+        \textbf{Problem:} No equations, derivations, symbol tables, or implementation formulas are currently provided, so branch/sign/dimensional audits are not yet applicable to explicit expressions.\\
+        \textbf{Why it matters:} Mathematical and implementation correctness cannot be validated until computation-facing definitions are written.\\
+        \textbf{Classification:} \emph{Audit completed; no equation-level artifacts present}.\\
+        \textbf{Suggested fix:} When methodology is expanded, include explicit formulas/logic for rationing, sensing aggregation, and alert generation; then re-run branch/sign/dimensional checks.
+\end{enumerate}
+
+\subsection*{Meaningful editorial findings}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Location:} Abstract (final phrase).\\
+        \textbf{Problem:} Abstract ends with an incomplete fragment: ``real.''\\
+        \textbf{Why it matters:} The abstract currently fails to communicate complete contributions and outcomes.\\
+        \textbf{Suggested fix:} Replace with a complete sentence that states the delivered capability and scope.\\
+        \textbf{Candidate rewrite:} ``By integrating microcontrollers, sensors, and a cloud-based web application, the system enables precise feed rationing, continuous monitoring, and remote consumption reporting for commercial piggery operations.''
+
+  \item \textbf{Location:} Section~2, paragraph~1.\\
+        \textbf{Problem:} ``Without consistent tracking and automated system'' is grammatically malformed and weakens the problem statement.\\
+        \textbf{Why it matters:} This sentence defines the central gap, so ambiguity here propagates to objectives and scope.\\
+        \textbf{Suggested fix:} Add the missing article and tighten grammar.\\
+        \textbf{Candidate rewrite:} ``Without consistent tracking and an automated system, caretakers rely on labor-intensive manual checks, which reduces data accuracy and delays intervention.''
+
+  \item \textbf{Location:} Section~4 limitation bullets.\\
+        \textbf{Problem:} Hardware-configuration limitation is repeated in two bullets with near-identical meaning.\\
+        \textbf{Why it matters:} Redundancy reduces precision and makes constraints look uncurated.\\
+        \textbf{Suggested fix:} Merge the duplicate bullets into one concise hardware-generalizability statement.
+\end{enumerate}
+
+\subsection*{Proofing sweep (mandatory micro-scan + spot-check)}
+
+Bundled scan script result on \texttt{TimTissis.pdf}: \texttt{[OK] No high-confidence pattern-scan hits found.}
+
+Manual high-confidence proofing items worth fixing now:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Location:} Section~1 opening sentence. \textbf{Problem:} Missing space in ``stability.As''. \textbf{Suggested fix:} ``stability. As''.
+  \item \textbf{Location:} Section~1 (DA program sentence). \textbf{Problem:} Misspelling ``intialized''. \textbf{Suggested fix:} ``initialized''.
+  \item \textbf{Location:} Section~3 opening paragraph. \textbf{Problem:} Misspelling ``reduve''. \textbf{Suggested fix:} ``reduce''.
+  \item \textbf{Location:} Section~3 opening paragraph. \textbf{Problem:} Misspelling ``deision-making''. \textbf{Suggested fix:} ``decision-making''.
+  \item \textbf{Location:} Section~5 (Animal Health and Biosecurity). \textbf{Problem:} Misspelling ``initatives''. \textbf{Suggested fix:} ``initiatives''.
+\end{itemize}
+
+\subsection*{Highest-priority fixes before next draft}
+
+\begin{enumerate}[leftmargin=*]
+  \item Complete Section~6 and Section~7 with reproducible technical detail and an evaluation plan.
+  \item Rewrite the abstract as a complete, evidence-aligned summary.
+  \item Resolve quantitative-unit issues (especially pork production magnitude) and align all numbers with verifiable sources.
+  \item Strengthen citation integrity for all high-impact factual claims (authoritative source, URL/DOI, access date).
+\end{enumerate}
+
+\subsection*{Items requiring external verification}
+
+\begin{itemize}[leftmargin=*]
+  \item National/global production and import figures used in Section~1 (including the 2025 pork production magnitude and 2025 import totals).
+  \item The claim that specific observed feeding/watering behavior changes are valid early illness indicators in this deployment context.
+  \item Government program framing and attribution details (program naming and implementation scope) to ensure policy accuracy.
+\end{itemize}
+
+\end{document}
