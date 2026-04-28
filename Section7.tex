@@ -1,5 +1,5 @@
 \section{Methodology}
-This chapter presents the conceptual framework underpinning the system's design philosophy, followed by a detailed account of the system architecture, hardware construction, volume calculations, dispensing mechanism, sensing strategy, communication protocol, and evaluation metrics.
+This chapter presents the conceptual framework underpinning the system's design philosophy, followed by a detailed account of the system architecture, hardware construction, feed hopper and trough volume calculations, feed and water dispensing mechanism, environmental and consumption sensing strategy, wired communication protocol, and system performance evaluation metrics.
 
 \subsection{Conceptual Framework}
 
@@ -10,14 +10,14 @@ This chapter presents the conceptual framework underpinning the system's design 
   \label{fig:conceptual_framework}
 \end{figure}
 
-The system is conceptualized as a closed-loop precision livestock management platform grounded in two theoretical underpinnings: Precision Agriculture Theory---which frames sensor-driven, individualized resource delivery as the basis for efficient swine production---and Feedback Control Systems Theory, which models each feeder module as a node whose output (feed and water dispensed) is continuously logged and compared against defined consumption baselines to flag deviations indicative of illness.
+As illustrated in Figure \ref{fig:conceptual_framework}, the system is conceptualized as a closed-loop precision livestock management platform grounded in two theoretical underpinnings: Precision Agriculture Theory---which frames sensor-driven, individualized resource delivery as the basis for efficient swine production---and Feedback Control Systems Theory, which models each feeder module as a node whose output (feed and water dispensed) is continuously logged and compared against defined consumption baselines to flag deviations indicative of illness.
 
 The system's operational logic spans four functional layers:
 \begin{itemize}
   \item \textbf{Layer 1 -- Sensing (Input):} Each feeder module integrates a load cell with an HX711 24-bit ADC for gravimetric feed measurement, a waterproof ultrasonic sensor (e.g., JSN-SR04T) for water level monitoring, and an MQ-135 electrochemical sensor for ammonia air-quality monitoring.
   \item \textbf{Layer 2 -- Processing and Decision (Control):} Each feeder module's ESP32 microcontroller evaluates sensor readings against pre-established rolling-window consumption baselines. Deviations beyond a defined threshold are flagged as health alerts and relayed to the main control module via the RS-485 wired bus. The Raspberry Pi central controller processes incoming data, executes alert logic, and manages the touchscreen dashboard.
   \item \textbf{Layer 3 -- Actuation (Output):} Upon a scheduled or manually triggered feeding event, the main control module commands the solenoid-actuated sliding plate valve at the base of the truncated-pyramid hopper to open for a calibrated duration, dispensing a gravimetrically verified quantity of feed into each trough. Water is dispensed through a solenoid valve when the sensor detects the water level has dropped below a predefined threshold. This valve can also be manually overridden using an active-high push button on pin RA0 to ensure rapid caretaker intervention if needed.
-  \item \textbf{Layer 4 -- Feedback, Logging, and Remote Notification:} All sensor readings, dispensing events, and alerts are timestamped and stored in a local SQLite database on the Raspberry Pi. In addition to the local touchscreen dashboard, the system utilizes a LoRa (Long Range) transceiver to broadcast critical health and environmental alerts. These alerts are received by a remote standalone terminal located in the caretaker's office, ensuring real-time notification across the farm property without reliance on cellular networks or internet connectivity.
+  \item \textbf{Layer 4 -- Feedback, Logging, and Remote Notification:} All sensor readings, dispensing events, and alerts are timestamped and stored in a local SQLite database on the Raspberry Pi. In addition to displaying alerts on the local touchscreen dashboard, the system utilizes a LoRa (Long Range) transceiver to transmit critical health and environmental alerts to a remote LoRa-GSM gateway positioned outside the piggery. Upon receiving the LoRa payload, the gateway forwards the alert as an SMS message to the caretaker's mobile phone, ensuring real-time remote notification regardless of the caretaker's location on the farm.
 \end{itemize}
 
 \subsection{System Architecture: Distributed Software Workflow}
@@ -29,7 +29,7 @@ The system's operational logic spans four functional layers:
   \label{fig:software_flowchart}
 \end{figure}
 
-The system employs a distributed, hierarchical software architecture to decouple real-time hardware interfacing from high-level data orchestration. As illustrated in Figure \ref{fig:software_flowchart}, the software workflow operates in a continuous loop. Data acquisition begins at the edge nodes where the ESP32 samples the sensors via hardware interrupts. The Raspberry Pi systematically polls these nodes over the RS-485 bus. Upon receiving the telemetry, the Python backend writes the raw data to the SQLite database and passes it to the Analytical Engine. If the data falls within normal baseline parameters, it is pushed to the Flask frontend for live dashboard visualization. If an anomaly is detected, the system simultaneously triggers a visual alert on the local user interface and dispatches a lightweight alert payload via the Telemetry Broadcaster Service to the remote LoRa terminal.
+The system employs a distributed, hierarchical software architecture to decouple real-time hardware interfacing from high-level data orchestration. As illustrated in Figure \ref{fig:software_flowchart}, the software workflow operates in a continuous loop. Data acquisition begins at the edge nodes where the ESP32 samples the sensors via hardware interrupts. The Raspberry Pi systematically polls these nodes over the RS-485 bus. Upon receiving the telemetry, the Python backend writes the raw data to the SQLite database and passes it to the Analytical Engine. If the data falls within normal baseline parameters, it is pushed to the Flask frontend for live dashboard visualization. If an anomaly is detected, the system simultaneously triggers a visual alert on the local touchscreen dashboard and transmits an alert payload via LoRa to the remote LoRa-GSM gateway, which forwards it as an SMS to the caretaker's mobile phone.
 
 \begin{itemize}
   \item \textbf{Edge Intelligence (Feeder Nodes):} Each node is governed by an ESP32 dual-core microcontroller. One core is dedicated to continuous sensor polling (load cell and flow meter) using hardware interrupts and the HX711 24-bit ADC, while the second core manages a MODBUS RTU slave stack. Telemetry is stored in a local register map, allowing the master to retrieve data asynchronously without blocking sensor acquisition.
@@ -38,9 +38,9 @@ The system employs a distributed, hierarchical software architecture to decouple
       \item \textbf{Poller Service:} Executes MODBUS read commands at 1-second intervals to aggregate per-pen telemetry.
       \item \textbf{Analytical Engine:} Implements the rolling-window anomaly detection logic, comparing incoming data against the SQLite-persisted baseline.
       \item \textbf{Command Service:} Dispatches metered dispensing instructions based on the pre-configured feeding schedule or manual overrides.
-      \item \textbf{Telemetry Broadcaster Service:} Interfaces with a connected LoRa module via SPI or UART. When the Analytical Engine flags an anomaly based on the rolling-window baseline, this service encodes the alert data into a lightweight payload and transmits it over the LoRa network.
+      \item \textbf{LoRa Alert Service:} Interfaces with a connected LoRa transceiver module via SPI or UART. When the Analytical Engine flags an anomaly based on the rolling-window baseline, this service encodes the alert data into a lightweight payload and transmits it over the LoRa link to the remote LoRa-GSM gateway for SMS forwarding to the caretaker's mobile phone.
     \end{itemize}
-  \item \textbf{Remote Client Terminal:} A secondary edge device positioned outside the immediate piggery environment. It decodes incoming LoRa payloads and triggers local physical alarms to immediately notify the caretakers of the detected anomaly.
+  \item \textbf{Remote LoRa-GSM Gateway:} A secondary edge device positioned outside the piggery in a location with adequate cellular coverage. It receives incoming LoRa alert payloads and forwards them as SMS messages to the caretaker's registered mobile phone number via an onboard GSM module, enabling immediate caretaker notification without requiring physical presence at the main control module.
 \end{itemize}
 
 \subsection{Software Architecture and Technology Stack}
@@ -88,12 +88,12 @@ The minimum required storage volume is:
   \label{fig:main-control-module}
 \end{figure}
 
-An allowance of $0.180\text{ m}^3$ was adopted as the design target.
+An allowance of $0.180\text{ m}^3$ was adopted as the design target. The overall assembly of the main control module is shown in Figure \ref{fig:main-control-module}.
 The central storage hopper is designed as a truncated rectangular pyramid (frustum) with a top face of $L = 1.0\text{ m} \times W = 0.5\text{ m}$ and a bottom opening of $a = b = 0.1\text{ m}$, consistent with the sliding-plate valve aperture. The slant height of the frustum walls is calculated from:
 \begin{equation}
   h = \frac{(0.5\text{ m} - 0.1\text{ m})}{2} \times \tan(60^\circ) \approx 0.35\text{ m}
 \end{equation}
-The volume of each conical frustum section is given by the prismatoid formula:
+The volume of each conical frustum section is given by the prismatoid formula, with corresponding dimensions illustrated in Figure \ref{fig:cone-dimensions}:
 \begin{equation}
   V_{cone} = \frac{h}{3} (A_B + a_b + \sqrt{A_B \cdot a_b})
 \end{equation}
@@ -113,10 +113,10 @@ where $A_B = 0.5\text{ m} \times 0.333\text{ m} = 0.165\text{ m}^2$ is the top-f
   \centering
   \includegraphics[width=0.8\columnwidth]{BoxDimensions.png}
   \caption{Box Dimensions}
-  \label{fig:stepper-motor}
+  \label{fig:box-dimensions}
 \end{figure}
 
-The remaining volume is provided by a rectangular upper reservoir section of height $h_{rec}$, computed from:
+The remaining volume is provided by a rectangular upper reservoir section of height $h_{rec}$, with the corresponding box dimensions shown in Figure \ref{fig:box-dimensions}. This is computed from:
 \begin{equation}
   V_{rec} = V_{total} - V_{cones} = 0.180 - 0.075 = 0.105\text{ m}^3
 \end{equation}
@@ -132,7 +132,7 @@ Solving for the rectangular section height with $L = 1.0\text{ m}$ and $W = 0.5\
   \label{fig:hopper-lid-dimensions}
 \end{figure}
 
-The total hopper height is therefore $h_{cone} + h_{rec} = 0.35 + 0.21 = 0.56\text{ m}$, housed within an overall footprint of 102 cm $\times$ 50 cm at the top rim. A separate funnel outlet is provided for each feeder node, directing feed into the trough.
+The total hopper height is therefore $h_{cone} + h_{rec} = 0.35 + 0.21 = 0.56\text{ m}$, housed within an overall footprint of 102 cm $\times$ 50 cm at the top rim, as shown in Figure \ref{fig:hopper-lid-dimensions}. A separate funnel outlet is provided for each feeder node, directing feed into the trough.
 
 \subsection{Dispensing Mechanism}
 
@@ -140,12 +140,12 @@ The total hopper height is therefore $h_{cone} + h_{rec} = 0.35 + 0.21 = 0.56\te
   \centering
   \includegraphics[width=0.5\columnwidth]{StepMotor.png}
   \caption{NEMA 17 Stepper Motor}
-  \label{fig:load-cell}
+  \label{fig:stepper-motor}
 \end{figure}
 
 Feed release from the central hopper is controlled by a solenoid-actuated sliding plate valve (guillotine valve) positioned at the $0.1\text{ m} \times 0.1\text{ m}$ bottom aperture of the truncated pyramid. A 12 V DC push-pull solenoid drives the plate linearly, opening or closing the aperture under microcontroller command. This valve type was selected for its simplicity, low power consumption, and compatibility with granular feed materials that would jam rotary or butterfly valves.
 
-An auger screw conveyor driven by a NEMA 17 stepper motor supplements the sliding valve for metered dispensing. By counting motor steps, the ESP32 can dispense feed in calibrated increments independently of gravity head pressure, improving dose accuracy across varying hopper fill levels. The hinged hopper lid is actuated by a secondary servo motor for automated refill access.
+An auger screw conveyor driven by a NEMA 17 stepper motor (shown in Figure \ref{fig:stepper-motor}) supplements the sliding valve for metered dispensing. By counting motor steps, the ESP32 can dispense feed in calibrated increments independently of gravity head pressure, improving dose accuracy across varying hopper fill levels. The hinged hopper lid is actuated by a secondary servo motor for automated refill access.
 
 \subsection{Sensing Strategy and Component Selection}
 Sensor selection was guided by the operating environment of a commercial piggery: high ambient humidity, a corrosive ammonia atmosphere, mechanical vibration from pig activity, and the need for low-cost scalability across multiple feeder nodes.
@@ -154,20 +154,20 @@ Sensor selection was guided by the operating environment of a commercial piggery
   \centering
   \includegraphics[width=0.5\columnwidth]{LoadCell.png}
   \caption{HX711 \& Straight Bar Load Cell}
-  \label{fig:flow-meter}
+  \label{fig:load-cell}
 \end{figure}
 
 \begin{itemize}
-  \item \textbf{Feed Weight (Load Cell + HX711):} A strain-gauge load cell rated for the expected trough load is interfaced to an HX711 24-bit sigma-delta ADC. The HX711 communicates with the ESP32 over a dedicated two-wire serial interface, providing 10 or 80 samples per second. The trough weight is logged before and after each feeding event; the delta constitutes the dispensed mass. Consumption is derived by tracking weight loss between feeding cycles.
+  \item \textbf{Feed Weight (Load Cell + HX711):} As shown in Figure \ref{fig:load-cell}, a strain-gauge load cell rated for the expected trough load is interfaced to an HX711 24-bit sigma-delta ADC. The HX711 communicates with the ESP32 over a dedicated two-wire serial interface, providing 10 or 80 samples per second. The trough weight is logged before and after each feeding event; the delta constitutes the dispensed mass. Consumption is derived by tracking weight loss between feeding cycles.
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.7\columnwidth]{LevelSensor.png}
       \caption{JSN-SR04T Waterproof Ultrasonic Sensor}
-      \label{fig:mq135-sensor}
+      \label{fig:ultrasonic-sensor}
     \end{figure}
 
-  \item \textbf{Water Availability (Level Sensor):} A waterproof ultrasonic sensor is mounted above each pen's water trough. The ESP32 triggers an ultrasonic pulse and measures the echo time-of-flight to calculate the distance to the water surface. This determines the current water volume and triggers the solenoid valve to refill the trough when levels fall below the required baseline, ensuring constant water availability.
+  \item \textbf{Water Availability (Level Sensor):} As depicted in Figure \ref{fig:ultrasonic-sensor}, a waterproof ultrasonic sensor is mounted above each pen's water trough. The ESP32 triggers an ultrasonic pulse and measures the echo time-of-flight to calculate the distance to the water surface. This determines the current water volume and triggers the solenoid valve to refill the trough when levels fall below the required baseline, ensuring constant water availability.
 
     \begin{figure}[H]
       \centering
@@ -176,7 +176,7 @@ Sensor selection was guided by the operating environment of a commercial piggery
       \label{fig:mq135-module}
     \end{figure}
 
-  \item \textbf{Air Quality (MQ-135):} The MQ-135 electrochemical sensor detects ammonia ($NH_3$), $CO_2$, and benzene vapors---the primary respiratory hazards in piggery environments arising from urine decomposition. The sensor's analog output is read by the ESP32's onboard ADC and compared against safe-range thresholds; exceedances trigger caretaker alerts on the dashboard.
+  \item \textbf{Air Quality (MQ-135):} The MQ-135 electrochemical sensor, shown in Figure \ref{fig:mq135-module}, detects ammonia ($NH_3$), $CO_2$, and benzene vapors---the primary respiratory hazards in piggery environments arising from urine decomposition. The sensor's analog output is read by the ESP32's onboard ADC and compared against safe-range thresholds; exceedances trigger caretaker alerts on the dashboard.
 \end{itemize}
 
 \subsection{Wired Communication: RS-485 / MODBUS RTU}
@@ -194,7 +194,7 @@ The centralized user interface (UI) is hosted on the Raspberry Pi and rendered t
   \item \textbf{Backend Stack:} A Flask-based web server manages the API endpoints for the dashboard. It interfaces with an SQLite database for ACID-compliant persistence of timestamped consumption logs, feeding schedules, and air-quality telemetry.
   \item \textbf{Frontend Stack:} A Chromium kiosk browser displays a dashboard built with responsive numeric gauges and time-series charts for real-time monitoring and historical trend visualization. It includes configuration panels for feeding schedules and alert logs for threshold exceedances.
   \item \textbf{Fault Tolerance:} All data is stored locally, ensuring continuous operation during internet outages, which is a primary concern identified in the study's scope and limitations. To address potential grid instability, a UPS module with 18650 lithium cells provides bridge power, ensuring that the SQLite database maintains integrity during short-duration power interruptions.
-  \item \textbf{LoRa Alert Gateway:} A background Python thread runs alongside the Flask backend. It continuously monitors the SQLite database for newly generated threshold exceedances. To optimize radio duty cycles and prevent packet collisions, the gateway implements a message-queuing protocol, bundling alerts and transmitting them to the remote terminal at configured intervals or triggering immediate transmission for critical air-quality hazards.
+  \item \textbf{LoRa-SMS Alert Gateway:} A background Python thread runs alongside the Flask backend. It continuously monitors the SQLite database for newly generated threshold exceedances. To optimize radio duty cycles and prevent packet collisions, the gateway implements a message-queuing protocol, bundling non-critical alerts and transmitting them via the LoRa link to the remote LoRa-GSM gateway at configured intervals or triggering immediate LoRa transmission for critical air-quality hazards. The remote gateway then forwards each alert as an SMS to the caretaker's mobile phone.
 \end{itemize}
 
 \subsection{Consumption Baseline and Anomaly Detection}
@@ -223,11 +223,11 @@ System performance will be assessed against quantitative metrics aligned with th
     \end{equation}
     where $T_{total}$ is the total trial duration in hours and $T_{downtime}$ is the cumulative time during which sensor polling or the dashboard was unavailable.
   \item \textbf{Data Display Latency:} Time elapsed between a sensor reading being acquired at the feeder node and its appearance on the dashboard, measured across 50 consecutive poll cycles. Target threshold: $\le 2$ seconds \cite{beyondtech2025smart,adeoye2025animalia}.
-  \item \textbf{Packet Delivery Ratio (PDR):} The percentage of LoRa alert payloads successfully received by the remote terminal compared to the total number of alerts transmitted by the central unit. A minimum passing threshold of $\geq 95\%$ is required to confirm reliable remote notification delivery \cite{beyondtech2025smart,reza2025review}:
+  \item \textbf{SMS Delivery Rate (SDR):} The end-to-end percentage of alert messages successfully delivered as SMS to the caretaker's mobile phone via the LoRa-GSM gateway, compared to the total number of alerts generated by the central unit. A minimum passing threshold of $\geq 95\%$ is required to confirm reliable remote notification delivery \cite{beyondtech2025smart,reza2025review}:
     \begin{equation}
-      PDR = \frac{\text{Total Packets Received}}{\text{Total Packets Transmitted}} \times 100\%
+      SDR = \frac{\text{Total SMS Delivered}}{\text{Total Alerts Generated}} \times 100\%
     \end{equation}
-  \item \textbf{Received Signal Strength Indicator (RSSI):} Measurement of the power present in the received LoRa radio signal, used to determine the maximum effective range of the notification system across the farm layout. An RSSI value of $\geq -120$ dBm at the maximum tested distance is required to confirm an adequate communication link \cite{beyondtech2025smart,reza2025review}.
+  \item \textbf{End-to-End Alert Latency:} The time elapsed between an alert being generated by the Analytical Engine and the corresponding SMS being successfully delivered to the caretaker's mobile phone, encompassing LoRa transmission, gateway processing, and GSM delivery. Target threshold: $\le 30$ seconds per alert message \cite{beyondtech2025smart,reza2025review}.
 \end{itemize}
 
 \subsection{Verification Phases}
@@ -241,8 +241,8 @@ The testing protocol is divided into three primary phases to validate both the h
     \end{itemize}
   \item \textbf{Phase 2: Communication and Firmware Testing}
     The RS-485 wired bus will undergo signal integrity testing with all feeder nodes active on the bus simultaneously. A digital storage oscilloscope will be used to verify that differential voltage levels meet the RS-485 standard minimum of $\pm 1.5$ V and ensure adequate common-mode noise rejection. MODBUS RTU packet loss rates will be quantified under simulated electrical noise conditions at the maximum prototype cable length. A packet loss rate of $\leq 1\%$ is required to confirm robust master-slave polling before proceeding to system integration \cite{beyondtech2025smart,adeoye2025animalia}.
-  \item \textbf{Phase 3: System-Level Integration (Uptime, Latency, ARA, and LoRa Validation)}
-    A 72-hour continuous operation trial will be conducted in a controlled environment to measure System Uptime ($U_{sys}$) and verify that Data Display Latency remains $\le 2$ seconds. To validate the rolling-window anomaly detection, simulated consumption drops will be manually injected into the data stream to test the Alert Response Accuracy (ARA) of the Python backend. Furthermore, the LoRa wireless link will undergo range and penetration testing. Simulated consumption drops will be injected to trigger alerts, and the RSSI and Packet Delivery Ratio (PDR) will be measured at varying distances from the main control module to validate the reliability of remote caretaker notifications \cite{dingcong2017monitoring,sadeghi2023improving,reza2025review}.
+  \item \textbf{Phase 3: System-Level Integration (Uptime, Latency, ARA, and LoRa-SMS Validation)}
+    A 72-hour continuous operation trial will be conducted in a controlled environment to measure System Uptime ($U_{sys}$) and verify that Data Display Latency remains $\le 2$ seconds. To validate the rolling-window anomaly detection, simulated consumption drops will be manually injected into the data stream to test the Alert Response Accuracy (ARA) of the Python backend. Furthermore, the LoRa-to-SMS notification pipeline will undergo end-to-end testing. Simulated consumption drops will be injected to trigger alerts, and the SMS Delivery Rate (SDR) and End-to-End Alert Latency will be measured at varying distances between the main control module and the LoRa-GSM gateway to validate the reliability of remote caretaker notifications \cite{dingcong2017monitoring,sadeghi2023improving,reza2025review}.
 \end{itemize}
 
 \subsection{Deployment Plan}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  28 APR 2026 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  28 APR 2026 21:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -186,23 +186,12 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
- (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+)) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-)
-\c@ALC@unique=\count302
-\c@ALC@line=\count303
-\c@ALC@rem=\count304
-\c@ALC@depth=\count305
-\ALC@tlm=\skip55
-\algorithmicindent=\skip56
-) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
  (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
@@ -220,26 +209,26 @@ Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
 \wrapoverhang=\dimen183
 \WF@size=\dimen184
-\c@WF@wrappedlines=\count306
+\c@WF@wrappedlines=\count302
 \WF@box=\box57
 \WF@everypar=\toks24
 Package: wrapfig 2003/01/31  v 3.6
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
-\c@tracingmulticols=\count307
+\c@tracingmulticols=\count303
 \mult@box=\box58
 \multicol@leftmargin=\dimen185
-\c@unbalance=\count308
-\c@collectmore=\count309
-\doublecol@number=\count310
-\multicoltolerance=\count311
-\multicolpretolerance=\count312
+\c@unbalance=\count304
+\c@collectmore=\count305
+\doublecol@number=\count306
+\multicoltolerance=\count307
+\multicolpretolerance=\count308
 \full@width=\dimen186
 \page@free=\dimen187
 \premulticols=\dimen188
 \postmulticols=\dimen189
-\multicolsep=\skip57
-\multicolbaselineskip=\skip58
+\multicolsep=\skip55
+\multicolbaselineskip=\skip56
 \partial@page=\box59
 \last@line=\box60
 \mc@boxedresult=\box61
@@ -284,24 +273,24 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \@tempa=\box99
 \@tempa=\box100
 \@tempa=\box101
-\c@minrows=\count313
-\c@columnbadness=\count314
-\c@finalcolumnbadness=\count315
+\c@minrows=\count309
+\c@columnbadness=\count310
+\c@finalcolumnbadness=\count311
 \last@try=\dimen191
 \multicolovershoot=\dimen192
 \multicolundershoot=\dimen193
 \mult@nat@firstbox=\box102
 \colbreak@box=\box103
-\mc@col@check@num=\count316
-\g__mc_curr_col_int=\count317
+\mc@col@check@num=\count312
+\g__mc_curr_col_int=\count313
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip59
+\labelindent=\skip57
 \enit@outerparindent=\dimen194
 \enit@toks=\toks25
 \enit@inbox=\box104
-\enit@count@id=\count318
-\enitdp@description=\count319
+\enit@count@id=\count314
+\enitdp@description=\count315
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen195
@@ -314,16 +303,16 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen258
 \cmidrulekern=\dimen259
 \defaultaddspace=\dimen260
-\@cmidla=\count320
-\@cmidlb=\count321
+\@cmidla=\count316
+\@cmidlb=\count317
 \@aboverulesep=\dimen261
 \@belowrulesep=\dimen262
-\@thisruleclass=\count322
-\@lastruleclass=\count323
+\@thisruleclass=\count318
+\@lastruleclass=\count319
 \@thisrulewidth=\dimen263
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count324
+\c@float@type=\count320
 \float@exts=\toks26
 \float@box=\box105
 \@float@everytoks=\toks27
@@ -336,7 +325,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks28
 \XKV@tempa@toks=\toks29
 )
-\XKV@depth=\count325
+\XKV@depth=\count321
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
@@ -364,96 +353,67 @@ File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
 \adjbox@ptotalheight=\dimen275
  (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count326
+\c@checkoddpage=\count322
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box108
-\sift@deathcycles=\count327
+\sift@deathcycles=\count323
 \@vwid@loff=\dimen276
 \@vwid@roff=\dimen277
 )
 ==> First Aid for varwidth.sty applied!
-) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
-Package: algpseudocode 
- (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
-Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
-Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count328
-\c@ALG@rem=\count329
-\c@ALG@nested=\count330
-\ALG@tlm=\skip60
-\ALG@thistlm=\skip61
-\c@ALG@Lnr=\count331
-\c@ALG@blocknr=\count332
-\c@ALG@storecount=\count333
-\c@ALG@tmpcounter=\count334
-\ALG@tmplength=\skip62
-
-C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty:112: LaTeX Error: Command \algorithmic already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112    }
-          %
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-)
-Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count335
-\algocf@hangindent=\skip63
+\c@AlgoLine=\count324
+ (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip58
  (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip64
-\skiplinenumber=\skip65
-\skiprule=\skip66
-\skiphlne=\skip67
-\skiptext=\skip68
-\skiplength=\skip69
-\algomargin=\skip70
-\skipalgocfslide=\skip71
+\skiptotal=\skip59
+\skiplinenumber=\skip60
+\skiprule=\skip61
+\skiphlne=\skip62
+\skiptext=\skip63
+\skiplength=\skip64
+\algomargin=\skip65
+\skipalgocfslide=\skip66
 \algowidth=\dimen278
 \inoutsize=\dimen279
 \inoutindent=\dimen280
 \interspacetitleruled=\dimen281
 \interspacealgoruled=\dimen282
 \interspacetitleboxruled=\dimen283
-\algocf@ruledwidth=\skip72
+\algocf@ruledwidth=\skip67
 \algocf@inoutbox=\box109
 \algocf@inputbox=\box110
-\AlCapSkip=\skip73
-\AlCapHSkip=\skip74
-\algoskipindent=\skip75
+\AlCapSkip=\skip68
+\AlCapHSkip=\skip69
+\algoskipindent=\skip70
 \algocf@nlbox=\box111
 \algocf@hangingbox=\box112
 \algocf@untilbox=\box113
-\algocf@skipuntil=\skip76
+\algocf@skipuntil=\skip71
 \algocf@capbox=\box114
-\algocf@lcaptionbox=\skip77
-\algoheightruledefault=\skip78
-\algoheightrule=\skip79
-\algotitleheightruledefault=\skip80
-\algotitleheightrule=\skip81
-\c@algocfline=\count336
-\c@algocfproc=\count337
-\c@algocf=\count338
+\algocf@lcaptionbox=\skip72
+\algoheightruledefault=\skip73
+\algoheightrule=\skip74
+\algotitleheightruledefault=\skip75
+\algotitleheightrule=\skip76
+\c@algocfline=\count325
+\c@algocfproc=\count326
+\c@algocf=\count327
 \algocf@algoframe=\box115
 \algocf@algobox=\box116
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip82
-\multirow@cntb=\count339
-\multirow@dima=\skip83
+\multirow@colwidth=\skip77
+\multirow@cntb=\count328
+\multirow@dima=\skip78
 \bigstrutjot=\dimen284
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
@@ -498,31 +458,31 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count340
-\c@continuedfloat=\count341
+\c@caption@flags=\count329
+\c@continuedfloat=\count330
 Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
 Package: pdfpages 2026/03/30 v0.6h Insert pages of external PDF documents (AM)
  (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count342
-\calc@Bcount=\count343
+\calc@Acount=\count331
+\calc@Bcount=\count332
 \calc@Adimen=\dimen293
 \calc@Bdimen=\dimen294
-\calc@Askip=\skip84
-\calc@Bskip=\skip85
+\calc@Askip=\skip79
+\calc@Bskip=\skip80
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count344
-\calc@Cskip=\skip86
+\calc@Ccount=\count333
+\calc@Cskip=\skip81
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
 \ESO@tempdima=\dimen295
 \ESO@tempdimb=\dimen296
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count345
+\etb@tempcnta=\count334
 )
 \AM@pagewidth=\dimen297
 \AM@pageheight=\dimen298
@@ -530,17 +490,17 @@ Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
  (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2026/03/30 v0.6h Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count346
+\pdfpages@includegraphics@status=\count335
 \AM@pagebox=\box117
 \AM@global@opts=\toks32
-\AM@pagecnt=\count347
+\AM@pagecnt=\count336
 \AM@toc@title=\toks33
 \AM@lof@heading=\toks34
-\c@AM@survey=\count348
+\c@AM@survey=\count337
 \AM@templatesizebox=\box118
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count349
+\l__color_backend_stack_int=\count338
 ) (TimTissis.aux)
 \openout1 = `TimTissis.aux'.
 
@@ -562,16 +522,16 @@ LaTeX Font Info:    ... okay on input line 31.
 -- Lines per column: 56 (exact).
 (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count350
+\scratchcounter=\count339
 \scratchdimen=\dimen300
 \scratchbox=\box119
-\nofMPsegments=\count351
-\nofMParguments=\count352
+\nofMPsegments=\count340
+\nofMParguments=\count341
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count353
+\MPscratchCnt=\count342
 \MPscratchDim=\dimen301
-\MPnumerator=\count354
-\makeMPintoPDFobject=\count355
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
 \everyMPtoPDFconversion=\toks36
 ) (C:\Users\parra\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -646,116 +606,15 @@ Overfull \hbox (4.34033pt too wide) in paragraph at lines 44--44
  []
 
 (Section1.tex
-
-LaTeX Warning: Citation `piyush2025animal' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `oecdfao2025outlook' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `oecdfao2025outlook' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `oecdfao2025outlook' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 3.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `usda2026pork' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `usda2026pork' on page 1 undefined on input line 5.
-
 LaTeX Info: Symbol \textpeso not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 5.
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `porcinews2026philippine' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 1 undefined on input line 7.
-
 LaTeX Info: Symbol \textpeso not provided by
             font family ptm in TS1 encoding.
             Default family used instead on input line 7.
-
-LaTeX Warning: Citation `hsu2025perspective' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `barro2026philippine' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `hsu2025perspective' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `pcaarrd2026' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 1 undefined on input line 9.
-
 ) (Section2.tex [1{C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
-]
-
-LaTeX Warning: Citation `oecdfao2025outlook' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Citation `usda2026pork' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 2 undefined on input line 3.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 2 undefined on input line 3.
-
-) (Section3.tex) (Section4.tex) (Section5.tex [2]) (Section6.tex
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 3 undefined on input line 5.
-
-
+]) (Section3.tex) (Section4.tex) (Section5.tex [2]) (Section6.tex
 Underfull \hbox (badness 1442) in paragraph at lines 5--6
 \OT1/ptm/m/n/10 and pro-grammable con-trol logic. These sys-tems aim to
  []
@@ -764,18 +623,6 @@ Underfull \hbox (badness 1442) in paragraph at lines 5--6
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
-
-
-LaTeX Warning: Citation `oecdfao2025outlook' on page 3 undefined on input line 7.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 3 undefined on input line 7.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 3 undefined on input line 11.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 3 undefined on input line 11.
 
 
 Underfull \hbox (badness 4621) in paragraph at lines 11--12
@@ -788,13 +635,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
  []
 
 
-LaTeX Warning: Citation `dingcong2017monitoring' on page 3 undefined on input line 13.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 3 undefined on input line 13.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 3 undefined on input line 13.
+Underfull \hbox (badness 2529) in paragraph at lines 13--14
+\OT1/ptm/m/n/10 and iden-ti-fy-ing de-vi-a-tions over time [13], [14]. These
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
@@ -802,27 +645,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
  []
 
 
-LaTeX Warning: Citation `dingcong2017monitoring' on page 3 undefined on input line 15.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 3 undefined on input line 15.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 3 undefined on input line 19.
-
-
-LaTeX Warning: Citation `yamsakul2025machine' on page 3 undefined on input line 19.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 3 undefined on input line 21.
-
-
-LaTeX Warning: Citation `yamsakul2025machine' on page 3 undefined on input line 21.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
@@ -840,23 +665,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 21--22
-\OT1/ptm/m/n/10 en-vi-ron-men-tal and be-hav-ioral data to achieve a more
+Underfull \hbox (badness 6412) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 stres-sors can in-flu-ence feed-ing and drink-ing pat-terns
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
-
-
-LaTeX Warning: Citation `yamsakul2025machine' on page 3 undefined on input line 23.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 3 undefined on input line 27.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 3 undefined on input line 27.
 
 
 Underfull \hbox (badness 5036) in paragraph at lines 27--28
@@ -874,24 +690,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--28
  []
 
 
-LaTeX Warning: Citation `sadeghi2023improving' on page 3 undefined on input line 29.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `hsu2025perspective' on page 3 undefined on input line 35.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 3 undefined on input line 35.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 35--36
@@ -899,22 +700,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
  []
 
 [3]
-
-LaTeX Warning: Citation `hsu2025perspective' on page 4 undefined on input line 37.
-
-
-LaTeX Warning: Citation `pcaarrd2026' on page 4 undefined on input line 37.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
-
-
-LaTeX Warning: Citation `healthforanimals2024prevention' on page 4 undefined on input line 39.
-
-
-LaTeX Warning: Citation `lo2025rebooting' on page 4 undefined on input line 43.
 
 
 Underfull \hbox (badness 7777) in paragraph at lines 43--44
@@ -927,12 +715,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--44
  []
 
 
-LaTeX Warning: Citation `lo2025rebooting' on page 4 undefined on input line 45.
-
-
-LaTeX Warning: Citation `livestockproduction2026' on page 4 undefined on input line 45.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 \OT1/ptm/m/n/10 con-di-tions. Con-tin-u-ous mon-i-tor-ing tech-nolo-gies are
  []
@@ -942,45 +724,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-
-LaTeX Warning: Citation `reza2025review' on page 4 undefined on input line 47.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 4 undefined on input line 47.
-
 ) (Section7.tex
-<ConceptualFramework.png, id=39, 252.19218pt x 275.52937pt>
+<ConceptualFramework.png, id=39, 852.18375pt x 501.875pt>
 File: ConceptualFramework.png Graphic file (type png)
 <use ConceptualFramework.png>
 Package pdftex.def Info: ConceptualFramework.png  used on input line 8.
-(pdftex.def)             Requested size: 201.60077pt x 220.25981pt.
- [4 <./ConceptualFramework.png (PNG copy)>]
-<SoftwareDiagram.png, id=43, 647.41875pt x 928.46875pt>
+(pdftex.def)             Requested size: 201.60077pt x 118.7294pt.
+ [4 <./ConceptualFramework.png>]
+<SoftwareDiagram.png, id=45, 647.41875pt x 928.46875pt>
 File: SoftwareDiagram.png Graphic file (type png)
 <use SoftwareDiagram.png>
 Package pdftex.def Info: SoftwareDiagram.png  used on input line 27.
 (pdftex.def)             Requested size: 201.60077pt x 289.11156pt.
-
-
-LaTeX Warning: Reference `fig:software_flowchart' on page 5 undefined on input line 32.
-
 
 Underfull \hbox (badness 1895) in paragraph at lines 51--52
 []\OT1/ptm/b/n/10 Software/Language: \OT1/ptm/m/n/10 C/C++ uti-liz-ing the FreeR-TOS
  []
 
 [5 <./SoftwareDiagram.png>]
-<MainUnit.png, id=51, 191.9672pt x 121.95563pt>
+<MainUnit.png, id=52, 191.9672pt x 121.95563pt>
 File: MainUnit.png Graphic file (type png)
 <use MainUnit.png>
 Package pdftex.def Info: MainUnit.png  used on input line 86.
 (pdftex.def)             Requested size: 151.20154pt x 96.06287pt.
-<ConeDimensions.png, id=52, 244.66406pt x 143.78719pt>
+<ConeDimensions.png, id=53, 244.66406pt x 143.78719pt>
 File: ConeDimensions.png Graphic file (type png)
 <use ConeDimensions.png>
 Package pdftex.def Info: ConeDimensions.png  used on input line 107.
 (pdftex.def)             Requested size: 201.60077pt x 118.48108pt.
-<BoxDimensions.png, id=53, 225.09094pt x 188.20313pt>
+<BoxDimensions.png, id=54, 225.09094pt x 188.20313pt>
 File: BoxDimensions.png Graphic file (type png)
 <use BoxDimensions.png>
 Package pdftex.def Info: BoxDimensions.png  used on input line 114.
@@ -989,22 +761,22 @@ Package pdftex.def Info: BoxDimensions.png  used on input line 114.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./MainUnit.png (PNG copy)> <./ConeDimensions.png (PNG copy)>]
-<Hinged Hopper Lid.png, id=61, 207.77625pt x 79.04532pt>
+<Hinged Hopper Lid.png, id=62, 207.77625pt x 79.04532pt>
 File: Hinged Hopper Lid.png Graphic file (type png)
 <use Hinged Hopper Lid.png>
 Package pdftex.def Info: Hinged Hopper Lid.png  used on input line 130.
 (pdftex.def)             Requested size: 201.60077pt x 76.69917pt.
-<StepMotor.png, id=62, 185.19188pt x 177.66376pt>
+<StepMotor.png, id=63, 185.19188pt x 177.66376pt>
 File: StepMotor.png Graphic file (type png)
 <use StepMotor.png>
 Package pdftex.def Info: StepMotor.png  used on input line 141.
 (pdftex.def)             Requested size: 126.0pt x 120.88023pt.
-<LoadCell.png, id=63, 229.60782pt x 185.19188pt>
+<LoadCell.png, id=64, 229.60782pt x 185.19188pt>
 File: LoadCell.png Graphic file (type png)
 <use LoadCell.png>
 Package pdftex.def Info: LoadCell.png  used on input line 155.
 (pdftex.def)             Requested size: 126.0pt x 101.62694pt.
-<LevelSensor.png, id=64, 238.64156pt x 191.21437pt>
+<LevelSensor.png, id=65, 238.64156pt x 191.21437pt>
 File: LevelSensor.png Graphic file (type png)
 <use LevelSensor.png>
 Package pdftex.def Info: LevelSensor.png  used on input line 165.
@@ -1013,122 +785,17 @@ Package pdftex.def Info: LevelSensor.png  used on input line 165.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./BoxDimensions.png (PNG copy)> <./Hinged Hopper Lid.png (PNG copy)> <./StepMotor.png (PNG copy)> <./LoadCell.png (PNG copy)>]
-<MQ-135.png, id=68, 152.06813pt x 152.06813pt>
+<MQ-135.png, id=69, 152.06813pt x 152.06813pt>
 File: MQ-135.png Graphic file (type png)
 <use MQ-135.png>
 Package pdftex.def Info: MQ-135.png  used on input line 174.
 (pdftex.def)             Requested size: 126.0pt x 126.00302pt.
 
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 8 undefined on input line 201.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 8 undefined on input line 201.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 8 undefined on input line 201.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 8 undefined on input line 201.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 8 undefined on input line 205.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 8 undefined on input line 205.
-
-[8 <./LevelSensor.png (PNG copy)> <./MQ-135.png (PNG copy)>]
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 208.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 208.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 9 undefined on input line 208.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 212.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 9 undefined on input line 212.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 9 undefined on input line 216.
-
-
-LaTeX Warning: Citation `racewicz2021welfare' on page 9 undefined on input line 216.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 220.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 220.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 225.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 225.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 226.
-
-
-LaTeX Warning: Citation `reza2025review' on page 9 undefined on input line 226.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 230.
-
-
-LaTeX Warning: Citation `reza2025review' on page 9 undefined on input line 230.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 234.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 9 undefined on input line 234.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 234.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 9 undefined on input line 238.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 238.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 239.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 239.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 9 undefined on input line 240.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 240.
-
-
-LaTeX Warning: Citation `yamsakul2025machine' on page 9 undefined on input line 240.
-
-
-LaTeX Warning: Citation `beyondtech2025smart' on page 9 undefined on input line 243.
-
-
-LaTeX Warning: Citation `adeoye2025animalia' on page 9 undefined on input line 243.
-
-
-LaTeX Warning: Citation `dingcong2017monitoring' on page 9 undefined on input line 245.
-
-
-LaTeX Warning: Citation `sadeghi2023improving' on page 9 undefined on input line 245.
-
-
-LaTeX Warning: Citation `reza2025review' on page 9 undefined on input line 245.
-
-[9]) (TimTissis.bbl)
+Underfull \hbox (badness 1596) in paragraph at lines 197--198
+[]\OT1/ptm/b/n/10 LoRa-SMS Alert Gate-way: \OT1/ptm/m/n/10 A back-ground Python
+ []
+
+[8 <./LevelSensor.png (PNG copy)> <./MQ-135.png (PNG copy)>] [9]) (TimTissis.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1145,26 +812,19 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 10407 strings out of 467871
- 176416 string characters out of 5418376
- 607793 words of memory out of 5000000
- 39102 multiletter control sequences out of 15000+600000
+ 9826 strings out of 467871
+ 167325 string characters out of 5418376
+ 598748 words of memory out of 5000000
+ 38532 multiletter control sequences out of 15000+600000
  665112 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,17n,117p,1462b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\parra\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (11 pages, 655837 bytes).
+Output written on TimTissis.pdf (11 pages, 768037 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 134 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex TimTissis"] 0 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 0 -1
-  "./reference.bib" 1777348348 5342 b5cfbf592d1b9364bb7eec603b4794e6 ""
-  "./source.bib" 1777348348 12346 aa53193b5ae0bf5b1a621795109f0a24 ""
+["bibtex TimTissis"] 1777382225.78565 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 1777382237.15713 0
+  "./reference.bib" 1777351820 5094 b79f4e01f7fd1f696060990fa9966066 ""
+  "./source.bib" 1777351825 12256 720d698cc7f802fa08236064efb9ec6a ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "TimTissis.aux" 1777350465 8632 70066e6b7a19d6cba138c6c493c210af "pdflatex"
+  "TimTissis.aux" 1777382233 8641 e0d8811616f28f414d6a41b73b221318 "pdflatex"
   (generated)
   "TimTissis.bbl"
   "TimTissis.blg"
   (rewritten before read)
-["pdflatex"] 1777350463.71336 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1777350468.34795 2
+["pdflatex"] 1777382227.67093 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1777382237.16082 0
   "BoxDimensions.png" 1777348348 16164 30dc5667578804b5235d3ff51459c3c8 ""
   "C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1777350064 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/parra/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1777350072 11548 5253ee083c734bb986bb4070d69aabd9 ""
@@ -66,9 +66,6 @@
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/adjustbox/tc-pdftex.def" 1741085932 4304 461724faa0dfbdec2d80de16c11f407c ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/adjustbox/trimclip.sty" 1741085932 7245 2bf1779563af51e666da8f26ea1f8455 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/algorithm2e/algorithm2e.sty" 1500391604 167160 d91cee26d3ef5727644d2110445741dd ""
-  "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/algorithmicx/algorithmicx.sty" 1114606800 26750 ce139c05a983e19ddca355b43e29c395 ""
-  "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/algorithmicx/algpseudocode.sty" 1114606920 3457 d9077efe6b74c5a094199256af8d7d9a ""
-  "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/algorithms/algorithmic.sty" 1251549064 9550 793e9d5a71e74e730d97f6bf5d7e2bca ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/amsfonts.sty" 1358197772 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/amssymb.sty" 1358197772 13829 94730e64147574077f8ecfea9bb69af4 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd" 1358197772 961 6518c6525a34feb5e8250ffa91731cff ""
@@ -119,7 +116,7 @@
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
-  "ConceptualFramework.png" 1777348348 52246 e4a86f638ac76474149f360ba3204a74 ""
+  "ConceptualFramework.png" 1777356214 1882689 14d5262d8ce9112f785106c4d93eca3f ""
   "ConeDimensions.png" 1777348348 16002 c7df0f1d88d1719e6a226b3eee5907d6 ""
   "CoverPage.pdf" 1777348348 46759 10875aebc23061042d15cb8d7b9a2579 ""
   "Hinged Hopper Lid.png" 1777348348 9607 0225a440fa6f17e3417c14f2df3af2b5 ""
@@ -134,13 +131,13 @@
   "Section4.tex" 1777348348 1023 cee9a626556e285d22a252ec4f8d4630 ""
   "Section5.tex" 1777348348 3451 08ef2e3f77d12e24a244f5c8f5c7498e ""
   "Section6.tex" 1777348348 6661 7c35e7d086fa0bd2863a4d7684c6a263 ""
-  "Section7.tex" 1777350455 29799 7637f21dc7033aebf5a855c7adc890e2 ""
+  "Section7.tex" 1777382210 30993 79387083202d59d0b4c032546770e3ef ""
   "SoftwareDiagram.png" 1777348348 61768 85584ebc4dc183ebdeff9d527695015a ""
   "StepMotor.png" 1777348348 68029 b0b946e83e0998b9a340aaae47c21c0c ""
-  "TimTissis.aux" 1777350465 8632 70066e6b7a19d6cba138c6c493c210af "pdflatex"
-  "TimTissis.bbl" 1777350106 3812 72d6cc999a7fc173b1e866d1898164c6 "bibtex TimTissis"
-  "TimTissis.tex" 1777348348 3320 d6725a9a0e052f1ee6e64858b6a63621 ""
-  "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" 1777348348 3320 d6725a9a0e052f1ee6e64858b6a63621 ""
+  "TimTissis.aux" 1777382233 8641 e0d8811616f28f414d6a41b73b221318 "pdflatex"
+  "TimTissis.bbl" 1777382227 3812 72d6cc999a7fc173b1e866d1898164c6 "bibtex TimTissis"
+  "TimTissis.tex" 1777351827 3430 3e039a370665930f62f2a421eecee37c ""
+  "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" 1777351827 3430 3e039a370665930f62f2a421eecee37c ""
   (generated)
   "TimTissis.aux"
   "TimTissis.log"
