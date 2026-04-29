@@ -31,6 +31,15 @@ The system's operational logic spans four functional layers:
 
 The system employs a distributed, hierarchical software architecture to decouple real-time hardware interfacing from high-level data orchestration. As illustrated in Figure \ref{fig:software_flowchart}, the software workflow operates in a continuous loop. Data acquisition begins at the edge nodes where the ESP32 samples the sensors via hardware interrupts. The Raspberry Pi systematically polls these nodes over the RS-485 bus. Upon receiving the telemetry, the Python backend writes the raw data to the SQLite database and passes it to the Analytical Engine. If the data falls within normal baseline parameters, it is pushed to the Flask frontend for live dashboard visualization. If an anomaly is detected, the system simultaneously triggers a visual alert on the local touchscreen dashboard and transmits an alert payload via LoRa to the remote LoRa-GSM gateway, which forwards it as an SMS to the caretaker's mobile phone.
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{SystemVisual.png}
+  \caption{3D Visualization of the System Deployment in a Piggery Environment}
+  \label{fig:system_visual}
+\end{figure}
+
+Figure \ref{fig:system_visual} illustrates the intended physical deployment of the system within a commercial piggery environment. Three individual pen enclosures, each equipped with a feeder module containing the load cell, ultrasonic water sensor, and MQ-135 air quality sensor, are connected to a centralized water supply tank via PVC piping. The central feed hopper and main control module (Raspberry Pi with the touchscreen dashboard) are positioned adjacent to the pen structures, providing the caretaker with direct physical access to the monitoring interface while maintaining proximity to the RS-485 wired bus connecting all feeder nodes.
+
 \begin{itemize}
   \item \textbf{Edge Intelligence (Feeder Nodes):} Each node is governed by an ESP32 dual-core microcontroller. One core is dedicated to continuous sensor polling (load cell and flow meter) using hardware interrupts and the HX711 24-bit ADC, while the second core manages a MODBUS RTU slave stack. Telemetry is stored in a local register map, allowing the master to retrieve data asynchronously without blocking sensor acquisition.
   \item \textbf{Central Orchestration (Main Module):} A Raspberry Pi serves as the MODBUS RTU master, implementing a sequential polling loop via the RS-485 bus. The main module is co-located with the central hopper---a $0.18\text{ m}^3$-capacity truncated-pyramid storage unit---from which feed is gravity-fed through an auger conveyor to individual feeder nodes. The master logic is divided into four primary services:
