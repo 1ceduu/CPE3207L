@@ -24,7 +24,7 @@ The system's operational logic spans four functional layers:
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\columnwidth]{SoftwareDiagram.png}
+  \includegraphics[width=0.8\columnwidth]{SystemFlowchart.png}
   \caption{System Flowchart}
   \label{fig:software_flowchart}
 \end{figure}
@@ -44,14 +44,32 @@ The system employs a distributed, hierarchical software architecture to decouple
 \end{itemize}
 
 \subsection{Software Architecture and Technology Stack}
-The system’s software architecture is distributed across the edge feeder nodes and the central control module. The technology stack was deliberately selected to prioritize fault tolerance, low-latency execution, and complete offline capability, ensuring the system remains fully operational without external internet dependencies.
+The system’s software architecture is distributed across the edge feeder nodes and the central control module. The technology stack was deliberately selected to prioritize fault tolerance, low-latency execution, and complete offline capability, ensuring the system remains fully operational without external internet dependencies. The end-to-end data flow pipeline, from sensor acquisition to dashboard visualization, is depicted in Figure \ref{fig:data_flow_pipeline}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/DataFlowPipelineFlowchart.png}
+  \caption{Data Flow Pipeline Flowchart}
+  \label{fig:data_flow_pipeline}
+\end{figure}
+
+The end-to-end data flow pipeline is illustrated in Figure \ref{fig:data_flow_pipeline}, tracing the path of a single sensor reading from acquisition at the ESP32 edge node through ADC conversion, RS-485 transmission, SQLite persistence, analytical processing, and final visualization on the touchscreen dashboard.
 
 \textbf{1. Edge Node Firmware (ESP32)}
 \begin{itemize}
   \item \textbf{Software/Language:} C/C++ utilizing the FreeRTOS (Real-Time Operating System) environment.
   \item \textbf{Why it is used:} C/C++ provides the low-level memory management and fast execution speeds required for high-frequency sensor sampling. FreeRTOS allows the ESP32 to effectively utilize its dual-core processor by dividing tasks into concurrent threads.
-  \item \textbf{How it is implemented:} Core 0 is dedicated strictly to hardware interrupts---specifically counting pulses from the YF-S201 flow meter and reading the HX711 ADC---ensuring no data is lost during execution delays. Core 1 manages the MODBUS RTU slave stack, listening for polling requests from the Raspberry Pi and transmitting the localized sensor data stored in its memory registers.
+  \item \textbf{How it is implemented:} As shown in Figure \ref{fig:esp32_firmware_flowchart}, Core 0 is dedicated strictly to hardware interrupts---specifically counting pulses from the YF-S201 flow meter and reading the HX711 ADC---ensuring no data is lost during execution delays. Core 1 manages the MODBUS RTU slave stack, listening for polling requests from the Raspberry Pi and transmitting the localized sensor data stored in its memory registers.
 \end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png}
+  \caption{ESP32 Edge Node Firmware Flowchart (Dual-Core)}
+  \label{fig:esp32_firmware_flowchart}
+\end{figure}
+
+The dual-core firmware architecture is depicted in Figure \ref{fig:esp32_firmware_flowchart}. Core 0 continuously cycles through sensor acquisition (load cell, ultrasonic, and MQ-135 readings), while Core 1 concurrently handles MODBUS RTU communication on the RS-485 bus.
 
 \textbf{2. Central Controller Backend (Raspberry Pi)}
 \begin{itemize}
@@ -136,6 +154,10 @@ The total hopper height is therefore $h_{cone} + h_{rec} = 0.35 + 0.21 = 0.56\te
 
 \subsection{Dispensing Mechanism}
 
+Feed release from the central hopper is controlled by a solenoid-actuated sliding plate valve (guillotine valve) positioned at the $0.1\text{ m} \times 0.1\text{ m}$ bottom aperture of the truncated pyramid, with the complete dispensing process illustrated in Figure \ref{fig:feed_dispensing_flowchart}. A 12 V DC push-pull solenoid drives the plate linearly, opening or closing the aperture under microcontroller command. This valve type was selected for its simplicity, low power consumption, and compatibility with granular feed materials that would jam rotary or butterfly valves.
+
+An auger screw conveyor driven by a NEMA 17 stepper motor (shown in Figure \ref{fig:stepper-motor}) supplements the sliding valve for metered dispensing. By counting motor steps, the ESP32 can dispense feed in calibrated increments independently of gravity head pressure, improving dose accuracy across varying hopper fill levels. The hinged hopper lid is actuated by a secondary servo motor for automated refill access.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\columnwidth]{StepMotor.png}
@@ -143,22 +165,27 @@ The total hopper height is therefore $h_{cone} + h_{rec} = 0.35 + 0.21 = 0.56\te
   \label{fig:stepper-motor}
 \end{figure}
 
-Feed release from the central hopper is controlled by a solenoid-actuated sliding plate valve (guillotine valve) positioned at the $0.1\text{ m} \times 0.1\text{ m}$ bottom aperture of the truncated pyramid. A 12 V DC push-pull solenoid drives the plate linearly, opening or closing the aperture under microcontroller command. This valve type was selected for its simplicity, low power consumption, and compatibility with granular feed materials that would jam rotary or butterfly valves.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/FeedDispensingModuleFlowchart.png}
+  \caption{Feed Dispensing Module Flowchart}
+  \label{fig:feed_dispensing_flowchart}
+\end{figure}
 
-An auger screw conveyor driven by a NEMA 17 stepper motor (shown in Figure \ref{fig:stepper-motor}) supplements the sliding valve for metered dispensing. By counting motor steps, the ESP32 can dispense feed in calibrated increments independently of gravity head pressure, improving dose accuracy across varying hopper fill levels. The hinged hopper lid is actuated by a secondary servo motor for automated refill access.
+The feed dispensing process is summarized in Figure \ref{fig:feed_dispensing_flowchart}. When a feeding event is triggered, the system opens the hopper valve, runs the auger motor, and continuously reads the load cell until the target mass is reached, at which point the motor is stopped, the valve is closed, and the event is logged.
 
 \subsection{Sensing Strategy and Component Selection}
 Sensor selection was guided by the operating environment of a commercial piggery: high ambient humidity, a corrosive ammonia atmosphere, mechanical vibration from pig activity, and the need for low-cost scalability across multiple feeder nodes.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\columnwidth]{LoadCell.png}
-  \caption{HX711 \& Straight Bar Load Cell}
-  \label{fig:load-cell}
-\end{figure}
-
 \begin{itemize}
   \item \textbf{Feed Weight (Load Cell + HX711):} As shown in Figure \ref{fig:load-cell}, a strain-gauge load cell rated for the expected trough load is interfaced to an HX711 24-bit sigma-delta ADC. The HX711 communicates with the ESP32 over a dedicated two-wire serial interface, providing 10 or 80 samples per second. The trough weight is logged before and after each feeding event; the delta constitutes the dispensed mass. Consumption is derived by tracking weight loss between feeding cycles.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\columnwidth]{LoadCell.png}
+      \caption{HX711 \& Straight Bar Load Cell}
+      \label{fig:load-cell}
+    \end{figure}
 
     \begin{figure}[H]
       \centering
@@ -167,7 +194,16 @@ Sensor selection was guided by the operating environment of a commercial piggery
       \label{fig:ultrasonic-sensor}
     \end{figure}
 
-  \item \textbf{Water Availability (Level Sensor):} As depicted in Figure \ref{fig:ultrasonic-sensor}, a waterproof ultrasonic sensor is mounted above each pen's water trough. The ESP32 triggers an ultrasonic pulse and measures the echo time-of-flight to calculate the distance to the water surface. This determines the current water volume and triggers the solenoid valve to refill the trough when levels fall below the required baseline, ensuring constant water availability.
+  \item \textbf{Water Availability (Level Sensor):} As depicted in Figure \ref{fig:ultrasonic-sensor}, a waterproof ultrasonic sensor is mounted above each pen's water trough. The ESP32 triggers an ultrasonic pulse and measures the echo time-of-flight to calculate the distance to the water surface. This determines the current water volume and triggers the solenoid valve to refill the trough when levels fall below the required baseline, ensuring constant water availability. The complete water refill control loop is illustrated in Figure \ref{fig:water_refill_flowchart}.
+
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.8\columnwidth]{Flowcharts/WaterRefullModuleFlowchart.png}
+      \caption{Water Refill Module Flowchart}
+      \label{fig:water_refill_flowchart}
+    \end{figure}
+
+    The water refill process is illustrated in Figure \ref{fig:water_refill_flowchart}. The system continuously measures the water level; when it drops below the threshold, the solenoid valve opens and the level is monitored until it is restored, at which point the valve closes and the event is logged.
 
     \begin{figure}[H]
       \centering
@@ -186,7 +222,16 @@ The system specifies a hardwired network topology to eliminate dependence on wir
   \item The standard supports up to 32 nodes on a single bus segment at distances of up to 1,200 m, enabling future expansion of feeder modules without architectural redesign.
   \item MODBUS RTU is an industry-standard protocol with extensive ESP32 and Raspberry Pi library support, reducing firmware development overhead.
 \end{itemize}
-Each feeder-node ESP32 is interfaced to the bus via a MAX485 half-duplex transceiver IC. The Raspberry Pi master polls each slave node at configurable intervals, retrieves sensor data packets, and writes dispensing commands. A unique MODBUS device address is assigned to each feeder module during commissioning.
+Each feeder-node ESP32 is interfaced to the bus via a MAX485 half-duplex transceiver IC. The Raspberry Pi master polls each slave node at configurable intervals, retrieves sensor data packets, and writes dispensing commands, as illustrated in Figure \ref{fig:modbus_flowchart}. A unique MODBUS device address is assigned to each feeder module during commissioning.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/RS-485MODBUSCommunicationChart.png}
+  \caption{RS-485 / MODBUS RTU Communication Flowchart}
+  \label{fig:modbus_flowchart}
+\end{figure}
+
+The polling protocol is depicted in Figure \ref{fig:modbus_flowchart}. For each cycle, the master selects the next slave node, transmits a MODBUS read request, validates the response CRC, and parses the sensor data before moving to the next node. Timeout and retry logic ensures robustness against transient communication failures.
 
 \subsection{Application Layer and Data Persistence}
 The centralized user interface (UI) is hosted on the Raspberry Pi and rendered through a 7-inch DSI touchscreen mounted on the main control module enclosure. The software stack utilizes a lightweight web-based architecture to ensure low-latency updates:
@@ -194,8 +239,17 @@ The centralized user interface (UI) is hosted on the Raspberry Pi and rendered t
   \item \textbf{Backend Stack:} A Flask-based web server manages the API endpoints for the dashboard. It interfaces with an SQLite database for ACID-compliant persistence of timestamped consumption logs, feeding schedules, and air-quality telemetry.
   \item \textbf{Frontend Stack:} A Chromium kiosk browser displays a dashboard built with responsive numeric gauges and time-series charts for real-time monitoring and historical trend visualization. It includes configuration panels for feeding schedules and alert logs for threshold exceedances.
   \item \textbf{Fault Tolerance:} All data is stored locally, ensuring continuous operation during internet outages, which is a primary concern identified in the study's scope and limitations. To address potential grid instability, a UPS module with 18650 lithium cells provides bridge power, ensuring that the SQLite database maintains integrity during short-duration power interruptions.
-  \item \textbf{LoRa-SMS Alert Gateway:} A background Python thread runs alongside the Flask backend. It continuously monitors the SQLite database for newly generated threshold exceedances. To optimize radio duty cycles and prevent packet collisions, the gateway implements a message-queuing protocol, bundling non-critical alerts and transmitting them via the LoRa link to the remote LoRa-GSM gateway at configured intervals or triggering immediate LoRa transmission for critical air-quality hazards. The remote gateway then forwards each alert as an SMS to the caretaker's mobile phone.
+  \item \textbf{LoRa-SMS Alert Gateway:} A background Python thread runs alongside the Flask backend, with the end-to-end alert pipeline depicted in Figure \ref{fig:lora_sms_flowchart}. It continuously monitors the SQLite database for newly generated threshold exceedances. To optimize radio duty cycles and prevent packet collisions, the gateway implements a message-queuing protocol, bundling non-critical alerts and transmitting them via the LoRa link to the remote LoRa-GSM gateway at configured intervals or triggering immediate LoRa transmission for critical air-quality hazards. The remote gateway then forwards each alert as an SMS to the caretaker's mobile phone.
 \end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/LoRaSMSAlertPipeline.png}
+  \caption{LoRa-SMS Alert Pipeline Flowchart}
+  \label{fig:lora_sms_flowchart}
+\end{figure}
+
+The end-to-end alert notification pipeline is illustrated in Figure \ref{fig:lora_sms_flowchart}. When the Analytical Engine flags an anomaly, the alert payload is encoded and transmitted via LoRa to the remote gateway, which decodes it and forwards it as an SMS to the caretaker's mobile phone.
 
 \subsection{Consumption Baseline and Anomaly Detection}
 A pig's health status is closely linked to its feeding and drinking behavior; measurable deviations in dietary intake are often among the first observable indicators of illness \cite{dingcong2017monitoring,sadeghi2023improving}. The system establishes per-module baselines using a rolling time-window approach consistent with data-driven livestock monitoring methods reported in the literature \cite{racewicz2021welfare,sadeghi2023improving}. Let $C_i$ denote the feed consumed in session $i$. The rolling mean over a window of $N$ sessions is:
@@ -203,6 +257,17 @@ A pig's health status is closely linked to its feeding and drinking behavior; me
   \mu_N = \frac{1}{N} \sum_{i=t-N+1}^{t} C_i
 \end{equation}
 A deviation alert is generated when the current session's consumption $C_t$ falls outside the band $[\mu_N - k\sigma, \mu_N + k\sigma]$, where $\sigma$ is the rolling standard deviation and $k$ is a configurable sensitivity coefficient (default $k=2$). This statistical approach reduces false positives arising from natural day-to-day variation while reliably flagging behaviorally significant declines \cite{sadeghi2023improving,racewicz2021welfare}.
+
+In practice, this algorithm is executed by the Analytical Engine running on the Raspberry Pi, as illustrated in Figure \ref{fig:anomaly_detection_flowchart}. After each feeding session, the Python backend queries the SQLite database to retrieve the most recent $N = 14$ consumption records for the corresponding feeder module. The rolling mean $\mu_N$ and standard deviation $\sigma$ are then computed in memory. If the current session's consumption $C_t$ falls below $\mu_N - k\sigma$, the system classifies the event as a \textit{feed consumption deviation}; if $C_t$ exceeds $\mu_N + k\sigma$, it is flagged as an \textit{abnormal overconsumption event}. In parallel, the same rolling-window logic is applied to the water consumption data derived from ultrasonic sensor readings, and the MQ-135 air-quality readings are compared against a fixed threshold (e.g., ammonia concentration $> 25$ ppm). When any anomaly is detected, the Analytical Engine simultaneously pushes a visual alert to the Flask-served touchscreen dashboard and dispatches a LoRa payload to the remote LoRa-GSM gateway for SMS delivery to the caretaker. All anomaly events, including their type, severity, timestamp, and the baseline values that triggered them, are persisted in the SQLite database for historical trend analysis.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{Flowcharts/AnomalyDetectionFlowchart.png}
+  \caption{Anomaly Detection Flowchart}
+  \label{fig:anomaly_detection_flowchart}
+\end{figure}
+
+The anomaly detection logic is summarized in Figure \ref{fig:anomaly_detection_flowchart}. After each feeding session, the system queries the last 14 sessions, computes the rolling mean and standard deviation, and determines whether the current consumption falls within the normal range. If an anomaly is flagged, alerts are simultaneously pushed to the dashboard and transmitted via the LoRa-SMS pipeline.
 
 \subsection{Evaluation Metrics and Verification Protocol}
 System performance will be assessed against quantitative metrics aligned with the project's specific objectives. These metrics are intended to reflect the reliability of dispensing, sensing, communication, and health-monitoring functions commonly emphasized in precision livestock and embedded monitoring studies \cite{adeoye2025animalia,beyondtech2025smart,sadeghi2023improving}. To ensure system reliability and accuracy prior to full-scale deployment, a rigorous testing protocol will be executed to systematically validate these metrics.
@@ -213,36 +278,155 @@ System performance will be assessed against quantitative metrics aligned with th
     \begin{equation}
       FDA = \left(1 - \frac{|M_{target} - M_{actual}|}{M_{target}}\right) \times 100\%
     \end{equation}
+    In the system, $M_{target}$ is the pre-configured feed mass (in grams) specified in the feeding schedule stored in the SQLite database, while $M_{actual}$ is the gravimetrically measured mass recorded by the load cell after each dispensing event. For each of the 30 calibration trials, the Python backend logs both values and computes the per-event FDA. The overall FDA for a module is reported as the mean across all trials. If the mean FDA falls below $95\%$, the system flags the module for recalibration of the auger stepper motor step-to-mass conversion factor.
   \item \textbf{Alert Response Accuracy (ARA):} Proportion of simulated consumption anomaly events correctly detected and flagged by the baseline algorithm within one polling cycle. A minimum passing threshold of $\geq 90\%$ is required to validate the reliability of the anomaly detection logic \cite{sadeghi2023improving,racewicz2021welfare}:
     \begin{equation}
       ARA = \frac{\text{True Positive Alerts}}{\text{Total Induced Events}} \times 100\%
     \end{equation}
+    During validation, the tester deliberately induces consumption anomalies by withholding or reducing the feed placed in the trough, simulating a sick pig's reduced intake. Each induced event is logged manually alongside the system's automated response. A \textit{True Positive} is counted when the Analytical Engine correctly flags the induced deviation within one polling cycle ($\leq 1$ second). Any induced event that does not trigger an alert is classified as a \textit{False Negative}. The ARA is then computed as the ratio of correctly detected events to total induced events across all test runs.
   \item \textbf{System Uptime ($U_{sys}$):} Measured over a 72-hour continuous operation trial, consistent with endurance validation practices for embedded monitoring systems \cite{beyondtech2025smart,adeoye2025animalia}:
     \begin{equation}
       U_{sys} = \frac{T_{total} - T_{downtime}}{T_{total}} \times 100\%
     \end{equation}
-    where $T_{total}$ is the total trial duration in hours and $T_{downtime}$ is the cumulative time during which sensor polling or the dashboard was unavailable.
+    where $T_{total}$ is the total trial duration in hours and $T_{downtime}$ is the cumulative time during which sensor polling or the dashboard was unavailable. In the system, a Python watchdog thread periodically writes a heartbeat timestamp to the SQLite database. $T_{downtime}$ is computed post-trial by identifying gaps in the heartbeat log that exceed a predefined timeout interval (e.g., $> 10$ seconds), and summing their durations.
   \item \textbf{Data Display Latency:} Time elapsed between a sensor reading being acquired at the feeder node and its appearance on the dashboard, measured across 50 consecutive poll cycles. Target threshold: $\le 2$ seconds \cite{beyondtech2025smart,adeoye2025animalia}.
   \item \textbf{SMS Delivery Rate (SDR):} The end-to-end percentage of alert messages successfully delivered as SMS to the caretaker's mobile phone via the LoRa-GSM gateway, compared to the total number of alerts generated by the central unit. A minimum passing threshold of $\geq 95\%$ is required to confirm reliable remote notification delivery \cite{beyondtech2025smart,reza2025review}:
     \begin{equation}
       SDR = \frac{\text{Total SMS Delivered}}{\text{Total Alerts Generated}} \times 100\%
     \end{equation}
+    During testing, the system logs each alert event with a unique identifier in the SQLite database at the moment of LoRa transmission. The caretaker's mobile phone is used to count the total number of SMS messages received, each of which contains the corresponding alert identifier. The SDR is then computed by dividing the number of confirmed SMS receipts by the total number of LoRa-transmitted alerts logged in the database.
   \item \textbf{End-to-End Alert Latency:} The time elapsed between an alert being generated by the Analytical Engine and the corresponding SMS being successfully delivered to the caretaker's mobile phone, encompassing LoRa transmission, gateway processing, and GSM delivery. Target threshold: $\le 30$ seconds per alert message \cite{beyondtech2025smart,reza2025review}.
 \end{itemize}
 
-\subsection{Verification Phases}
-The testing protocol is divided into three primary phases to validate both the hardware edge nodes and the central software orchestration. This phased approach is consistent with common validation practice in embedded sensing, livestock-monitoring, and agricultural automation studies, where component calibration, communication validation, and full-system integration are assessed separately before deployment \cite{adeoye2025animalia,dingcong2017monitoring,beyondtech2025smart}:
+\subsection{Testing and Checking}
+The testing protocol is designed to systematically verify that each of the project's four specific objectives has been accomplished. Each test is explicitly mapped to its corresponding objective, and the pass/fail criteria are defined such that successful completion of all tests constitutes a complete demonstration of the system's intended functionality. This structured approach ensures that panelists and evaluators can trace every test result directly to the objective it validates \cite{adeoye2025animalia,dingcong2017monitoring,beyondtech2025smart}.
+
+\textbf{Controlled Testing Environment.}
+All tests described in this section are designed to be conducted entirely in a controlled laboratory or bench-testing environment, without requiring deployment to an actual piggery. This allows evaluators and panelists to assess the full system performance during a demonstration session. The real-world conditions of a piggery are simulated as follows:
+
 \begin{itemize}
-  \item \textbf{Phase 1: Sensor Calibration and Hardware Validation}
-    \begin{itemize}
-      \item \textbf{Gravimetric Testing (FDA Validation):} The load cell and HX711 assemblies will be calibrated using standard reference weights across a range of 0 to 5 kg, covering the expected trough load. A minimum of 10 calibration trials per load cell will be conducted. Linearity and hysteresis will be evaluated across the expected load range to ensure Feed Dispensing Accuracy meets the $\geq 95\%$ passing threshold \cite{dingcong2017monitoring,adeoye2025animalia}.
-      \item \textbf{Water Level Calibration:} The ultrasonic level sensors will be validated against manual depth measurements using a calibrated dipstick across a range of operational trough depths. A minimum of 10 trials per sensor will be conducted to establish a precise time-of-flight to depth conversion factor and verify the threshold-trigger logic for the solenoid valves \cite{adeoye2025animalia,beyondtech2025smart}.
-      \item \textbf{Environmental Baseline:} The MQ-135 sensors will undergo a minimum 48-hour burn-in period followed by calibration in a controlled, clean-air environment to establish a baseline resistance ($R_0$) before exposure to the piggery atmosphere. Sensors will then be tested against known ammonia concentrations in the range of 10 to 300 ppm to verify threshold response accuracy prior to deployment \cite{sadeghi2023improving,adeoye2025animalia,yamsakul2025machine}.
-    \end{itemize}
-  \item \textbf{Phase 2: Communication and Firmware Testing}
-    The RS-485 wired bus will undergo signal integrity testing with all feeder nodes active on the bus simultaneously. A digital storage oscilloscope will be used to verify that differential voltage levels meet the RS-485 standard minimum of $\pm 1.5$ V and ensure adequate common-mode noise rejection. MODBUS RTU packet loss rates will be quantified under simulated electrical noise conditions at the maximum prototype cable length. A packet loss rate of $\leq 1\%$ is required to confirm robust master-slave polling before proceeding to system integration \cite{beyondtech2025smart,adeoye2025animalia}.
-  \item \textbf{Phase 3: System-Level Integration (Uptime, Latency, ARA, and LoRa-SMS Validation)}
-    A 72-hour continuous operation trial will be conducted in a controlled environment to measure System Uptime ($U_{sys}$) and verify that Data Display Latency remains $\le 2$ seconds. To validate the rolling-window anomaly detection, simulated consumption drops will be manually injected into the data stream to test the Alert Response Accuracy (ARA) of the Python backend. Furthermore, the LoRa-to-SMS notification pipeline will undergo end-to-end testing. Simulated consumption drops will be injected to trigger alerts, and the SMS Delivery Rate (SDR) and End-to-End Alert Latency will be measured at varying distances between the main control module and the LoRa-GSM gateway to validate the reliability of remote caretaker notifications \cite{dingcong2017monitoring,sadeghi2023improving,reza2025review}.
+  \item \textbf{Feed consumption simulation:} Instead of live pigs consuming feed, the tester manually removes known quantities of feed from the trough between feeding sessions using a calibrated reference scale. This simulates normal consumption patterns. Anomalous consumption (e.g., a sick pig not eating) is simulated by deliberately withholding or reducing the amount of feed removed, causing the rolling-window baseline to detect a deviation.
+  \item \textbf{Water level simulation:} The water trough is filled to a known level, and water is manually drained using a valve or siphon to simulate pig drinking. The system's solenoid refill response is then observed and verified. Anomalous water consumption is simulated by draining the trough below the configured threshold more rapidly than normal.
+  \item \textbf{Air quality simulation:} Ammonia threshold exceedances are simulated by exposing the MQ-135 sensor to a controlled ammonia test gas source (e.g., a diluted ammonia cleaning solution in an enclosed chamber), or by using a known volatile compound that triggers the sensor above its configured threshold, then removing the source to verify the alert clears.
+  \item \textbf{LoRa-SMS notification simulation:} The LoRa-GSM gateway is positioned at a measured distance from the main control module within the test venue. Anomalies are induced as described above, and the evaluator verifies SMS receipt on the caretaker's registered mobile phone in real time.
+  \item \textbf{Continuous operation simulation:} For the 72-hour uptime and data persistence tests, the system is run on a benchtop with periodic automated or manual sensor interactions to generate representative data volumes, verifying that the database and dashboard remain operational over extended periods.
+\end{itemize}
+
+This controlled approach ensures that every aspect of the system---dispensing accuracy, sensor reliability, anomaly detection, dashboard functionality, and remote SMS notification---can be fully validated by evaluators in a single demonstration session without logistical dependence on a live piggery environment.
+
+\textbf{Objective 1: Implement a programmable central unit to manage main storage and automate the dispensing process.}
+
+This objective requires demonstrating that the central unit (Raspberry Pi and hopper assembly) can store feed, execute a programmable feeding schedule, and dispense accurate quantities of feed to each feeder module without manual intervention.
+
+\begin{itemize}
+  \item \textbf{Test 1.1 -- Feed Dispensing Accuracy (FDA):} The auger-based dispensing mechanism will be tested across 30 dispensing events per feeder module. For each event, the target mass $M_{target}$ is set via the dashboard's feeding schedule, and the actual dispensed mass $M_{actual}$ is measured by the load cell. The FDA for each event is computed as:
+    \begin{equation}
+      FDA = \left(1 - \frac{|M_{target} - M_{actual}|}{M_{target}}\right) \times 100\%
+    \end{equation}
+    \textbf{Pass Criterion:} Mean FDA across all 30 trials $\geq 95\%$.
+
+    \textbf{How this demonstrates the objective:} If the system consistently dispenses feed within $\pm 5\%$ of the programmed target across repeated trials, it confirms that the central unit can reliably automate the dispensing process with the accuracy required for precision feeding. The use of 30 trials ensures statistical robustness and accounts for natural variability in granular feed flow \cite{adeoye2025animalia,dingcong2017monitoring}.
+
+  \item \textbf{Test 1.2 -- Schedule Execution Verification:} A 24-hour automated feeding schedule consisting of three feeding events at pre-configured times will be programmed into the dashboard. The system must autonomously initiate each dispensing event within $\pm 30$ seconds of the scheduled time without manual intervention.
+
+    \textbf{Pass Criterion:} All three scheduled feeding events are executed within the time tolerance window, and the corresponding dispensed masses are logged in the SQLite database with correct timestamps.
+
+    \textbf{How this demonstrates the objective:} Successful execution of all scheduled events proves that the central unit is fully programmable and can manage the dispensing process autonomously over a sustained period, fulfilling the core requirement of automated feed management.
+\end{itemize}
+
+\textbf{Objective 2: Design individual feeder modules capable of monitoring feed consumption, water availability, and ammonia levels.}
+
+This objective requires demonstrating that each feeder module's sensors produce accurate, reliable readings for feed weight, water level, and air quality under realistic conditions.
+
+\begin{itemize}
+  \item \textbf{Test 2.1 -- Load Cell Calibration and Accuracy:} Each load cell and HX711 assembly will be calibrated using standard reference weights across a range of 0 to 5 kg. A minimum of 10 calibration trials per load cell will be conducted at five weight increments (1 kg, 2 kg, 3 kg, 4 kg, 5 kg). Linearity ($R^2$) and hysteresis will be evaluated.
+
+    \textbf{Pass Criterion:} Linear regression $R^2 \geq 0.99$ across the tested range, and all individual readings within $\pm 2\%$ of the reference weight.
+
+    \textbf{How this demonstrates the objective:} Accurate load cell readings are the foundation for feed consumption monitoring. A high $R^2$ confirms that the sensor produces linear, repeatable measurements, ensuring that the feeder module can reliably track how much feed a pig consumes per session \cite{dingcong2017monitoring,adeoye2025animalia}.
+
+  \item \textbf{Test 2.2 -- Water Level Sensor Validation:} The ultrasonic level sensors will be validated against manual depth measurements using a calibrated dipstick across a range of operational trough depths (5 cm to 25 cm). A minimum of 10 trials per sensor will be conducted.
+
+    \textbf{Pass Criterion:} All sensor readings within $\pm 1$ cm of the manual dipstick measurement, and the solenoid valve correctly triggers when the water level falls below the programmed threshold.
+
+    \textbf{How this demonstrates the objective:} Accurate water level readings confirm that the feeder module can reliably monitor water availability. Correct solenoid triggering proves the module can maintain adequate water supply without manual intervention \cite{adeoye2025animalia,beyondtech2025smart}.
+
+  \item \textbf{Test 2.3 -- Air Quality Sensor Calibration (MQ-135):} The MQ-135 sensors will undergo a minimum 48-hour burn-in period followed by calibration in a controlled, clean-air environment to establish a baseline resistance ($R_0$). Sensors will then be tested against known ammonia concentrations in the range of 10 to 300 ppm to verify threshold response accuracy.
+
+    \textbf{Pass Criterion:} The sensor correctly triggers an alert when ammonia concentration exceeds the configured threshold (default: 25 ppm) in at least 9 out of 10 controlled exposure trials.
+
+    \textbf{How this demonstrates the objective:} Reliable threshold detection confirms that the feeder module can monitor ammonia levels and identify hazardous air quality conditions, fulfilling the environmental monitoring requirement of this objective \cite{sadeghi2023improving,adeoye2025animalia,yamsakul2025machine}.
+\end{itemize}
+
+\textbf{Objective 3: Develop a user interface on the central unit for system monitoring, data acquisition, and historical logging.}
+
+This objective requires demonstrating that the touchscreen dashboard displays real-time sensor data, allows configuration of feeding schedules, and maintains a persistent historical log accessible to the caretaker.
+
+\begin{itemize}
+  \item \textbf{Test 3.1 -- Data Display Latency:} The time elapsed between a sensor reading being acquired at the feeder node and its appearance on the touchscreen dashboard will be measured across 50 consecutive poll cycles.
+
+    \textbf{Pass Criterion:} Mean latency $\le 2$ seconds, with no individual reading exceeding 5 seconds.
+
+    \textbf{How this demonstrates the objective:} A latency of $\le 2$ seconds confirms that the dashboard provides real-time monitoring, ensuring the caretaker sees current data rather than stale readings. This validates the system monitoring component of the objective \cite{beyondtech2025smart,adeoye2025animalia}.
+
+  \item \textbf{Test 3.2 -- Data Persistence and Historical Logging:} The system will be operated continuously for 72 hours. After the trial, the SQLite database will be queried to verify that all sensor readings (feed weight, water level, ammonia), dispensing events, and anomaly alerts have been logged with correct timestamps.
+
+    \textbf{Pass Criterion:} Zero missing entries in the database relative to the total number of expected polling cycles ($\geq 99\%$ data completeness), and all entries retrievable through the dashboard's historical view.
+
+    \textbf{How this demonstrates the objective:} Complete and accurate data persistence over a 72-hour window confirms that the system fulfills the data acquisition and historical logging requirements. The ability to retrieve and display historical data on the dashboard validates the full data pipeline from sensor to screen \cite{beyondtech2025smart,adeoye2025animalia}.
+
+  \item \textbf{Test 3.3 -- System Uptime ($U_{sys}$):} Measured over the same 72-hour continuous operation trial to verify sustained availability:
+    \begin{equation}
+      U_{sys} = \frac{T_{total} - T_{downtime}}{T_{total}} \times 100\%
+    \end{equation}
+    where $T_{total}$ is the total trial duration and $T_{downtime}$ is the cumulative time during which sensor polling or the dashboard was unavailable.
+
+    \textbf{Pass Criterion:} $U_{sys} \geq 95\%$.
+
+    \textbf{How this demonstrates the objective:} A sustained uptime of $\geq 95\%$ confirms that the user interface and data acquisition pipeline are robust enough for continuous farm operation, where downtime directly translates to missed monitoring windows and potential undetected anomalies.
+\end{itemize}
+
+\textbf{Objective 4: Integrate an SMS module to alert caretakers when the system detects consumption or environmental anomalies.}
+
+This objective requires demonstrating that the LoRa-to-SMS notification pipeline reliably detects anomalies and delivers timely SMS alerts to the caretaker's mobile phone.
+
+\begin{itemize}
+  \item \textbf{Test 4.1 -- Alert Response Accuracy (ARA):} Consumption anomalies will be deliberately induced by withholding or reducing the feed placed in the trough, simulating a sick pig's reduced intake. A total of 20 anomaly events will be induced across all feeder modules.
+    \begin{equation}
+      ARA = \frac{\text{True Positive Alerts}}{\text{Total Induced Events}} \times 100\%
+    \end{equation}
+    \textbf{Pass Criterion:} $ARA \geq 90\%$.
+
+    \textbf{How this demonstrates the objective:} A high ARA confirms that the Analytical Engine's rolling-window algorithm reliably detects consumption and environmental anomalies---the prerequisite for any alert to be generated. Without accurate detection, the SMS module cannot fulfill its purpose \cite{sadeghi2023improving,racewicz2021welfare}.
+
+  \item \textbf{Test 4.2 -- SMS Delivery Rate (SDR):} For each detected anomaly, the system will transmit a LoRa alert to the remote LoRa-GSM gateway, which forwards it as an SMS. Each SMS contains a unique alert identifier for cross-referencing.
+    \begin{equation}
+      SDR = \frac{\text{Total SMS Delivered}}{\text{Total Alerts Generated}} \times 100\%
+    \end{equation}
+    \textbf{Pass Criterion:} $SDR \geq 95\%$.
+
+    \textbf{How this demonstrates the objective:} An SDR of $\geq 95\%$ confirms that the end-to-end LoRa-to-SMS pipeline reliably delivers alerts to the caretaker's mobile phone. This directly validates the integration of the SMS module as specified in the objective \cite{beyondtech2025smart,reza2025review}.
+
+  \item \textbf{Test 4.3 -- End-to-End Alert Latency:} The time elapsed between the Analytical Engine generating an alert and the SMS being received on the caretaker's phone will be measured for each alert event. This encompasses LoRa transmission, gateway processing, and GSM delivery.
+
+    \textbf{Pass Criterion:} Mean latency $\le 30$ seconds per alert.
+
+    \textbf{How this demonstrates the objective:} A delivery latency of $\le 30$ seconds confirms that the SMS alerts are timely enough for the caretaker to take immediate corrective action, validating that the system provides meaningful, real-time remote notification capability \cite{beyondtech2025smart,reza2025review}.
+
+  \item \textbf{Test 4.4 -- LoRa Communication Range:} The LoRa link between the main control module and the LoRa-GSM gateway will be tested at increasing distances (e.g., 50 m, 100 m, 200 m, 500 m) within the farm environment. At each distance, 20 alert payloads will be transmitted and the Received Signal Strength Indicator (RSSI) and delivery success rate will be recorded.
+
+    \textbf{Pass Criterion:} $RSSI \geq -120$ dBm and delivery success rate $\geq 95\%$ at the maximum operational distance required by the farm layout.
+
+    \textbf{How this demonstrates the objective:} Confirming adequate LoRa range ensures that the SMS module can function across the actual farm property, validating that the alert system works not just in laboratory conditions but in the intended deployment environment \cite{beyondtech2025smart,reza2025review}.
+\end{itemize}
+
+\textbf{Communication Infrastructure Validation:}
+\begin{itemize}
+  \item \textbf{Test 5.1 -- RS-485 Signal Integrity and MODBUS Reliability:} The RS-485 wired bus will undergo signal integrity testing with all feeder nodes active simultaneously. A digital storage oscilloscope will verify that differential voltage levels meet the RS-485 standard minimum of $\pm 1.5$ V. MODBUS RTU packet loss rates will be quantified under simulated electrical noise conditions at the maximum prototype cable length.
+
+    \textbf{Pass Criterion:} Packet loss rate $\leq 1\%$ across all feeder nodes under full bus load.
+
+    \textbf{How this demonstrates system readiness:} While not mapped to a single specific objective, reliable wired communication underpins all four objectives. If the RS-485 bus fails, sensor data cannot reach the central unit, dispensing commands cannot be issued, the dashboard cannot display data, and alerts cannot be generated. This test confirms the foundational infrastructure upon which all objectives depend \cite{beyondtech2025smart,adeoye2025animalia}.
 \end{itemize}
 
 \subsection{Deployment Plan}
