@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  29 APR 2026 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  29 APR 2026 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -861,22 +861,44 @@ File: Flowcharts/LoRaSMSAlertPipeline.png Graphic file (type png)
 <use Flowcharts/LoRaSMSAlertPipeline.png>
 Package pdftex.def Info: Flowcharts/LoRaSMSAlertPipeline.png  used on input line 247.
 (pdftex.def)             Requested size: 201.60077pt x 255.47023pt.
-<Flowcharts/AnomalyDetectionFlowchart.png, id=87, 533.995pt x 755.82375pt>
+<Screens/MainShii.jpg, id=87, 1077.02374pt x 859.21pt>
+File: Screens/MainShii.jpg Graphic file (type jpg)
+<use Screens/MainShii.jpg>
+Package pdftex.def Info: Screens/MainShii.jpg  used on input line 261.
+(pdftex.def)             Requested size: 214.20154pt x 170.88188pt.
+<Screens/PenControlShii.jpg, id=88, 1080.035pt x 864.22874pt>
+File: Screens/PenControlShii.jpg Graphic file (type jpg)
+<use Screens/PenControlShii.jpg>
+Package pdftex.def Info: Screens/PenControlShii.jpg  used on input line 278.
+(pdftex.def)             Requested size: 214.20154pt x 171.3921pt.
+[10 <./Flowcharts/LoRaSMSAlertPipeline.png> <./Screens/MainShii.jpg>]
+<Screens/FeedSettings.jpg, id=93, 1076.02pt x 862.22125pt>
+File: Screens/FeedSettings.jpg Graphic file (type jpg)
+<use Screens/FeedSettings.jpg>
+Package pdftex.def Info: Screens/FeedSettings.jpg  used on input line 296.
+(pdftex.def)             Requested size: 214.20154pt x 171.63864pt.
+
+Underfull \hbox (badness 2134) in paragraph at lines 303--304
+\OT1/ptm/m/n/10 via up/down ar-row con-trols in hours and min-utes
+ []
+
+[11 <./Screens/PenControlShii.jpg> <./Screens/FeedSettings.jpg>]
+<Flowcharts/AnomalyDetectionFlowchart.png, id=97, 533.995pt x 755.82375pt>
 File: Flowcharts/AnomalyDetectionFlowchart.png Graphic file (type png)
 <use Flowcharts/AnomalyDetectionFlowchart.png>
-Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 265.
+Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 319.
 (pdftex.def)             Requested size: 201.60077pt x 285.34767pt.
-[10 <./Flowcharts/LoRaSMSAlertPipeline.png>] [11 <./Flowcharts/AnomalyDetectionFlowchart.png>]
-Underfull \hbox (badness 5490) in paragraph at lines 315--316
+ [12 <./Flowcharts/AnomalyDetectionFlowchart.png>]
+Underfull \hbox (badness 5490) in paragraph at lines 369--370
 []\OT1/ptm/m/n/10 This con-trolled ap-proach en-sures that ev-ery as-pect
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 315--316
+Underfull \hbox (badness 6300) in paragraph at lines 369--370
 \OT1/ptm/m/n/10 of the system---dispensing ac-cu-racy, sen-sor re-li-a-bil-ity,
  []
 
-[12] [13]) (TimTissis.bbl [14])
+[13] [14] [15]) (TimTissis.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -888,7 +910,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[15
+[16
 
 ] (TimTissis.aux)
  ***********
@@ -897,17 +919,17 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9879 strings out of 467871
- 169829 string characters out of 5418376
- 595906 words of memory out of 5000000
- 38585 multiletter control sequences out of 15000+600000
- 665112 words of font info for 114 fonts, out of 8000000 for 9000
+ 9904 strings out of 467871
+ 170534 string characters out of 5418376
+ 595981 words of memory out of 5000000
+ 38609 multiletter control sequences out of 15000+600000
+ 666190 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,17n,117p,1504b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\parra\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (16 pages, 968666 bytes).
+Output written on TimTissis.pdf (17 pages, 1200011 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
+ 170 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

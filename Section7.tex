@@ -251,6 +251,60 @@ The centralized user interface (UI) is hosted on the Raspberry Pi and rendered t
 
 The end-to-end alert notification pipeline is illustrated in Figure \ref{fig:lora_sms_flowchart}. When the Analytical Engine flags an anomaly, the alert payload is encoded and transmitted via LoRa to the remote gateway, which decodes it and forwards it as an SMS to the caretaker's mobile phone.
 
+\subsection{Dashboard User Interface Design}
+The touchscreen dashboard is designed as a multi-screen web application rendered in Chromium kiosk mode on the Raspberry Pi's 7-inch DSI display. The interface follows a hierarchical navigation pattern that allows caretakers to progress from a system-wide overview to per-pen diagnostics and feeding schedule configuration with minimal interaction. The three primary screens are described below.
+
+\textbf{1. Main Dashboard (System Overview)}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\columnwidth]{Screens/MainShii.jpg}
+  \caption{Main Dashboard Screen}
+  \label{fig:ui_main_dashboard}
+\end{figure}
+
+The main dashboard, shown in Figure \ref{fig:ui_main_dashboard}, serves as the system's landing screen and provides a consolidated, at-a-glance overview of all connected feeder modules. Each pen is represented as an individual card displaying four key real-time parameters: water level (as a percentage bar), feed remaining (in kilograms), ammonia (NH\textsubscript{3}) concentration (in ppm), and a color-coded status indicator. The status indicator uses a three-tier alert scheme:
+\begin{itemize}
+  \item \textbf{Green (No Active Alerts):} All sensor readings are within normal baselines.
+  \item \textbf{Yellow (Warning):} A non-critical threshold has been exceeded (e.g., rising ammonia levels approaching the 25 ppm limit).
+  \item \textbf{Red (Critical):} A critical threshold has been breached (e.g., water level below the minimum refill threshold), requiring immediate caretaker attention.
+\end{itemize}
+The caretaker can tap on any pen card to navigate to the detailed Pen Control screen for that specific module.
+
+\textbf{2. Pen Control (Per-Pen Detailed View)}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\columnwidth]{Screens/PenControlShii.jpg}
+  \caption{Pen Control Screen}
+  \label{fig:ui_pen_control}
+\end{figure}
+
+Upon selecting a pen card from the main dashboard, the system navigates to the Pen Control screen, shown in Figure \ref{fig:ui_pen_control}. This screen presents a comprehensive data breakdown for the selected feeder module, organized into four functional panels:
+\begin{itemize}
+  \item \textbf{Consumption History:} A time-series line chart (rendered via Chart.js) displaying the pen's daily feed consumption over the past week. A horizontal ``Danger Zone'' threshold line marks the lower bound of normal consumption, enabling the caretaker to visually identify declining intake trends that may indicate illness.
+  \item \textbf{Water Level Monitoring:} A large numeric gauge displaying the current water trough level as a percentage, with an ``Optimal Range'' reference bar for rapid assessment.
+  \item \textbf{Feeding Program:} A summary panel showing the currently configured feeding schedule, including the start time and target dispensing mass (in kilograms) for each feeding cycle (e.g., Morning Cycle at 06:00, Midday Cycle at 12:00). An ``Edit Program'' button provides direct access to the Feed Settings screen for schedule modification.
+  \item \textbf{Alert Log:} A chronological list of recent system events and alerts for the selected pen, categorized by severity (Warning, System, Status) and timestamped for traceability.
+\end{itemize}
+A ``Manual Override (RA0)'' indicator is displayed prominently when the physical override button has been activated, alerting the caretaker that the system bypass is engaged. A ``Back to Dashboard'' button in the navigation bar returns the user to the main overview screen.
+
+\textbf{3. Feed Settings (Schedule Configuration)}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\columnwidth]{Screens/FeedSettings.jpg}
+  \caption{Feed Settings Screen}
+  \label{fig:ui_feed_settings}
+\end{figure}
+
+The Feed Settings screen, shown in Figure \ref{fig:ui_feed_settings}, is accessed by tapping the ``Edit Program'' button on the Pen Control screen. This screen allows the caretaker to configure the automated feeding schedule for the selected pen. Each feeding cycle (e.g., Morning Feeding, Midday Feeding) is presented as an independent configuration block containing two adjustable parameters:
+\begin{itemize}
+  \item \textbf{Start Time:} The scheduled dispensing time, adjustable via up/down arrow controls in hours and minutes (AM/PM format).
+  \item \textbf{Feed Amount (kg):} The target mass to be dispensed during the cycle, adjustable via increment/decrement buttons.
+\end{itemize}
+Once the desired values are set, the caretaker taps ``Save Settings'' to persist the updated schedule to the SQLite database, which the Command Service references for subsequent automated dispensing events. A ``Back'' button returns the user to the Pen Control screen without saving changes, preventing accidental schedule modifications.
+
 \subsection{Consumption Baseline and Anomaly Detection}
 A pig's health status is closely linked to its feeding and drinking behavior; measurable deviations in dietary intake are often among the first observable indicators of illness \cite{dingcong2017monitoring,sadeghi2023improving}. The system establishes per-module baselines using a rolling time-window approach consistent with data-driven livestock monitoring methods reported in the literature \cite{racewicz2021welfare,sadeghi2023improving}. Let $C_i$ denote the feed consumed in session $i$. The rolling mean over a window of $N$ sessions is:
 \begin{equation}
