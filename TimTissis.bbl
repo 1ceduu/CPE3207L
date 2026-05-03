@@ -25,6 +25,12 @@ Piyush, ``Animal husbandry statistics 2025: Global livestock numbers, meat and
 R.~H. Lo, ``Rebooting the philippines swine industry: Challenges, prospects,
   and policy directions,'' September 2025.
 
+\bibitem{villanueva2025philippine}
+R.~V. Villanueva~Jr., H.-S. Hwang, and K.~S. Choi, ``{The Philippine Livestock
+  Industry: A Review of Current Status, Key Challenges, Emerging Opportunities,
+  and Sustainable Growth Strategies in a Developing Country Context},'' {\em
+  Journal of Developing Country Studies}, vol.~7, no.~3, pp.~1--26, 2025.
+
 \bibitem{beyondtech2025smart}
 {Beyond Technology}, ``Benefits of smart monitoring in pig farming beyond
   visual control,'' June 2025.
@@ -40,6 +46,23 @@ J.~H.~B. Dingcong, J.~H. Tangoan, W.~S.~O. Tiu, J.~E.~L. Undag, R.~K.~V.
 M.~O. Adeoye, O.~T. Arogundade, and T.~Olaleye, ``Animalia: An iot-based
   temperature monitoring system for piggery farming,'' {\em IRE Journals},
   vol.~9, September 2025.
+
+\bibitem{arguta2024iop}
+J.~J. Arguta, J.~R. Esteba, J.~D. Tuyo, K.~J.~G. Vizcarra, and P.~G.
+  Fernando~Jr., ``{IoP (Internet of Pigs): Design and Implementation of an
+  Automatic Swine Feeder, Waterer and Shower System for a Livestock
+  Multi-Purpose Cooperative},'' {\em International Research and Innovation
+  Journal}, vol.~1, no.~1, 2024.
+
+\bibitem{dambaulova2023benefits}
+G.~K. Dambaulova, V.~A. Madin, Z.~A. Utebayeva, M.~K. Baimyrzaeva, and L.~Z.
+  Shora, ``{Benefits of automated pig feeding system: A simplified cost-benefit
+  analysis in the context of Kazakhstan},'' {\em Veterinary World}, vol.~16,
+  no.~11, pp.~2205--2209, 2023.
+
+\bibitem{derouchey2010feeding}
+J.~DeRouchey and B.~T. Richert, ``{Feeding systems for swine},'' Factsheet PIG
+  09-06-03, Pork Information Gateway, 2010.
 
 \bibitem{sadeghi2023improving}
 E.~Sadeghi, C.~Kappers, A.~Chiumento, M.~Derks, and P.~Havinga, ``Improving
@@ -57,6 +80,13 @@ P.~Racewicz, A.~Ludwiczak, E.~Skrzypczak, J.~Sk{\l}adanowska-Baryza,
 P.~Yamsakul, T.~Yano, K.~Junchum, W.~Anukul, and N.~Kittiwan, ``Machine
   learning-based detection of pig coughs and their association with respiratory
   diseases in fattening pigs,'' {\em Preprints.org}, June 2025.
+
+\bibitem{everypig_nd}
+{EveryPig}, ``{Swine management software for data collection},'' 2026.
+\newblock Accessed: 2026-03-27.
+
+\bibitem{jygatech2026vision}
+{Jyga Technologies}, ``{VISION swine production software},'' 2026.
 
 \bibitem{healthforanimals2024prevention}
 {HealthforAnimals} and {Food and Agriculture Organization of the United Nations
