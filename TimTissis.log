@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  30 APR 2026 13:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  19 MAY 2026 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -823,7 +823,7 @@ File: Flowcharts/AnomalyDetectionFlowchart.png Graphic file (type png)
 <use Flowcharts/AnomalyDetectionFlowchart.png>
 Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 328.
 (pdftex.def)             Requested size: 201.60077pt x 285.34767pt.
- [12 <./Flowcharts/AnomalyDetectionFlowchart.png>]
+ [12 <./Flowcharts/AnomalyDetectionFlowchart.png>] [13]
 Underfull \hbox (badness 5490) in paragraph at lines 378--379
 []\OT1/ptm/m/n/10 This con-trolled ap-proach en-sures that ev-ery as-pect
  []
@@ -833,195 +833,197 @@ Underfull \hbox (badness 6300) in paragraph at lines 378--379
 \OT1/ptm/m/n/10 of the system---dispensing ac-cu-racy, sen-sor re-li-a-bil-ity,
  []
 
-[13] [14] [15]) (TimTissis.bbl)
-<Appendix.pdf, id=129, 614.295pt x 794.97pt>
+[14] [15]) (TimTissis.bbl [16])
+<Appendix.pdf, id=132, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf>
 Package pdftex.def Info: Appendix.pdf  used on input line 69.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Appendix.pdf, id=131, page=1, 614.295pt x 794.97pt>
+<Appendix.pdf, id=134, page=1, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 1>
-Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [16]
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 1>
-Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 1>
-Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [17
 
- <./Appendix.pdf>]
-<Appendix.pdf, id=177, page=2, 614.295pt x 794.97pt>
+]
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
+<use Appendix.pdf, page 1>
+Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
+<use Appendix.pdf, page 1>
+Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
+<use Appendix.pdf, page 1>
+Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [18
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=186, page=3, 614.295pt x 794.97pt>
+<Appendix.pdf, id=180, page=2, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [19
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=192, page=4, 614.295pt x 794.97pt>
+<Appendix.pdf, id=189, page=3, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [20
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=197, page=5, 614.295pt x 794.97pt>
+<Appendix.pdf, id=195, page=4, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [21
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=202, page=6, 614.295pt x 794.97pt>
+<Appendix.pdf, id=200, page=5, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [22
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=207, page=7, 614.295pt x 794.97pt>
+<Appendix.pdf, id=205, page=6, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [23
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=214, page=8, 614.295pt x 794.97pt>
+<Appendix.pdf, id=211, page=7, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [24
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=229, page=9, 614.295pt x 794.97pt>
+<Appendix.pdf, id=217, page=8, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [25
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=234, page=10, 614.295pt x 794.97pt>
+<Appendix.pdf, id=232, page=9, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [26
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=238, page=12, 614.295pt x 794.97pt>
+<Appendix.pdf, id=237, page=10, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [27
+
+ <./Appendix.pdf>]
+<Appendix.pdf, id=241, page=12, 614.295pt x 794.97pt>
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [28
 
  <./Appendix.pdf>]
 
@@ -1050,9 +1052,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  69i,17n,117p,1517b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\parra\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (29 pages, 4495596 bytes).
+Output written on TimTissis.pdf (30 pages, 4496864 bytes).
 PDF statistics:
- 302 PDF objects out of 1000 (max. 8388607)
+ 305 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 

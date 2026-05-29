@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex TimTissis"] 1777526496.44841 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 1777526503.3405 0
+["bibtex TimTissis"] 1779204574.8446 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 1779205588.71065 0
   "./reference.bib" 1777351820 5094 b79f4e01f7fd1f696060990fa9966066 ""
   "./source.bib" 1777351825 12256 720d698cc7f802fa08236064efb9ec6a ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "TimTissis.aux" 1777526501 11123 e11e0fce68046703e0560295c69dafc2 "pdflatex"
+  "TimTissis.aux" 1779205586 11176 cf1b914e8ae8cedccf57e452fb1316c8 "pdflatex"
   (generated)
   "TimTissis.bbl"
   "TimTissis.blg"
   (rewritten before read)
-["pdflatex"] 1777526497.2563 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1777526503.34213 0
+["pdflatex"] 1779205582.098 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1779205588.71195 0
   "Appendix.pdf" 1777454067 3020835 a9ff62b181de69b2531d1c2db8441cd9 ""
   "BoxDimensions.png" 1777348348 16164 30dc5667578804b5235d3ff51459c3c8 ""
   "C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1777350064 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -143,12 +143,12 @@
   "Section4.tex" 1777474839 1227 bd66cddbf9549c69bb549685f5d5a76a ""
   "Section5.tex" 1777517371 3598 f90d1f8addb3fb5e1f5e7481c9daef66 ""
   "Section6.tex" 1777474875 6212 7cc80253735ad2c9cc9f4495c4a904da ""
-  "Section7.tex" 1777454405 56352 aff4b9679925fbc75467a09d520c9491 ""
+  "Section7.tex" 1779205579 57168 aa2b25e2e4e0001af01c2741ecaa6f7b ""
   "StepMotor.png" 1777348348 68029 b0b946e83e0998b9a340aaae47c21c0c ""
   "SystemFlowchart.png" 1777384676 86089 73cf0bc0fee0b92437b8983ddd317714 ""
   "SystemVisual.png" 1777448815 163287 6f18e4dacd9c7c684ec90906affee00b ""
-  "TimTissis.aux" 1777526501 11123 e11e0fce68046703e0560295c69dafc2 "pdflatex"
-  "TimTissis.bbl" 1777526497 4611 1bccc523cd663186e46642a85d05e2f2 "bibtex TimTissis"
+  "TimTissis.aux" 1779205586 11176 cf1b914e8ae8cedccf57e452fb1316c8 "pdflatex"
+  "TimTissis.bbl" 1779204575 4611 1bccc523cd663186e46642a85d05e2f2 "bibtex TimTissis"
   "TimTissis.tex" 1777526481 3570 ea21e1787fe246bfe66869415ddf95a6 ""
   "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" 1777526481 3570 ea21e1787fe246bfe66869415ddf95a6 ""
   (generated)

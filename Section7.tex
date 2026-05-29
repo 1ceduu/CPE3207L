@@ -68,7 +68,7 @@ The end-to-end data flow pipeline is illustrated in Figure \ref{fig:data_flow_pi
 \begin{itemize}
   \item \textbf{Software/Language:} C/C++ utilizing the FreeRTOS (Real-Time Operating System) environment.
   \item \textbf{Why it is used:} C/C++ provides the low-level memory management and fast execution speeds required for high-frequency sensor sampling. FreeRTOS allows the ESP32 to effectively utilize its dual-core processor by dividing tasks into concurrent threads.
-  \item \textbf{How it is implemented:} As shown in Figure \ref{fig:esp32_firmware_flowchart}, Core 0 is dedicated strictly to hardware interrupts---specifically counting pulses from the YF-S201 flow meter and reading the HX711 ADC---ensuring no data is lost during execution delays. Core 1 manages the MODBUS RTU slave stack, listening for polling requests from the Raspberry Pi and transmitting the localized sensor data stored in its memory registers.
+  \item \textbf{How it is implemented:} As shown in Figure \ref{fig:esp32_firmware_flowchart}, Core 0 is dedicated strictly to hardware interrupts---specifically counting pulses from the YF-S201 flow meter and reading the HX711 ADC---minimizing the risk of missed sensor readings during execution delays. Core 1 manages the MODBUS RTU slave stack, listening for polling requests from the Raspberry Pi and transmitting the localized sensor data stored in its memory registers.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -337,7 +337,7 @@ System performance will be assessed against quantitative metrics aligned with th
 
 \textbf{Quantitative Metrics:}
 \begin{itemize}
-  \item \textbf{Feed Dispensing Accuracy (FDA):} Percentage agreement between the target dispensed mass and the gravimetrically measured actual dispensed mass across a calibration trial of 30 dispensing events per module. A minimum passing threshold of $\geq 95\%$ is required for the system to be considered operationally accurate \cite{adeoye2025animalia,dingcong2017monitoring}:
+  \item \textbf{Feed Dispensing Accuracy (FDA):} Percentage agreement between the target dispensed mass and the gravimetrically measured actual dispensed mass across a calibration trial of 30 dispensing events per module. A minimum passing threshold of $\geq 95\%$ is adopted, consistent with accuracy benchmarks reported in comparable automated feeding and precision livestock systems \cite{adeoye2025animalia,dingcong2017monitoring}. This threshold was selected because a $\pm 5\%$ tolerance accounts for the inherent variability of granular feed flow through auger mechanisms while remaining within nutritionally acceptable dispensing limits for swine rations:
     \begin{equation}
       FDA = \left(1 - \frac{|M_{target} - M_{actual}|}{M_{target}}\right) \times 100\%
     \end{equation}
@@ -386,7 +386,7 @@ This objective requires demonstrating that the central unit (Raspberry Pi and ho
     \begin{equation}
       FDA = \left(1 - \frac{|M_{target} - M_{actual}|}{M_{target}}\right) \times 100\%
     \end{equation}
-    \textbf{Pass Criterion:} Mean FDA across all 30 trials $\geq 95\%$.
+    \textbf{Pass Criterion:} Mean FDA across all 30 trials $\geq 95\%$. This threshold is adopted from accuracy benchmarks reported in comparable automated feeding and precision livestock systems \cite{adeoye2025animalia,dingcong2017monitoring}. A $\pm 5\%$ tolerance was selected because it accounts for the inherent variability of granular feed flow through auger mechanisms while remaining within nutritionally acceptable dispensing limits for swine rations.
 
     \textbf{How this demonstrates the objective:} If the system consistently dispenses feed within $\pm 5\%$ of the programmed target across repeated trials, it confirms that the central unit can reliably automate the dispensing process with the accuracy required for precision feeding. The use of 30 trials ensures statistical robustness and accounts for natural variability in granular feed flow \cite{adeoye2025animalia,dingcong2017monitoring}.
 
@@ -423,14 +423,14 @@ This objective requires demonstrating that each feeder module's sensors produce 
 
 \textbf{Objective 3: Develop a user interface on the central unit for system monitoring, data acquisition, and historical logging.}
 
-This objective requires demonstrating that the touchscreen dashboard displays real-time sensor data, allows configuration of feeding schedules, and maintains a persistent historical log accessible to the caretaker.
+This objective requires demonstrating that the touchscreen dashboard displays near-real-time sensor data, allows configuration of feeding schedules, and maintains a persistent historical log accessible to the caretaker.
 
 \begin{itemize}
   \item \textbf{Test 3.1 -- Data Display Latency:} The time elapsed between a sensor reading being acquired at the feeder node and its appearance on the touchscreen dashboard will be measured across 50 consecutive poll cycles.
 
-    \textbf{Pass Criterion:} Mean latency $\le 2$ seconds, with no individual reading exceeding 5 seconds.
+    \textbf{Pass Criterion:} Mean latency $\le 2$ seconds, with no individual reading exceeding 3 seconds.
 
-    \textbf{How this demonstrates the objective:} A latency of $\le 2$ seconds confirms that the dashboard provides real-time monitoring, ensuring the caretaker sees current data rather than stale readings. This validates the system monitoring component of the objective \cite{beyondtech2025smart,adeoye2025animalia}.
+    \textbf{How this demonstrates the objective:} A mean latency of $\le 2$ seconds, with no individual reading exceeding 3 seconds, confirms that the dashboard provides near-real-time monitoring with sufficiently low delay for practical farm supervision, ensuring the caretaker sees current data rather than stale readings. This validates the system monitoring component of the objective \cite{beyondtech2025smart,adeoye2025animalia}.
 
   \item \textbf{Test 3.2 -- Data Persistence and Historical Logging:} The system will be operated continuously for 72 hours. After the trial, the SQLite database will be queried to verify that all sensor readings (feed weight, water level, ammonia), dispensing events, and anomaly alerts have been logged with correct timestamps.
 
