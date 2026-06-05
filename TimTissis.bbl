@@ -1,14 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{piyush2025animal}
-Piyush, ``Animal husbandry statistics 2025: Global livestock numbers, meat and
-  dairy production trends,'' November 2025.
-
-\bibitem{livestockproduction2026}
-``Global, asian, and philippine livestock production systems: A comprehensive
-  sectoral analysis of swine, poultry, and bovine dynamics (2024–2026),''
-  2026.
-
 \bibitem{oecdfao2025outlook}
 {OECD} and {Food and Agriculture Organization of the United Nations (FAO)},
   ``Oecd-fao agricultural outlook 2025-2034,'' tech. rep., OECD Publishing,
@@ -17,24 +8,6 @@ Piyush, ``Animal husbandry statistics 2025: Global livestock numbers, meat and
 \bibitem{usda2026pork}
 {USDA Foreign Agricultural Service}, ``Production - pork,'' 2026.
 
-\bibitem{porcinews2026philippine}
-{porciNews}, ``Philippine pig production rises late in 2025, but yearly output
-  falls,'' February 2026.
-
-\bibitem{lo2025rebooting}
-R.~H. Lo, ``Rebooting the philippines swine industry: Challenges, prospects,
-  and policy directions,'' September 2025.
-
-\bibitem{villanueva2025philippine}
-R.~V. Villanueva~Jr., H.-S. Hwang, and K.~S. Choi, ``{The Philippine Livestock
-  Industry: A Review of Current Status, Key Challenges, Emerging Opportunities,
-  and Sustainable Growth Strategies in a Developing Country Context},'' {\em
-  Journal of Developing Country Studies}, vol.~7, no.~3, pp.~1--26, 2025.
-
-\bibitem{beyondtech2025smart}
-{Beyond Technology}, ``Benefits of smart monitoring in pig farming beyond
-  visual control,'' June 2025.
-
 \bibitem{dingcong2017monitoring}
 J.~H.~B. Dingcong, J.~H. Tangoan, W.~S.~O. Tiu, J.~E.~L. Undag, R.~K.~V.
   Villegas, C.~M.~I. Gohetia, and J.~D.~A. Campanera, ``Monitoring the feeder
@@ -42,10 +15,19 @@ J.~H.~B. Dingcong, J.~H. Tangoan, W.~S.~O. Tiu, J.~E.~L. Undag, R.~K.~V.
   Computer Engineering}, (Cebu City, Philippines), University of San Carlos,
   2017.
 
+\bibitem{livestockproduction2026}
+``Global, asian, and philippine livestock production systems: A comprehensive
+  sectoral analysis of swine, poultry, and bovine dynamics (2024–2026),''
+  2026.
+
 \bibitem{adeoye2025animalia}
 M.~O. Adeoye, O.~T. Arogundade, and T.~Olaleye, ``Animalia: An iot-based
   temperature monitoring system for piggery farming,'' {\em IRE Journals},
   vol.~9, September 2025.
+
+\bibitem{beyondtech2025smart}
+{Beyond Technology}, ``Benefits of smart monitoring in pig farming beyond
+  visual control,'' June 2025.
 
 \bibitem{arguta2024iop}
 J.~J. Arguta, J.~R. Esteba, J.~D. Tuyo, K.~J.~G. Vizcarra, and P.~G.
@@ -64,6 +46,19 @@ G.~K. Dambaulova, V.~A. Madin, Z.~A. Utebayeva, M.~K. Baimyrzaeva, and L.~Z.
 J.~DeRouchey and B.~T. Richert, ``{Feeding systems for swine},'' Factsheet PIG
   09-06-03, Pork Information Gateway, 2010.
 
+\bibitem{tangorra2018energy}
+F.~M. Tangorra and A.~Calcante, ``{Energy consumption and technical-economic
+  analysis of an automatic feeding system for dairy farms: Results from a field
+  test},'' {\em Journal of Agricultural Engineering}, vol.~49, no.~3, 2018.
+
+\bibitem{whitney2018water}
+M.~Whitney, ``{Keeping track of water intake to monitor pig performance}.''
+  University of Minnesota Extension, 2018.
+
+\bibitem{samuel2025water}
+R.~Samuel, ``{Considerations of water for sustainable swine production}.'' SDSU
+  Extension, March 2025.
+
 \bibitem{sadeghi2023improving}
 E.~Sadeghi, C.~Kappers, A.~Chiumento, M.~Derks, and P.~Havinga, ``Improving
   piglets health and well-being: A review of piglets health indicators and
@@ -76,10 +71,34 @@ P.~Racewicz, A.~Ludwiczak, E.~Skrzypczak, J.~Sk{\l}adanowska-Baryza,
   P.~{\'S}l{\'o}sarz, ``Welfare health and productivity in commercial pig
   herds,'' {\em Animals}, vol.~11, April 2021.
 
+\bibitem{purdue2019ammonia}
+A.~J. Heber and B.~W. Bogan, ``{Air Quality in Swine Facilities: Managing
+  Ammonia for Health and Compliance},'' fact sheet, Purdue University
+  Extension, 2019.
+\newblock Recommends maintaining ammonia levels below 25 ppm (OSHA occupational
+  limit) in swine confinement facilities; research indicates concentrations
+  exceeding 20--25 ppm impair respiratory defenses in pigs.
+
+\bibitem{pig2013airquality}
+L.~D. Jacobson and B.~P. Hetchler, ``{Controlling Ammonia in Swine
+  Facilities},'' Factsheet PIG 07-05-06, Pork Information Gateway, 2013.
+\newblock Identifies 25 ppm as the occupational threshold limit value (TLV) for
+  ammonia and discusses its use as a practical alarm threshold in swine
+  monitoring systems.
+
 \bibitem{yamsakul2025machine}
 P.~Yamsakul, T.~Yano, K.~Junchum, W.~Anukul, and N.~Kittiwan, ``Machine
   learning-based detection of pig coughs and their association with respiratory
   diseases in fattening pigs,'' {\em Preprints.org}, June 2025.
+
+\bibitem{carvalho2023iot}
+E.~Carvalho, A.~Valente, and E.~J.~S. Pires, ``{An IoT-Based Architecture for
+  Precision Livestock Farming: A Systematic Review},'' {\em Sensors}, vol.~23,
+  no.~8, p.~3848, 2023.
+\newblock Reviews IoT-based PLF system performance; discusses continuous
+  availability requirements for embedded sensor networks in livestock
+  monitoring, with systems targeting \(\geq 95\%\) operational availability as
+  a baseline benchmark for farm deployment.
 
 \bibitem{everypig_nd}
 {EveryPig}, ``{Swine management software for data collection},'' 2026.
@@ -87,6 +106,10 @@ P.~Yamsakul, T.~Yano, K.~Junchum, W.~Anukul, and N.~Kittiwan, ``Machine
 
 \bibitem{jygatech2026vision}
 {Jyga Technologies}, ``{VISION swine production software},'' 2026.
+
+\bibitem{lo2025rebooting}
+R.~H. Lo, ``Rebooting the philippines swine industry: Challenges, prospects,
+  and policy directions,'' September 2025.
 
 \bibitem{healthforanimals2024prevention}
 {HealthforAnimals} and {Food and Agriculture Organization of the United Nations
@@ -100,5 +123,27 @@ M.~N. Reza, M.~R. Ali, M.~A. Haque, H.~Jin, H.~Kyoung, Y.~K. Choi, G.~Kim, and
   S.-O. Chung, ``A review of sound-based pig monitoring for enhanced precision
   production,'' {\em Journal of Animal Science and Technology}, vol.~67, no.~2,
   pp.~277--302, 2025.
+
+\bibitem{zhang2025precision}
+Y.~Zhang, Z.~Jiang, Z.~Li, H.~Qin, J.~Wang, and L.~Guo, ``{A Precision Feeding
+  System With Horizontal Screw Feeder Based on ADRC Controller},'' {\em
+  International Journal of Swarm Intelligence Research}, vol.~16, no.~1,
+  pp.~1--19, 2025.
+
+\bibitem{chen2024screw}
+P.~Chen, T.~Huang, B.~Wu, H.~Qian, F.~Xie, B.~Liu, D.~Liu, and X.~Li,
+  ``{Modeling the Discharge Rate of a Screw Conveyor Considering
+  Hopper--Conveyor Coupling Parameters},'' {\em Agriculture}, vol.~14, no.~7,
+  p.~1203, 2024.
+
+\bibitem{tibreza2023swine}
+J.~T. Tibreza, A.~Taer, and E.~C. Taer, ``{Enhancing Swine Husbandry: The
+  IoT-Integrated Hog Feeding Assistant},'' {\em The Vector: International
+  Journal of Emerging Science Technology and Management}, vol.~32, no.~1, 2023.
+
+\bibitem{he2024iot}
+X.~He, Z.~Zeng, Y.~Liu, E.~Lyu, J.~Xia, F.~Wang, and Y.~Luo, ``{An Internet of
+  Things-Based Cluster System for Monitoring Lactating Sows' Feed and Water
+  Intake},'' {\em Agriculture}, vol.~14, no.~6, p.~848, 2024.
 
 \end{thebibliography}
