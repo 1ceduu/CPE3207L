@@ -437,9 +437,6 @@ INPUT .\Flowcharts\AnomalyDetectionFlowchart.png
 INPUT .\TimTissis.bbl
 INPUT .\TimTissis.bbl
 INPUT TimTissis.bbl
-INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
-INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
-INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
@@ -449,6 +446,9 @@ INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
+INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
+INPUT C:\Users\parra\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT .\Appendix.pdf
 INPUT .\Appendix.pdf
 INPUT .\Appendix.pdf

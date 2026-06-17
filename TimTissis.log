@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  5 JUN 2026 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  6 JUN 2026 15:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -733,11 +733,11 @@ File: BoxDimensions.png Graphic file (type png)
 <use BoxDimensions.png>
 Package pdftex.def Info: BoxDimensions.png  used on input line 141.
 (pdftex.def)             Requested size: 201.60077pt x 168.5714pt.
-<Hinged Hopper Lid.png, id=83, 207.77625pt x 79.04532pt>
+<Hinged Hopper Lid.png, id=83, 587.19376pt x 176.91093pt>
 File: Hinged Hopper Lid.png Graphic file (type png)
 <use Hinged Hopper Lid.png>
 Package pdftex.def Info: Hinged Hopper Lid.png  used on input line 157.
-(pdftex.def)             Requested size: 201.60077pt x 76.69917pt.
+(pdftex.def)             Requested size: 201.60077pt x 60.7374pt.
 <StepMotor.png, id=84, 185.19188pt x 177.66376pt>
 File: StepMotor.png Graphic file (type png)
 <use StepMotor.png>
@@ -754,25 +754,28 @@ File: LoadCell.png Graphic file (type png)
 <use LoadCell.png>
 Package pdftex.def Info: LoadCell.png  used on input line 194.
 (pdftex.def)             Requested size: 126.0pt x 101.62694pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 <LevelSensor.png, id=92, 238.64156pt x 191.21437pt>
 File: LevelSensor.png Graphic file (type png)
 <use LevelSensor.png>
 Package pdftex.def Info: LevelSensor.png  used on input line 201.
 (pdftex.def)             Requested size: 176.39923pt x 141.34177pt.
+
+Underfull \vbox (badness 5592) has occurred while \output is active []
+
 <Flowcharts/WaterRefullModuleFlowchart.png, id=93, 678.535pt x 673.51625pt>
 File: Flowcharts/WaterRefullModuleFlowchart.png Graphic file (type png)
 <use Flowcharts/WaterRefullModuleFlowchart.png>
 Package pdftex.def Info: Flowcharts/WaterRefullModuleFlowchart.png  used on input line 210.
 (pdftex.def)             Requested size: 201.60077pt x 200.10379pt.
- [9 <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)> <./LevelSensor.png (PNG copy)> <./Flowcharts/WaterRefullModuleFlowchart.png>]
-<MQ-135.png, id=99, 152.06813pt x 152.06813pt>
+<MQ-135.png, id=94, 152.06813pt x 152.06813pt>
 File: MQ-135.png Graphic file (type png)
 <use MQ-135.png>
 Package pdftex.def Info: MQ-135.png  used on input line 219.
 (pdftex.def)             Requested size: 126.0pt x 126.00302pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)> <./LevelSensor.png (PNG copy)> <./Flowcharts/WaterRefullModuleFlowchart.png>]
 <Flowcharts/RS-485MODBUSCommunicationChart.png, id=100, 582.175pt x 902.37125pt>
 File: Flowcharts/RS-485MODBUSCommunicationChart.png Graphic file (type png)
 <use Flowcharts/RS-485MODBUSCommunicationChart.png>
@@ -832,7 +835,7 @@ Underfull \hbox (badness 2626) in paragraph at lines 379--380
  []
 
 [14]
-Underfull \vbox (badness 4543) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 400--401
@@ -854,16 +857,13 @@ Underfull \hbox (badness 1661) in paragraph at lines 400--401
 \OT1/ptm/m/n/10 com-plete-ness, and re-sponse time will be com-pared
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15] [16] [17] [18]) (TimTissis.bbl [19])
-<Appendix.pdf, id=141, 614.295pt x 794.97pt>
+[15] [16] [17] [18]) (TimTissis.bbl [19])
+<Appendix.pdf, id=142, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf>
 Package pdftex.def Info: Appendix.pdf  used on input line 69.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Appendix.pdf, id=143, page=1, 614.295pt x 794.97pt>
+<Appendix.pdf, id=144, page=1, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
@@ -1070,13 +1070,13 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  9989 strings out of 467871
  172761 string characters out of 5418376
- 600059 words of memory out of 5000000
+ 601059 words of memory out of 5000000
  38692 multiletter control sequences out of 15000+600000
  668043 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,17n,117p,1507b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (33 pages, 4524693 bytes).
+Output written on TimTissis.pdf (33 pages, 4550438 bytes).
 PDF statistics:
  315 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
