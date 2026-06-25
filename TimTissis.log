@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  6 JUN 2026 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  25 JUN 2026 15:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -699,19 +699,16 @@ File: SystemVisual.png Graphic file (type png)
 Package pdftex.def Info: SystemVisual.png  used on input line 36.
 (pdftex.def)             Requested size: 226.79846pt x 190.26617pt.
  [5 <./ConceptualFramework.png> <./SystemFlowchart.png>]
-Underfull \vbox (badness 1221) has occurred while \output is active []
-
 <Flowcharts/DataFlowPipelineFlowchart.png, id=69, 559.08875pt x 815.045pt>
 File: Flowcharts/DataFlowPipelineFlowchart.png Graphic file (type png)
 <use Flowcharts/DataFlowPipelineFlowchart.png>
 Package pdftex.def Info: Flowcharts/DataFlowPipelineFlowchart.png  used on input line 60.
 (pdftex.def)             Requested size: 201.60077pt x 293.88857pt.
-
+ [6 <./SystemVisual.png> <./Flowcharts/DataFlowPipelineFlowchart.png>]
 Underfull \hbox (badness 1895) in paragraph at lines 69--70
 []\OT1/ptm/b/n/10 Software/Language: \OT1/ptm/m/n/10 C/C++ uti-liz-ing the FreeR-TOS
  []
 
-[6 <./SystemVisual.png> <./Flowcharts/DataFlowPipelineFlowchart.png>]
 <Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png, id=75, 748.7975pt x 807.015pt>
 File: Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png Graphic file (type png)
 <use Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png>
@@ -722,17 +719,23 @@ File: MainUnit.png Graphic file (type png)
 <use MainUnit.png>
 Package pdftex.def Info: MainUnit.png  used on input line 113.
 (pdftex.def)             Requested size: 151.20154pt x 96.06287pt.
- [7 <./Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png> <./MainUnit.png (PNG copy)>]
-<ConeDimensions.png, id=81, 244.66406pt x 143.78719pt>
+
+Underfull \vbox (badness 5985) has occurred while \output is active []
+
+ [7 <./Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png>]
+<ConeDimensions.png, id=81, 403.5075pt x 369.63094pt>
 File: ConeDimensions.png Graphic file (type png)
 <use ConeDimensions.png>
 Package pdftex.def Info: ConeDimensions.png  used on input line 134.
-(pdftex.def)             Requested size: 201.60077pt x 118.48108pt.
-<BoxDimensions.png, id=82, 225.09094pt x 188.20313pt>
+(pdftex.def)             Requested size: 201.60077pt x 184.674pt.
+<BoxDimensions.png, id=82, 563.85657pt x 252.19218pt>
 File: BoxDimensions.png Graphic file (type png)
 <use BoxDimensions.png>
 Package pdftex.def Info: BoxDimensions.png  used on input line 141.
-(pdftex.def)             Requested size: 201.60077pt x 168.5714pt.
+(pdftex.def)             Requested size: 201.60077pt x 90.16956pt.
+
+Underfull \vbox (badness 2134) has occurred while \output is active []
+
 <Hinged Hopper Lid.png, id=83, 587.19376pt x 176.91093pt>
 File: Hinged Hopper Lid.png Graphic file (type png)
 <use Hinged Hopper Lid.png>
@@ -743,12 +746,15 @@ File: StepMotor.png Graphic file (type png)
 <use StepMotor.png>
 Package pdftex.def Info: StepMotor.png  used on input line 172.
 (pdftex.def)             Requested size: 126.0pt x 120.88023pt.
-<Flowcharts/FeedDispensingModuleFlowchart.png, id=85, 558.085pt x 1023.825pt>
+ [8 <./MainUnit.png (PNG copy)> <./ConeDimensions.png (PNG copy)> <./BoxDimensions.png (PNG copy)> <./Hinged Hopper Lid.png (PNG copy)>]
+<Flowcharts/FeedDispensingModuleFlowchart.png, id=90, 558.085pt x 1023.825pt>
 File: Flowcharts/FeedDispensingModuleFlowchart.png Graphic file (type png)
 <use Flowcharts/FeedDispensingModuleFlowchart.png>
 Package pdftex.def Info: Flowcharts/FeedDispensingModuleFlowchart.png  used on input line 179.
 (pdftex.def)             Requested size: 201.60077pt x 369.84212pt.
- [8 <./ConeDimensions.png (PNG copy)> <./BoxDimensions.png (PNG copy)> <./Hinged Hopper Lid.png (PNG copy)> <./StepMotor.png (PNG copy)>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 <LoadCell.png, id=91, 229.60782pt x 185.19188pt>
 File: LoadCell.png Graphic file (type png)
 <use LoadCell.png>
@@ -759,34 +765,27 @@ File: LevelSensor.png Graphic file (type png)
 <use LevelSensor.png>
 Package pdftex.def Info: LevelSensor.png  used on input line 201.
 (pdftex.def)             Requested size: 176.39923pt x 141.34177pt.
-
-Underfull \vbox (badness 5592) has occurred while \output is active []
-
-<Flowcharts/WaterRefullModuleFlowchart.png, id=93, 678.535pt x 673.51625pt>
+ [9 <./StepMotor.png (PNG copy)> <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)> <./LevelSensor.png (PNG copy)>]
+<Flowcharts/WaterRefullModuleFlowchart.png, id=97, 678.535pt x 673.51625pt>
 File: Flowcharts/WaterRefullModuleFlowchart.png Graphic file (type png)
 <use Flowcharts/WaterRefullModuleFlowchart.png>
 Package pdftex.def Info: Flowcharts/WaterRefullModuleFlowchart.png  used on input line 210.
 (pdftex.def)             Requested size: 201.60077pt x 200.10379pt.
-<MQ-135.png, id=94, 152.06813pt x 152.06813pt>
+<MQ-135.png, id=98, 152.06813pt x 152.06813pt>
 File: MQ-135.png Graphic file (type png)
 <use MQ-135.png>
 Package pdftex.def Info: MQ-135.png  used on input line 219.
 (pdftex.def)             Requested size: 126.0pt x 126.00302pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9 <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)> <./LevelSensor.png (PNG copy)> <./Flowcharts/WaterRefullModuleFlowchart.png>]
-<Flowcharts/RS-485MODBUSCommunicationChart.png, id=100, 582.175pt x 902.37125pt>
+<Flowcharts/RS-485MODBUSCommunicationChart.png, id=99, 582.175pt x 902.37125pt>
 File: Flowcharts/RS-485MODBUSCommunicationChart.png Graphic file (type png)
 <use Flowcharts/RS-485MODBUSCommunicationChart.png>
 Package pdftex.def Info: Flowcharts/RS-485MODBUSCommunicationChart.png  used on input line 238.
 (pdftex.def)             Requested size: 201.60077pt x 312.47502pt.
-
+ [10 <./Flowcharts/WaterRefullModuleFlowchart.png> <./MQ-135.png (PNG copy)> <./Flowcharts/RS-485MODBUSCommunicationChart.png>]
 Underfull \hbox (badness 1596) in paragraph at lines 251--252
 []\OT1/ptm/b/n/10 LoRa-SMS Alert Gate-way: \OT1/ptm/m/n/10 A back-ground Python
  []
 
-[10 <./MQ-135.png (PNG copy)> <./Flowcharts/RS-485MODBUSCommunicationChart.png>]
 <Flowcharts/LoRaSMSAlertPipeline.png, id=105, 597.23125pt x 756.8275pt>
 File: Flowcharts/LoRaSMSAlertPipeline.png Graphic file (type png)
 <use Flowcharts/LoRaSMSAlertPipeline.png>
@@ -797,73 +796,73 @@ File: Screens/MainShii.jpg Graphic file (type jpg)
 <use Screens/MainShii.jpg>
 Package pdftex.def Info: Screens/MainShii.jpg  used on input line 270.
 (pdftex.def)             Requested size: 214.20154pt x 170.88188pt.
-<Screens/PenControlShii.jpg, id=107, 1080.035pt x 864.22874pt>
+[11 <./Flowcharts/LoRaSMSAlertPipeline.png> <./Screens/MainShii.jpg>]
+<Screens/PenControlShii.jpg, id=112, 1080.035pt x 864.22874pt>
 File: Screens/PenControlShii.jpg Graphic file (type jpg)
 <use Screens/PenControlShii.jpg>
 Package pdftex.def Info: Screens/PenControlShii.jpg  used on input line 287.
 (pdftex.def)             Requested size: 214.20154pt x 171.3921pt.
- [11 <./Flowcharts/LoRaSMSAlertPipeline.png> <./Screens/MainShii.jpg> <./Screens/PenControlShii.jpg>]
 <Screens/FeedSettings.jpg, id=113, 1076.02pt x 862.22125pt>
 File: Screens/FeedSettings.jpg Graphic file (type jpg)
 <use Screens/FeedSettings.jpg>
-Package pdftex.def Info: Screens/FeedSettings.jpg  used on input line 305.
+Package pdftex.def Info: Screens/FeedSettings.jpg  used on input line 306.
 (pdftex.def)             Requested size: 214.20154pt x 171.63864pt.
 
-Underfull \hbox (badness 2134) in paragraph at lines 312--313
+Underfull \hbox (badness 2134) in paragraph at lines 313--314
 \OT1/ptm/m/n/10 via up/down ar-row con-trols in hours and min-utes
  []
 
-
-Underfull \hbox (badness 3364) in paragraph at lines 321--323
+[12 <./Screens/PenControlShii.jpg> <./Screens/FeedSettings.jpg>]
+Underfull \hbox (badness 3364) in paragraph at lines 335--337
 \OT1/ptm/m/n/10 A de-vi-a-tion alert is gen-er-ated when the cur-rent ses-
  []
 
-[12 <./Screens/FeedSettings.jpg>]
-<Flowcharts/AnomalyDetectionFlowchart.png, id=117, 533.995pt x 755.82375pt>
+
+Underfull \vbox (badness 4543) has occurred while \output is active []
+
+ [13]
+<Flowcharts/AnomalyDetectionFlowchart.png, id=120, 533.995pt x 755.82375pt>
 File: Flowcharts/AnomalyDetectionFlowchart.png Graphic file (type png)
 <use Flowcharts/AnomalyDetectionFlowchart.png>
-Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 335.
+Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 349.
 (pdftex.def)             Requested size: 201.60077pt x 285.34767pt.
- [13 <./Flowcharts/AnomalyDetectionFlowchart.png>]
-Underfull \hbox (badness 2073) in paragraph at lines 374--375
+ [14 <./Flowcharts/AnomalyDetectionFlowchart.png>]
+Underfull \hbox (badness 2073) in paragraph at lines 388--389
 []\OT1/ptm/b/n/10 Owner/Caretaker User Ac-cep-tance Score (UAS):
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 379--380
+Underfull \hbox (badness 2626) in paragraph at lines 393--394
 \OT1/ptm/m/n/10 tamped records, in-clud-ing sched-uled feed-ing, man-
  []
 
-[14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 []\OT1/ptm/b/n/10 Control-group com-par-i-son: \OT1/ptm/m/n/10 A manual-monitoring
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 400--401
+Underfull \hbox (badness 1490) in paragraph at lines 414--415
 \OT1/ptm/m/n/10 group will per-form the same check-ing tasks us-ing
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 400--401
+Underfull \hbox (badness 4378) in paragraph at lines 414--415
 \OT1/ptm/m/n/10 alerts. Com-ple-tion time, missed anoma-lies, record
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 400--401
+Underfull \hbox (badness 1661) in paragraph at lines 414--415
 \OT1/ptm/m/n/10 com-plete-ness, and re-sponse time will be com-pared
  []
 
-[15] [16] [17] [18]) (TimTissis.bbl [19])
-<Appendix.pdf, id=142, 614.295pt x 794.97pt>
+[16] [17] [18] [19]) (TimTissis.bbl [20])
+<Appendix.pdf, id=145, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf>
 Package pdftex.def Info: Appendix.pdf  used on input line 69.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Appendix.pdf, id=144, page=1, 614.295pt x 794.97pt>
+<Appendix.pdf, id=147, page=1, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
@@ -872,7 +871,7 @@ File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [20
+ [21
 
 ]
 File: Appendix.pdf Graphic file (type pdf)
@@ -887,167 +886,167 @@ File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 1>
 Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [21
-
- <./Appendix.pdf>]
-<Appendix.pdf, id=189, page=2, 614.295pt x 794.97pt>
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
-File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 2>
-Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
-(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [22
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=198, page=3, 614.295pt x 794.97pt>
+<Appendix.pdf, id=192, page=2, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 3>
-Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
+<use Appendix.pdf, page 2>
+Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [23
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=205, page=4, 614.295pt x 794.97pt>
+<Appendix.pdf, id=202, page=3, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 4>
-Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
+<use Appendix.pdf, page 3>
+Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [24
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=210, page=5, 614.295pt x 794.97pt>
+<Appendix.pdf, id=208, page=4, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 5>
-Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
+<use Appendix.pdf, page 4>
+Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [25
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=215, page=6, 614.295pt x 794.97pt>
+<Appendix.pdf, id=213, page=5, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 6>
-Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
+<use Appendix.pdf, page 5>
+Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [26
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=220, page=7, 614.295pt x 794.97pt>
+<Appendix.pdf, id=218, page=6, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 7>
-Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
+<use Appendix.pdf, page 6>
+Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [27
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=226, page=8, 614.295pt x 794.97pt>
+<Appendix.pdf, id=223, page=7, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 8>
-Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
+<use Appendix.pdf, page 7>
+Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [28
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=241, page=9, 614.295pt x 794.97pt>
+<Appendix.pdf, id=229, page=8, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 9>
-Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
+<use Appendix.pdf, page 8>
+Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [29
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=247, page=10, 614.295pt x 794.97pt>
+<Appendix.pdf, id=245, page=9, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 10>
-Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
+<use Appendix.pdf, page 9>
+Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [30
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=251, page=12, 614.295pt x 794.97pt>
+<Appendix.pdf, id=250, page=10, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Appendix.pdf Graphic file (type pdf)
-<use Appendix.pdf, page 12>
-Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+<use Appendix.pdf, page 10>
+Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [31
+
+ <./Appendix.pdf>]
+<Appendix.pdf, id=254, page=12, 614.295pt x 794.97pt>
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Appendix.pdf Graphic file (type pdf)
+<use Appendix.pdf, page 12>
+Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [32
 
  <./Appendix.pdf>]
 
@@ -1070,15 +1069,15 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  9989 strings out of 467871
  172761 string characters out of 5418376
- 601059 words of memory out of 5000000
+ 602060 words of memory out of 5000000
  38692 multiletter control sequences out of 15000+600000
  668043 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,17n,117p,1507b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (33 pages, 4550438 bytes).
+Output written on TimTissis.pdf (34 pages, 4586134 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
+ 318 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
