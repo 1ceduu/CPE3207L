@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  25 JUN 2026 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.28)  25 JUN 2026 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -634,9 +634,16 @@ Overfull \hbox (4.34033pt too wide) in paragraph at lines 45--45
  [] 
  []
 
-(Section1.tex) (Section2.tex) (Section3.tex [1{C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+(Section1.tex
+LaTeX Info: Symbol \textpeso not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 5.
+LaTeX Info: Symbol \textpeso not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 7.
+) (Section2.tex [1{C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
-]) (Section4.tex) (Section5.tex
+]) (Section3.tex) (Section4.tex) (Section5.tex
 Underfull \hbox (badness 7504) in paragraph at lines 3--4
 \OT1/ptm/m/n/10 rang-ing from small-scale back-yard farm-ers to ma-jor
  []
@@ -646,7 +653,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-
+[2]
 Underfull \hbox (badness 3758) in paragraph at lines 7--9
 \OT1/ptm/m/n/10 and mon-i-tor-ing sys-tem, the pro-posed so-lu-tion di-rectly
  []
@@ -671,7 +678,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
 
-[2]
+
 Underfull \hbox (badness 2521) in paragraph at lines 24--26
 \OT1/ptm/m/n/10 for fu-ture en-gi-neer-ing work in agri-cul-tural au-toma-tion,
  []
@@ -681,30 +688,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
 
-) (Section6.tex [3]) (Section7.tex
-<ConceptualFramework.png, id=56, 852.18375pt x 501.875pt>
+) (Section6.tex [3] [4]) (Section7.tex
+<ConceptualFramework.png, id=60, 852.18375pt x 501.875pt>
 File: ConceptualFramework.png Graphic file (type png)
 <use ConceptualFramework.png>
 Package pdftex.def Info: ConceptualFramework.png  used on input line 8.
 (pdftex.def)             Requested size: 201.60077pt x 118.7294pt.
- [4]
-<SystemFlowchart.png, id=61, 900.36375pt x 919.435pt>
+
+Underfull \vbox (badness 4543) has occurred while \output is active []
+
+ [5 <./ConceptualFramework.png>]
+<SystemFlowchart.png, id=67, 900.36375pt x 919.435pt>
 File: SystemFlowchart.png Graphic file (type png)
 <use SystemFlowchart.png>
 Package pdftex.def Info: SystemFlowchart.png  used on input line 27.
 (pdftex.def)             Requested size: 201.60077pt x 205.86786pt.
-<SystemVisual.png, id=62, 1040.88875pt x 873.2625pt>
+<SystemVisual.png, id=68, 1040.88875pt x 873.2625pt>
 File: SystemVisual.png Graphic file (type png)
 <use SystemVisual.png>
 Package pdftex.def Info: SystemVisual.png  used on input line 36.
 (pdftex.def)             Requested size: 226.79846pt x 190.26617pt.
- [5 <./ConceptualFramework.png> <./SystemFlowchart.png>]
-<Flowcharts/DataFlowPipelineFlowchart.png, id=69, 559.08875pt x 815.045pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./SystemFlowchart.png> <./SystemVisual.png>]
+<Flowcharts/DataFlowPipelineFlowchart.png, id=74, 559.08875pt x 815.045pt>
 File: Flowcharts/DataFlowPipelineFlowchart.png Graphic file (type png)
 <use Flowcharts/DataFlowPipelineFlowchart.png>
 Package pdftex.def Info: Flowcharts/DataFlowPipelineFlowchart.png  used on input line 60.
 (pdftex.def)             Requested size: 201.60077pt x 293.88857pt.
- [6 <./SystemVisual.png> <./Flowcharts/DataFlowPipelineFlowchart.png>]
+
 Underfull \hbox (badness 1895) in paragraph at lines 69--70
 []\OT1/ptm/b/n/10 Software/Language: \OT1/ptm/m/n/10 C/C++ uti-liz-ing the FreeR-TOS
  []
@@ -714,74 +727,68 @@ File: Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png Graphic file (type png)
 <use Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png>
 Package pdftex.def Info: Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png  used on input line 76.
 (pdftex.def)             Requested size: 201.60077pt x 217.26894pt.
-<MainUnit.png, id=76, 191.9672pt x 121.95563pt>
+[7 <./Flowcharts/DataFlowPipelineFlowchart.png> <./Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png>]
+<MainUnit.png, id=81, 191.9672pt x 121.95563pt>
 File: MainUnit.png Graphic file (type png)
 <use MainUnit.png>
 Package pdftex.def Info: MainUnit.png  used on input line 113.
 (pdftex.def)             Requested size: 151.20154pt x 96.06287pt.
-
-Underfull \vbox (badness 5985) has occurred while \output is active []
-
- [7 <./Flowcharts/ESP32EdgeNodeFirmwareFlowchart.png>]
-<ConeDimensions.png, id=81, 403.5075pt x 369.63094pt>
+<ConeDimensions.png, id=82, 403.5075pt x 369.63094pt>
 File: ConeDimensions.png Graphic file (type png)
 <use ConeDimensions.png>
 Package pdftex.def Info: ConeDimensions.png  used on input line 134.
 (pdftex.def)             Requested size: 201.60077pt x 184.674pt.
-<BoxDimensions.png, id=82, 563.85657pt x 252.19218pt>
+<BoxDimensions.png, id=83, 563.85657pt x 252.19218pt>
 File: BoxDimensions.png Graphic file (type png)
 <use BoxDimensions.png>
 Package pdftex.def Info: BoxDimensions.png  used on input line 141.
 (pdftex.def)             Requested size: 201.60077pt x 90.16956pt.
-
-Underfull \vbox (badness 2134) has occurred while \output is active []
-
-<Hinged Hopper Lid.png, id=83, 587.19376pt x 176.91093pt>
+<Hinged Hopper Lid.png, id=84, 587.19376pt x 176.91093pt>
 File: Hinged Hopper Lid.png Graphic file (type png)
 <use Hinged Hopper Lid.png>
 Package pdftex.def Info: Hinged Hopper Lid.png  used on input line 157.
 (pdftex.def)             Requested size: 201.60077pt x 60.7374pt.
-<StepMotor.png, id=84, 185.19188pt x 177.66376pt>
+ [8 <./MainUnit.png (PNG copy)> <./ConeDimensions.png (PNG copy)> <./BoxDimensions.png (PNG copy)> <./Hinged Hopper Lid.png (PNG copy)>]
+<StepMotor.png, id=90, 185.19188pt x 177.66376pt>
 File: StepMotor.png Graphic file (type png)
 <use StepMotor.png>
 Package pdftex.def Info: StepMotor.png  used on input line 172.
 (pdftex.def)             Requested size: 126.0pt x 120.88023pt.
- [8 <./MainUnit.png (PNG copy)> <./ConeDimensions.png (PNG copy)> <./BoxDimensions.png (PNG copy)> <./Hinged Hopper Lid.png (PNG copy)>]
-<Flowcharts/FeedDispensingModuleFlowchart.png, id=90, 558.085pt x 1023.825pt>
+<Flowcharts/FeedDispensingModuleFlowchart.png, id=91, 558.085pt x 1023.825pt>
 File: Flowcharts/FeedDispensingModuleFlowchart.png Graphic file (type png)
 <use Flowcharts/FeedDispensingModuleFlowchart.png>
 Package pdftex.def Info: Flowcharts/FeedDispensingModuleFlowchart.png  used on input line 179.
 (pdftex.def)             Requested size: 201.60077pt x 369.84212pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<LoadCell.png, id=91, 229.60782pt x 185.19188pt>
+<LoadCell.png, id=92, 229.60782pt x 185.19188pt>
 File: LoadCell.png Graphic file (type png)
 <use LoadCell.png>
 Package pdftex.def Info: LoadCell.png  used on input line 194.
 (pdftex.def)             Requested size: 126.0pt x 101.62694pt.
-<LevelSensor.png, id=92, 238.64156pt x 191.21437pt>
+<LevelSensor.png, id=93, 238.64156pt x 191.21437pt>
 File: LevelSensor.png Graphic file (type png)
 <use LevelSensor.png>
 Package pdftex.def Info: LevelSensor.png  used on input line 201.
 (pdftex.def)             Requested size: 176.39923pt x 141.34177pt.
- [9 <./StepMotor.png (PNG copy)> <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)> <./LevelSensor.png (PNG copy)>]
-<Flowcharts/WaterRefullModuleFlowchart.png, id=97, 678.535pt x 673.51625pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./StepMotor.png (PNG copy)> <./Flowcharts/FeedDispensingModuleFlowchart.png> <./LoadCell.png (PNG copy)>]
+<Flowcharts/WaterRefullModuleFlowchart.png, id=98, 678.535pt x 673.51625pt>
 File: Flowcharts/WaterRefullModuleFlowchart.png Graphic file (type png)
 <use Flowcharts/WaterRefullModuleFlowchart.png>
 Package pdftex.def Info: Flowcharts/WaterRefullModuleFlowchart.png  used on input line 210.
 (pdftex.def)             Requested size: 201.60077pt x 200.10379pt.
-<MQ-135.png, id=98, 152.06813pt x 152.06813pt>
+<MQ-135.png, id=99, 152.06813pt x 152.06813pt>
 File: MQ-135.png Graphic file (type png)
 <use MQ-135.png>
 Package pdftex.def Info: MQ-135.png  used on input line 219.
 (pdftex.def)             Requested size: 126.0pt x 126.00302pt.
-<Flowcharts/RS-485MODBUSCommunicationChart.png, id=99, 582.175pt x 902.37125pt>
+<Flowcharts/RS-485MODBUSCommunicationChart.png, id=100, 582.175pt x 902.37125pt>
 File: Flowcharts/RS-485MODBUSCommunicationChart.png Graphic file (type png)
 <use Flowcharts/RS-485MODBUSCommunicationChart.png>
 Package pdftex.def Info: Flowcharts/RS-485MODBUSCommunicationChart.png  used on input line 238.
 (pdftex.def)             Requested size: 201.60077pt x 312.47502pt.
- [10 <./Flowcharts/WaterRefullModuleFlowchart.png> <./MQ-135.png (PNG copy)> <./Flowcharts/RS-485MODBUSCommunicationChart.png>]
+ [10 <./LevelSensor.png (PNG copy)> <./Flowcharts/WaterRefullModuleFlowchart.png> <./MQ-135.png (PNG copy)>]
 Underfull \hbox (badness 1596) in paragraph at lines 251--252
 []\OT1/ptm/b/n/10 LoRa-SMS Alert Gate-way: \OT1/ptm/m/n/10 A back-ground Python
  []
@@ -796,32 +803,29 @@ File: Screens/MainShii.jpg Graphic file (type jpg)
 <use Screens/MainShii.jpg>
 Package pdftex.def Info: Screens/MainShii.jpg  used on input line 270.
 (pdftex.def)             Requested size: 214.20154pt x 170.88188pt.
-[11 <./Flowcharts/LoRaSMSAlertPipeline.png> <./Screens/MainShii.jpg>]
-<Screens/PenControlShii.jpg, id=112, 1080.035pt x 864.22874pt>
+[11 <./Flowcharts/RS-485MODBUSCommunicationChart.png> <./Flowcharts/LoRaSMSAlertPipeline.png>]
+<Screens/PenControlShii.jpg, id=113, 1080.035pt x 864.22874pt>
 File: Screens/PenControlShii.jpg Graphic file (type jpg)
 <use Screens/PenControlShii.jpg>
 Package pdftex.def Info: Screens/PenControlShii.jpg  used on input line 287.
 (pdftex.def)             Requested size: 214.20154pt x 171.3921pt.
-<Screens/FeedSettings.jpg, id=113, 1076.02pt x 862.22125pt>
+<Screens/FeedSettings.jpg, id=114, 1076.02pt x 862.22125pt>
 File: Screens/FeedSettings.jpg Graphic file (type jpg)
 <use Screens/FeedSettings.jpg>
 Package pdftex.def Info: Screens/FeedSettings.jpg  used on input line 306.
 (pdftex.def)             Requested size: 214.20154pt x 171.63864pt.
-
+ [12 <./Screens/MainShii.jpg> <./Screens/PenControlShii.jpg> <./Screens/FeedSettings.jpg>]
 Underfull \hbox (badness 2134) in paragraph at lines 313--314
 \OT1/ptm/m/n/10 via up/down ar-row con-trols in hours and min-utes
  []
 
-[12 <./Screens/PenControlShii.jpg> <./Screens/FeedSettings.jpg>]
+
 Underfull \hbox (badness 3364) in paragraph at lines 335--337
 \OT1/ptm/m/n/10 A de-vi-a-tion alert is gen-er-ated when the cur-rent ses-
  []
 
-
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
- [13]
-<Flowcharts/AnomalyDetectionFlowchart.png, id=120, 533.995pt x 755.82375pt>
+[13]
+<Flowcharts/AnomalyDetectionFlowchart.png, id=121, 533.995pt x 755.82375pt>
 File: Flowcharts/AnomalyDetectionFlowchart.png Graphic file (type png)
 <use Flowcharts/AnomalyDetectionFlowchart.png>
 Package pdftex.def Info: Flowcharts/AnomalyDetectionFlowchart.png  used on input line 349.
@@ -889,7 +893,7 @@ Package pdftex.def Info: Appendix.pdf , page1 used on input line 69.
  [22
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=192, page=2, 614.295pt x 794.97pt>
+<Appendix.pdf, id=193, page=2, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 2>
 Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
@@ -905,7 +909,7 @@ Package pdftex.def Info: Appendix.pdf , page2 used on input line 69.
  [23
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=202, page=3, 614.295pt x 794.97pt>
+<Appendix.pdf, id=203, page=3, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 3>
 Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
@@ -921,7 +925,7 @@ Package pdftex.def Info: Appendix.pdf , page3 used on input line 69.
  [24
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=208, page=4, 614.295pt x 794.97pt>
+<Appendix.pdf, id=209, page=4, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 4>
 Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
@@ -937,7 +941,7 @@ Package pdftex.def Info: Appendix.pdf , page4 used on input line 69.
  [25
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=213, page=5, 614.295pt x 794.97pt>
+<Appendix.pdf, id=214, page=5, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 5>
 Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
@@ -953,7 +957,7 @@ Package pdftex.def Info: Appendix.pdf , page5 used on input line 69.
  [26
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=218, page=6, 614.295pt x 794.97pt>
+<Appendix.pdf, id=219, page=6, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 6>
 Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
@@ -969,7 +973,7 @@ Package pdftex.def Info: Appendix.pdf , page6 used on input line 69.
  [27
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=223, page=7, 614.295pt x 794.97pt>
+<Appendix.pdf, id=224, page=7, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 7>
 Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
@@ -985,7 +989,7 @@ Package pdftex.def Info: Appendix.pdf , page7 used on input line 69.
  [28
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=229, page=8, 614.295pt x 794.97pt>
+<Appendix.pdf, id=230, page=8, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 8>
 Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
@@ -1001,7 +1005,7 @@ Package pdftex.def Info: Appendix.pdf , page8 used on input line 69.
  [29
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=245, page=9, 614.295pt x 794.97pt>
+<Appendix.pdf, id=237, page=9, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 9>
 Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
@@ -1017,7 +1021,7 @@ Package pdftex.def Info: Appendix.pdf , page9 used on input line 69.
  [30
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=250, page=10, 614.295pt x 794.97pt>
+<Appendix.pdf, id=247, page=10, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 10>
 Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
@@ -1033,7 +1037,7 @@ Package pdftex.def Info: Appendix.pdf , page10 used on input line 69.
  [31
 
  <./Appendix.pdf>]
-<Appendix.pdf, id=254, page=12, 614.295pt x 794.97pt>
+<Appendix.pdf, id=251, page=12, 614.295pt x 794.97pt>
 File: Appendix.pdf Graphic file (type pdf)
 <use Appendix.pdf, page 12>
 Package pdftex.def Info: Appendix.pdf , page12 used on input line 69.
@@ -1067,17 +1071,17 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9989 strings out of 467871
- 172761 string characters out of 5418376
- 602060 words of memory out of 5000000
- 38692 multiletter control sequences out of 15000+600000
- 668043 words of font info for 123 fonts, out of 8000000 for 9000
+ 9995 strings out of 467871
+ 172864 string characters out of 5418376
+ 598073 words of memory out of 5000000
+ 38697 multiletter control sequences out of 15000+600000
+ 668378 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,17n,117p,1507b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TimTissis.pdf (34 pages, 4586134 bytes).
+ 69i,17n,117p,1535b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\parra\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on TimTissis.pdf (34 pages, 4958442 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
+ 319 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 

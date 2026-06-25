@@ -1,17 +1,18 @@
 # Fdb version 4
-["bibtex TimTissis"] 1782373980.47783 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 1782373989.34618 0
+["bibtex TimTissis"] 1782375950.20141 "TimTissis.aux" "TimTissis.bbl" "TimTissis" 1782376113.15786 0
   "./reference.bib" 1780640820 8724 c902ae3e0c31b08b3b64428163eff2cc ""
   "./source.bib" 1777351825 12256 720d698cc7f802fa08236064efb9ec6a ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291864344 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "TimTissis.aux" 1782373986 12528 ac8faf4ccd630904cfd587c50e9b868b "pdflatex"
+  "TimTissis.aux" 1782376110 13251 8dedb9c987c023e368fa94614f22d4ae "pdflatex"
   (generated)
   "TimTissis.bbl"
   "TimTissis.blg"
   (rewritten before read)
-["pdflatex"] 1782373981.15697 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1782373989.34875 0
-  "Appendix.pdf" 1777454067 3020835 a9ff62b181de69b2531d1c2db8441cd9 ""
+["pdflatex"] 1782376106.55951 "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" "TimTissis.pdf" "TimTissis" 1782376113.15967 0
+  "Appendix.pdf" 1782375767 3384460 a3423ffeb6f4818011ae258a15e8ff0b ""
   "BoxDimensions.png" 1780738441 32325 88ea8ba5e86eced2a5752839fa9b3c5e ""
   "C:/Users/parra/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1777350064 82507 a9eef8696c92627b87e9975edea03b2a ""
+  "C:/Users/parra/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1777350072 11548 5253ee083c734bb986bb4070d69aabd9 ""
   "C:/Users/parra/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1777349712 13333487 6d49bfad74dccb62e7ffcf491f8d6f91 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136743454 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -23,6 +24,7 @@
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmrc7t.tfm" 1136743454 2680 312a2d12b1f1df8ee0212e7ba1962402 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri7t.tfm" 1136743454 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri8r.tfm" 1136743454 4640 532ca3305aad10cc01d769f3f91f1029 ""
+  "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/parra/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -139,7 +141,7 @@
   "Screens/FeedSettings.jpg" 1777439837 64634 2da0ec27d0bdb224bff500edb6e011b1 ""
   "Screens/MainShii.jpg" 1777440293 81054 f0d4bcc64633f6a5a2164313ee512119 ""
   "Screens/PenControlShii.jpg" 1777440304 80471 9619027e72d602d55cc3acf53164c868 ""
-  "Section1.tex" 1780660510 1733 6eaad3eaaba16837912117864034fb45 ""
+  "Section1.tex" 1782375931 4542 b83fbbac4ea9069b10bb0f4a73840cd6 ""
   "Section2.tex" 1780660510 1733 6eaad3eaaba16837912117864034fb45 ""
   "Section3.tex" 1780660510 1360 d16b1d92839d8eb94e65daadfecb17e2 ""
   "Section4.tex" 1780660510 2127 7c7987088b1a912b31254b4c9a702d1d ""
@@ -149,8 +151,8 @@
   "StepMotor.png" 1777348348 68029 b0b946e83e0998b9a340aaae47c21c0c ""
   "SystemFlowchart.png" 1777384676 86089 73cf0bc0fee0b92437b8983ddd317714 ""
   "SystemVisual.png" 1777448815 163287 6f18e4dacd9c7c684ec90906affee00b ""
-  "TimTissis.aux" 1782373986 12528 ac8faf4ccd630904cfd587c50e9b868b "pdflatex"
-  "TimTissis.bbl" 1782373981 6808 055541aa59b83b3eda245332456577d4 "bibtex TimTissis"
+  "TimTissis.aux" 1782376110 13251 8dedb9c987c023e368fa94614f22d4ae "pdflatex"
+  "TimTissis.bbl" 1782375950 7459 1395e676f976d1ce4aa714d5122215c6 "bibtex TimTissis"
   "TimTissis.tex" 1777526481 3570 ea21e1787fe246bfe66869415ddf95a6 ""
   "c:/Users/parra/OneDrive/Desktop/Folders/School/CPE3207L/TimTissis.tex" 1777526481 3570 ea21e1787fe246bfe66869415ddf95a6 ""
   (generated)
