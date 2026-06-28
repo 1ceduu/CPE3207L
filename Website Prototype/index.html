@@ -102,7 +102,7 @@
                                     <span class="refill-threshold-val" id="refill-threshold-display">40%</span>
                                 </div>
                             </div>
-                            <button class="secondary-btn" style="margin-top:10px;" onclick="showScreen('water-settings-screen')">
+                            <button class="secondary-btn" style="margin-top:10px;" onclick="openModal('water-modal')">
                                 Edit Refill Threshold
                             </button>
                         </div>
@@ -128,67 +128,7 @@
                 </div>
             </section>
 
-            <!-- ════════════════════════════════
-                 Screen 3 — Water Refill Threshold (kept as full screen)
-            ════════════════════════════════ -->
-            <section id="water-settings-screen" class="screen">
-                <div class="page-title-row">
-                    <button class="back-btn" onclick="showScreen('pen-control-screen')">← Back to Pen Control</button>
-                    <h2 id="water-settings-title">Water Refill Threshold</h2>
-                    <span class="hint">Set the level at which the system will auto-refill</span>
-                </div>
 
-                <div class="water-settings-layout">
-                    <div class="setting-card">
-                        <div class="setting-card-header">
-                            <div class="setting-card-icon" style="background:rgba(56,189,248,0.12);border-color:rgba(56,189,248,0.2);">💧</div>
-                            <h3>
-                                Auto-Refill Trigger Level
-                                <span>Solenoid valve opens when water drops below this threshold</span>
-                            </h3>
-                        </div>
-
-                        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:16px;line-height:1.6;">
-                            When the water level sensor (JSN-SR04T) detects the trough level has fallen below
-                            the configured threshold, the system automatically opens the solenoid valve to refill
-                            until the trough reaches 100% (5 L maximum capacity). The threshold is configurable
-                            per pen by the caretaker.
-                        </p>
-
-                        <!-- Draggable range slider -->
-                        <div class="threshold-range-wrap">
-                            <input type="range" id="water-threshold-range" class="threshold-range"
-                                min="10" max="80" step="5" value="40"
-                                oninput="onRangeInput(this.value)">
-                        </div>
-                        <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted-2);margin-bottom:12px;font-weight:600;">
-                            <span>0% (0 L)</span><span>25% (1.25 L)</span><span>50% (2.5 L)</span><span>75% (3.75 L)</span><span>100% (5 L)</span>
-                        </div>
-
-                        <div class="field" style="max-width:280px;">
-                            <label>Refill Threshold (%)</label>
-                            <div class="amount-input">
-                                <button class="small-step" onclick="adjustThreshold(-5)">−</button>
-                                <input type="number" id="water-threshold-input" class="wide" value="40" min="10" max="80" step="5"
-                                    oninput="onThresholdTyped(this.value)">
-                                <button class="small-step" onclick="adjustThreshold(5)">+</button>
-                                <span style="font-size:0.9rem;font-weight:700;color:var(--muted);margin-left:4px;">%</span>
-                            </div>
-                            <div style="margin-top:8px;font-size:0.72rem;color:var(--muted-2);font-weight:500;" id="threshold-liter-hint">= 2.00 L of the 5 L trough capacity</div>
-                        </div>
-
-                        <div style="margin-top:16px;padding:12px;border-radius:var(--radius-sm);background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);">
-                            <p style="font-size:0.74rem;color:var(--yellow);font-weight:600;line-height:1.5;">
-                                ⚠ Trough max capacity: 5 L. Recommended threshold range: 30% – 50% (1.5 L – 2.5 L). A threshold below 20% may allow prolonged water deprivation.
-                                A threshold above 60% may cause the valve to cycle excessively. The caretaker or farm
-                                owner should validate this value with manual depth measurements before deployment.
-                            </p>
-                        </div>
-                    </div>
-
-                    <button class="save-btn" onclick="saveWaterThreshold()">Save Threshold</button>
-                </div>
-            </section>
 
         </main>
 
@@ -318,6 +258,67 @@
                         <button class="dispatch-water-btn" onclick="confirmDispatch('water')">Refill to Full Now</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════ Modal: Water Refill Threshold ════ -->
+    <div class="modal-backdrop" id="water-modal" onclick="onBackdropClick(event,'water-modal')">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="water-modal-title">💧 Water Refill Threshold</h3>
+                <button class="modal-close" onclick="closeModal('water-modal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-card">
+                    <div class="setting-card-header">
+                        <div class="setting-card-icon" style="background:rgba(56,189,248,0.12);border-color:rgba(56,189,248,0.2);">💧</div>
+                        <h3>
+                            Auto-Refill Trigger Level
+                            <span>Solenoid valve opens when water drops below this threshold</span>
+                        </h3>
+                    </div>
+
+                    <p style="font-size:0.78rem;color:var(--muted);margin-bottom:16px;line-height:1.6;">
+                        When the water level sensor (JSN-SR04T) detects the trough level has fallen below
+                        the configured threshold, the system automatically opens the solenoid valve to refill
+                        until the trough reaches 100% (5 L maximum capacity). The threshold is configurable
+                        per pen by the caretaker.
+                    </p>
+
+                    <!-- Draggable range slider -->
+                    <div class="threshold-range-wrap">
+                        <input type="range" id="water-threshold-range" class="threshold-range"
+                            min="10" max="80" step="5" value="40"
+                            oninput="onRangeInput(this.value)">
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted-2);margin-bottom:12px;font-weight:600;">
+                        <span>0% (0 L)</span><span>25% (1.25 L)</span><span>50% (2.5 L)</span><span>75% (3.75 L)</span><span>100% (5 L)</span>
+                    </div>
+
+                    <div class="field" style="max-width:280px;">
+                        <label>Refill Threshold (%)</label>
+                        <div class="amount-input">
+                            <button class="small-step" onclick="adjustThreshold(-5)">−</button>
+                            <input type="number" id="water-threshold-input" class="wide" value="40" min="10" max="80" step="5"
+                                oninput="onThresholdTyped(this.value)">
+                            <button class="small-step" onclick="adjustThreshold(5)">+</button>
+                            <span style="font-size:0.9rem;font-weight:700;color:var(--muted);margin-left:4px;">%</span>
+                        </div>
+                        <div style="margin-top:8px;font-size:0.72rem;color:var(--muted-2);font-weight:500;" id="threshold-liter-hint">= 2.00 L of the 5 L trough capacity</div>
+                    </div>
+
+                    <div style="margin-top:16px;padding:12px;border-radius:var(--radius-sm);background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);">
+                        <p style="font-size:0.74rem;color:var(--yellow);font-weight:600;line-height:1.5;">
+                            ⚠ Trough max capacity: 5 L. Recommended threshold range: 30% – 50% (1.5 L – 2.5 L). A threshold below 20% may allow prolonged water deprivation.
+                            A threshold above 60% may cause the valve to cycle excessively. The caretaker or farm
+                            owner should validate this value with manual depth measurements before deployment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="save-btn" onclick="saveWaterThreshold()">Save Threshold</button>
             </div>
         </div>
     </div>

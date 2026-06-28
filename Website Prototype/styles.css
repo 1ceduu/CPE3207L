@@ -448,12 +448,6 @@ canvas { width: 100%; height: 100%; display: block; }
     display: grid; grid-template-rows: 1fr 1fr auto; gap: 14px;
 }
 
-/* ─── Water threshold layout ─── */
-.water-settings-layout {
-    height: calc(100% - 44px); max-width: 820px; margin: 0 auto;
-    display: grid; grid-template-rows: 1fr auto; gap: 14px;
-}
-
 /* ─── Manual override layout ─── */
 .override-layout {
     height: calc(100% - 44px); max-width: 820px; margin: 0 auto;
@@ -649,14 +643,99 @@ input.wide { width: 90px; }
     .system-pill { display: none; }
     .pen-grid { grid-template-columns: 1fr; overflow-y: auto; }
     .control-layout { grid-template-columns: 1fr; overflow-y: auto; }
-    .settings-layout, .water-settings-layout { overflow-y: auto; }
+    .settings-layout { overflow-y: auto; }
     .override-layout { grid-template-columns: 1fr; overflow-y: auto; }
     .form-grid { grid-template-columns: 1fr; }
 }
-@media (max-height: 560px) {
-    main { padding: 10px 12px; }
-    .pen-card { padding: 12px; gap: 10px; }
-    .metric-box { padding: 8px 10px; }
-    .panel { padding: 12px; }
-    .chart-wrap { min-height: 160px; }
+@media (max-width: 1080px), (max-height: 720px) {
+    /* Main shell optimization */
+    .app-shell { grid-template-rows: 56px 1fr 28px; }
+    header { padding: 0 12px; }
+    .logo { width: 36px; height: 36px; border-radius: 10px; font-size: 0.8rem; }
+    .brand-text h1 { font-size: 1.1rem; }
+    .brand-text small { font-size: 0.65rem; }
+    .clock { padding: 4px 12px; font-size: 0.76rem; min-width: 110px; }
+    .fullscreen-btn { padding: 4px 12px; font-size: 0.72rem; }
+    .system-pill { padding: 4px 10px; font-size: 0.7rem; }
+    
+    main { padding: 8px 10px; }
+    .page-title-row { margin-bottom: 8px; }
+    .page-title-row h2 { font-size: 1.05rem; }
+    .hint { font-size: 0.7rem; }
+
+    /* Dashboard screen */
+    .pen-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; height: calc(100% - 32px); }
+    .pen-card { padding: 12px 14px; gap: 10px; }
+    .pen-title { font-size: 1.3rem; }
+    .pen-id-badge { font-size: 0.65rem; padding: 2px 6px; }
+    
+    .metric-stack { gap: 8px; }
+    .metric-box { padding: 6px 10px; }
+    .metric-label { font-size: 0.62rem; margin-bottom: 3px; }
+    .metric-value { font-size: 1.4rem; }
+    .metric-unit { font-size: 0.7rem; }
+    .metric-delta { font-size: 0.65rem; }
+    .progress-track { height: 4px; margin-top: 4px; }
+    
+    .card-alerts-box { padding: 6px 8px; gap: 3px; margin-top: 0; }
+    .card-alerts-title { font-size: 0.62rem; margin-bottom: 1px; }
+    .card-alert-item { font-size: 0.7rem; }
+    .card-alert-dot { width: 4px; height: 4px; margin-top: 4px; }
+    
+    .status-badge { padding: 8px 10px; font-size: 0.7rem; }
+
+    /* Control screen layout */
+    .control-layout { height: calc(100% - 32px); gap: 10px; }
+    .panel { padding: 10px; }
+    .panel-header { margin-bottom: 8px; }
+    .panel-title { font-size: 0.72rem; }
+    .panel-tag { font-size: 0.62rem; padding: 2px 6px; }
+    
+    .left-column { gap: 10px; }
+    .right-column { display: flex; flex-direction: column; gap: 10px; grid-template-rows: none; }
+    
+    /* Water level panel */
+    .water-gauge { padding: 2px 0; }
+    .water-gauge .number { font-size: 2.2rem; }
+    .water-gauge .caption { font-size: 0.65rem; margin-top: 4px; }
+    .refill-threshold-row { margin-top: 6px; padding-top: 6px; }
+    .refill-threshold-label { font-size: 0.65rem; }
+    .refill-threshold-val { font-size: 0.78rem; }
+    
+    /* Buttons in control panels */
+    .secondary-btn { padding: 8px 12px; font-size: 0.78rem; }
+    .override-btn { padding: 10px 14px; font-size: 0.78rem; }
+
+    /* Schedule list */
+    .schedule-list { gap: 6px; margin-bottom: 6px; }
+    .schedule-card { padding: 6px 10px; }
+    .schedule-card strong { font-size: 0.95rem; }
+    .schedule-amount { font-size: 0.82rem; }
+    
+    /* Chart and logs */
+    .chart-wrap { min-height: 150px; }
+    .alert-log { gap: 6px; }
+    .alert-item { padding: 8px 10px; }
+    .alert-time { font-size: 0.62rem; }
+    .alert-text { font-size: 0.72rem; }
+    .alert-kind { font-size: 0.62rem; padding: 1px 5px; }
+
+    /* Modals for 1024x600 screen */
+    .modal-backdrop { padding: 12px; }
+    .modal-box { max-height: calc(100vh - 24px); }
+    .modal-header { padding: 12px 16px; }
+    .modal-body { padding: 12px 16px; }
+    .modal-footer { padding: 10px 16px; }
+    .setting-card { padding: 12px; }
+    .dispatch-card { padding: 12px; gap: 10px; }
+    .dispatch-card h3 { font-size: 0.9rem; }
+    .dispatch-card h3 span { font-size: 0.65rem; }
+    .dispatch-amount-wrap { gap: 10px; }
+    .dispatch-val-display { font-size: 2.2rem; min-width: 90px; }
+    .dispatch-step { width: 44px; height: 44px; font-size: 1.2rem; }
+    .dispatch-feed-btn, .dispatch-water-btn { padding: 12px; font-size: 0.85rem; }
+    .form-grid { gap: 12px; }
+    
+    /* Range slider ease-of-touch */
+    input[type="range"] { height: 1.8rem; }
 }

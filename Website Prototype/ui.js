@@ -102,12 +102,12 @@ export function showScreen(screenId, penId = null) {
     if (screenId === "pen-control-screen") {
         setTimeout(() => loadPenControlData(state.currentPen), 50);
     }
-    if (screenId === "water-settings-screen") loadWaterSettingsData(state.currentPen);
 }
 
 export function openModal(modalId) {
     if (modalId === "feed-modal")     loadFeedSettingsData(state.currentPen);
     if (modalId === "override-modal") loadOverrideScreen(state.currentPen);
+    if (modalId === "water-modal")    loadWaterSettingsData(state.currentPen);
     const modal = document.getElementById(modalId);
     if (modal) modal.classList.add("open");
 }
@@ -235,7 +235,7 @@ export function saveSettings() {
 /* Water threshold */
 export function loadWaterSettingsData(penId) {
     const pen = penData[penId];
-    document.getElementById("water-settings-title").textContent = `Water Refill Threshold — ${pen.name}`;
+    document.getElementById("water-modal-title").textContent = `Water Refill Threshold — ${pen.name}`;
     syncThreshold(pen.refillThreshold);
 }
 
@@ -279,7 +279,8 @@ export function saveWaterThreshold() {
     v = Math.max(CONFIG.MIN_THRESHOLD, Math.min(CONFIG.MAX_THRESHOLD, v));
     penData[state.currentPen].refillThreshold = v;
     showToast(`${penData[state.currentPen].name} refill threshold set to ${v}% (${((v/100)*CONFIG.MAX_WATER_L).toFixed(2)} L)`);
-    showScreen("pen-control-screen");
+    closeModal("water-modal");
+    loadPenControlData(state.currentPen);
 }
 
 /* Manual override screen */
