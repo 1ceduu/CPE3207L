@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1440 980" xmlns="http://www.w3.org/2000/svg" font-family="Consolas, Menlo, monospace">
+  <rect x="0" y="0" width="1440" height="980" fill="#ffffff"/>
+  <text x="720" y="36" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Central Control Unit Wiring Schematic &#8212; Raspberry Pi 5 (MODBUS Master)</text>
+  <text x="720" y="58" text-anchor="middle" font-size="13" fill="#64748b" font-family="Segoe UI, Arial, sans-serif">3.3 V GPIO &#183; red dividers protect Pi inputs from 5 V (MAX485 RO, YF-S201 pulse) &#183; Ra-02 is 3.3 V native</text>
+  <rect x="500" y="150" width="440" height="640" rx="12" fill="#1e40af" stroke="#1e3a8a" stroke-width="2.5"/>
+  <text x="720" y="184" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif">Raspberry Pi 5</text>
+  <text x="720" y="206" text-anchor="middle" font-size="12" fill="#dbeafe" font-family="Segoe UI, Arial, sans-serif">40-pin GPIO header</text>
+  <g font-size="12" fill="#ffffff">
+    <text x="515" y="248">Pin1  3V3   &#8594; Ra-02 3.3V</text>
+    <text x="515" y="278">Pin2  5V    &#8594; MAX485, YF-S201</text>
+    <text x="515" y="308">Pin6  GND   &#8594; common</text>
+    <text x="515" y="338">Pin7  GPIO4 &#8594; MAX485 DE/RE</text>
+    <text x="515" y="368">Pin8  GPIO14 TXD0 &#8594; MAX485 DI</text>
+    <text x="515" y="398">Pin10 GPIO15 RXD0 &#8592; MAX485 RO*</text>
+    <text x="515" y="428">Pin37 GPIO26 &#8592; YF-S201 pulse*</text>
+    <text x="515" y="458">Pin39 GND   &#8594; YF-S201 black</text>
+  </g>
+  <g font-size="12" fill="#ffffff" text-anchor="end">
+    <text x="925" y="248">SPI0_SCLK GPIO11 Pin23 &#8594; SCK</text>
+    <text x="925" y="278">SPI0_MISO GPIO9  Pin21 &#8592; MISO</text>
+    <text x="925" y="308">SPI0_MOSI GPIO10 Pin19 &#8594; MOSI</text>
+    <text x="925" y="338">SPI0_CE0  GPIO8  Pin24 &#8594; NSS</text>
+    <text x="925" y="368">GPIO25 Pin22 &#8594; RST</text>
+    <text x="925" y="398">GPIO24 Pin18 &#8592; DIO0</text>
+    <text x="925" y="428">3V3 Pin17 &#8594; Ra-02 VCC</text>
+    <text x="925" y="458">GND Pin25 &#8594; Ra-02 GND</text>
+  </g>
+  <text x="720" y="720" text-anchor="middle" font-size="12" fill="#dbeafe" font-family="Segoe UI, Arial, sans-serif">HDMI / DSI + USB</text>
+  <g stroke="#93c5fd" stroke-width="1.5">
+    <line x1="500" y1="333" x2="470" y2="333"/><line x1="500" y1="363" x2="470" y2="363"/>
+    <line x1="500" y1="393" x2="470" y2="393"/><line x1="500" y1="423" x2="470" y2="423"/>
+    <line x1="940" y1="243" x2="970" y2="243"/><line x1="940" y1="273" x2="970" y2="273"/>
+    <line x1="940" y1="303" x2="970" y2="303"/><line x1="940" y1="333" x2="970" y2="333"/>
+    <line x1="940" y1="363" x2="970" y2="363"/><line x1="940" y1="393" x2="970" y2="393"/>
+  </g>
+  <rect x="120" y="300" width="230" height="150" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="235" y="328" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">MAX485 (Master)</text>
+  <text x="132" y="352" font-size="11" fill="#334155">VCC 5V &#183; GND</text>
+  <text x="132" y="372" font-size="11" fill="#334155">DI &#8592; GPIO14 (TXD0)</text>
+  <text x="132" y="392" font-size="11" fill="#334155">RO &#8594; GPIO15 via divider*</text>
+  <text x="132" y="412" font-size="11" fill="#334155">DE+RE &#8592; GPIO4</text>
+  <text x="132" y="434" font-size="11" fill="#b45309" font-weight="700">A / B &#8594; RS-485 bus &#183; 120&#937; term</text>
+  <rect x="360" y="378" width="120" height="34" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="420" y="400" text-anchor="middle" font-size="10.5" fill="#b91c1c">&#247; 1k&#937;/2k&#937;</text>
+  <path d="M350 395 H 360" stroke="#dc2626" stroke-width="1.6"/>
+  <path d="M480 395 H 500" stroke="#dc2626" stroke-width="1.6"/>
+  <path d="M350 363 H 500" stroke="#334155" stroke-width="1.6" fill="none"/>
+  <path d="M350 333 H 420 V 423 H 500" stroke="#334155" stroke-width="1.6" fill="none"/>
+  <path d="M235 450 V 560 H 120" stroke="#d97706" stroke-width="3" fill="none"/>
+  <rect x="30" y="540" width="90" height="45" rx="6" fill="#0f172a" stroke="#d97706" stroke-width="2"/>
+  <text x="75" y="560" text-anchor="middle" font-size="11" fill="#fbbf24" font-family="Segoe UI, Arial, sans-serif">RS-485</text>
+  <text x="75" y="576" text-anchor="middle" font-size="10" fill="#fbbf24" font-family="Segoe UI, Arial, sans-serif">to nodes</text>
+  <rect x="1090" y="220" width="250" height="210" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="1215" y="248" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Ra-02 / SX1278 LoRa Tx</text>
+  <text x="1102" y="272" font-size="11" fill="#334155">3.3V &#8592; Pin1/17  (NOT 5V!)</text>
+  <text x="1102" y="292" font-size="11" fill="#334155">GND &#8592; Pin25</text>
+  <text x="1102" y="312" font-size="11" fill="#334155">SCK &#8592; GPIO11</text>
+  <text x="1102" y="332" font-size="11" fill="#334155">MISO &#8594; GPIO9</text>
+  <text x="1102" y="352" font-size="11" fill="#334155">MOSI &#8592; GPIO10</text>
+  <text x="1102" y="372" font-size="11" fill="#334155">NSS &#8592; GPIO8 (CE0)</text>
+  <text x="1102" y="392" font-size="11" fill="#334155">RST &#8592; GPIO25</text>
+  <text x="1102" y="412" font-size="11" fill="#334155">DIO0 &#8594; GPIO24</text>
+  <g stroke="#7c3aed" stroke-width="1.6" fill="none">
+    <path d="M970 243 H 1090"/><path d="M970 273 H 1050 V 293 H 1090"/>
+    <path d="M970 303 H 1090"/><path d="M970 333 H 1070 V 353 H 1090"/>
+    <path d="M970 363 H 1030 V 373 H 1090"/><path d="M970 393 H 1010 V 412 H 1090"/>
+  </g>
+  <text x="1215" y="465" text-anchor="middle" font-size="12" fill="#7c3aed" font-weight="700" font-family="Segoe UI, Arial, sans-serif">))) 433 MHz &#8594; Remote Gateway</text>
+  <rect x="120" y="630" width="250" height="140" rx="8" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+  <text x="245" y="658" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">YF-S201 Flow Sensor</text>
+  <text x="132" y="682" font-size="11" fill="#334155">Red  &#8594; 5V (Pin2)</text>
+  <text x="132" y="702" font-size="11" fill="#334155">Black &#8594; GND (Pin39)</text>
+  <text x="132" y="722" font-size="11" fill="#334155">Yellow pulse &#8594; GPIO26*</text>
+  <text x="132" y="748" font-size="10.5" fill="#64748b">Main water inlet &#183; manual-override volume</text>
+  <rect x="390" y="690" width="120" height="34" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="450" y="712" text-anchor="middle" font-size="10.5" fill="#b91c1c">&#247; 1k&#937;/2k&#937;</text>
+  <path d="M370 707 H 390" stroke="#dc2626" stroke-width="1.6"/>
+  <path d="M510 707 H 560 V 423 H 500" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+  <rect x="1050" y="630" width="290" height="150" rx="8" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+  <text x="1195" y="658" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">7" HDMI/DSI Touchscreen</text>
+  <text x="1062" y="684" font-size="11" fill="#334155">HDMI/DSI video &#183; USB touch</text>
+  <text x="1062" y="704" font-size="11" fill="#334155">5V power from Pi / SMPS</text>
+  <text x="1062" y="724" font-size="11" fill="#64748b">Local dashboard &amp; alerts</text>
+  <path d="M940 705 H 1000 V 660 H 1050" stroke="#334155" stroke-width="1.8" fill="none"/>
+  <text x="960" y="698" font-size="11" fill="#475569">HDMI+USB</text>
+  <rect x="500" y="830" width="440" height="110" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="720" y="856" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" font-family="Segoe UI, Arial, sans-serif">Power</text>
+  <text x="720" y="880" text-anchor="middle" font-size="11.5" fill="#334155" font-family="Segoe UI, Arial, sans-serif">Pi + touchscreen fed from 5 V Logic Rail (LM2596)</text>
+  <text x="720" y="902" text-anchor="middle" font-size="11.5" fill="#334155" font-family="Segoe UI, Arial, sans-serif">RS-485 cable shield &#8594; Earth GND at Pi end only</text>
+  <text x="720" y="924" text-anchor="middle" font-size="11.5" fill="#334155" font-family="Segoe UI, Arial, sans-serif">Common ground to star point at 12 V SMPS</text>
+  <text x="720" y="800" text-anchor="middle" font-size="12" fill="#b91c1c" font-family="Segoe UI, Arial, sans-serif">* Resistor dividers required &#8212; Pi GPIO is 3.3 V-only</text>
+</svg>

@@ -1,0 +1,146 @@
+<svg viewBox="0 0 1320 900" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#334155"/></marker>
+    <marker id="arrowRF" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+    <marker id="arrowPwr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1320" height="900" fill="#ffffff"/>
+  <text x="660" y="38" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a">Integrated Automated Feeding &amp; Watering System &#8212; System Block Diagram</text>
+  <text x="660" y="62" text-anchor="middle" font-size="14" fill="#64748b">Commercial Piggery &#183; RS-485 MODBUS RTU wired backbone &#183; LoRa to GSM alert path</text>
+  <rect x="30" y="95" width="255" height="200" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="157" y="120" text-anchor="middle" font-size="15" font-weight="700" fill="#b91c1c">POWER SYSTEM</text>
+  <rect x="55" y="138" width="205" height="55" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="157" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">12 V / 10 A SMPS</text>
+  <text x="157" y="180" text-anchor="middle" font-size="11" fill="#64748b">Main supply &#183; Actuator rail</text>
+  <rect x="55" y="215" width="205" height="60" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="157" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">LM2596 Buck</text>
+  <text x="157" y="258" text-anchor="middle" font-size="11" fill="#64748b">12 V to 5 V Logic rail</text>
+  <line x1="157" y1="193" x2="157" y2="215" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowPwr)"/>
+  <text x="157" y="315" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="600">12 V Actuator Rail  &#183;  5 V Logic Rail</text>
+  <rect x="30" y="360" width="470" height="500" rx="12" fill="#eff6ff" stroke="#1e40af" stroke-width="2.5"/>
+  <text x="265" y="388" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">CENTRAL CONTROL UNIT  (Main Module)</text>
+  <text x="265" y="408" text-anchor="middle" font-size="12" fill="#64748b">At pen wall &#8212; physical access + near RS-485 bus</text>
+  <rect x="150" y="430" width="230" height="90" rx="8" fill="#1e40af" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="265" y="463" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Raspberry Pi 5</text>
+  <text x="265" y="484" text-anchor="middle" font-size="11.5" fill="#dbeafe">MODBUS RTU Master &#183; SQLite</text>
+  <text x="265" y="502" text-anchor="middle" font-size="11.5" fill="#dbeafe">Analytical Engine &#183; Dashboard</text>
+  <rect x="55" y="560" width="180" height="60" rx="6" fill="#ffffff" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="145" y="583" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">7" Touchscreen</text>
+  <text x="145" y="602" text-anchor="middle" font-size="11" fill="#64748b">HDMI/DSI + USB</text>
+  <line x1="200" y1="520" x2="155" y2="560" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="295" y="560" width="180" height="60" rx="6" fill="#ffffff" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="385" y="583" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">YF-S201 Flow</text>
+  <text x="385" y="602" text-anchor="middle" font-size="11" fill="#64748b">GPIO26 &#183; divider</text>
+  <line x1="330" y1="520" x2="375" y2="560" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="55" y="665" width="180" height="65" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
+  <text x="145" y="690" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">MAX485 (Master)</text>
+  <text x="145" y="709" text-anchor="middle" font-size="11" fill="#64748b">UART0 &#183; DE/RE=GPIO4</text>
+  <line x1="200" y1="520" x2="150" y2="665" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="295" y="665" width="180" height="65" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="385" y="690" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Ra-02 LoRa Tx</text>
+  <text x="385" y="709" text-anchor="middle" font-size="11" fill="#64748b">SPI0 &#183; 433 MHz</text>
+  <line x1="330" y1="520" x2="385" y2="665" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <rect x="540" y="360" width="80" height="500" rx="10" fill="#0f172a" stroke="#d97706" stroke-width="3"/>
+  <g text-anchor="middle" fill="#fbbf24">
+    <text x="580" y="470" font-size="13" font-weight="700">RS-485</text>
+    <text x="580" y="492" font-size="13" font-weight="700">BUS</text>
+    <text x="580" y="530" font-size="12">A / B</text>
+    <text x="580" y="552" font-size="12">twisted</text>
+    <text x="580" y="574" font-size="12">pair</text>
+    <text x="580" y="612" font-size="12">MODBUS</text>
+    <text x="580" y="634" font-size="12">RTU</text>
+    <text x="580" y="672" font-size="12">120 &#937;</text>
+    <text x="580" y="694" font-size="12">term</text>
+  </g>
+  <path d="M145 730 L 145 750 L 540 750" fill="none" stroke="#d97706" stroke-width="3"/>
+  <text x="340" y="770" text-anchor="middle" font-size="11" fill="#b45309" font-weight="600">A / B  &#183;  120 &#937; term @ master</text>
+  <rect x="660" y="360" width="330" height="230" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2.5"/>
+  <text x="825" y="385" text-anchor="middle" font-size="15" font-weight="700" fill="#155e75">FEEDER NODE 1  (Pen 1)</text>
+  <rect x="680" y="398" width="150" height="55" rx="6" fill="#0e7490"/>
+  <text x="755" y="420" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ESP32-WROOM</text>
+  <text x="755" y="440" text-anchor="middle" font-size="10.5" fill="#cffafe">Dual-core &#183; MODBUS slave</text>
+  <rect x="845" y="398" width="128" height="55" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+  <text x="909" y="422" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">MAX485</text>
+  <text x="909" y="440" text-anchor="middle" font-size="10" fill="#64748b">Slave</text>
+  <line x1="830" y1="425" x2="845" y2="425" stroke="#334155" stroke-width="1.8"/>
+  <g font-size="10.5" fill="#0f172a">
+    <rect x="672" y="465" width="98" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+    <text x="721" y="483" text-anchor="middle" font-weight="700">HX711</text>
+    <text x="721" y="500" text-anchor="middle" fill="#64748b">Load cell</text>
+    <rect x="778" y="465" width="98" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+    <text x="827" y="483" text-anchor="middle" font-weight="700">JSN-SR04T</text>
+    <text x="827" y="500" text-anchor="middle" fill="#64748b">Water lvl</text>
+    <rect x="884" y="465" width="90" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+    <text x="929" y="483" text-anchor="middle" font-weight="700">MQ-135</text>
+    <text x="929" y="500" text-anchor="middle" fill="#64748b">NH3 gas</text>
+    <rect x="672" y="522" width="98" height="46" rx="5" fill="#fff" stroke="#dc2626"/>
+    <text x="721" y="540" text-anchor="middle" font-weight="700">DRV8825</text>
+    <text x="721" y="557" text-anchor="middle" fill="#64748b">NEMA17 auger</text>
+    <rect x="778" y="522" width="98" height="46" rx="5" fill="#fff" stroke="#dc2626"/>
+    <text x="827" y="540" text-anchor="middle" font-weight="700">MOSFET</text>
+    <text x="827" y="557" text-anchor="middle" fill="#64748b">Feed gate sol.</text>
+    <rect x="884" y="522" width="90" height="46" rx="5" fill="#fff" stroke="#dc2626"/>
+    <text x="929" y="540" text-anchor="middle" font-weight="700">MOSFET</text>
+    <text x="929" y="557" text-anchor="middle" fill="#64748b">Water valve</text>
+  </g>
+  <line x1="755" y1="453" x2="755" y2="465" stroke="#334155" stroke-width="1.5"/>
+  <line x1="755" y1="453" x2="827" y2="465" stroke="#334155" stroke-width="1.2"/>
+  <line x1="755" y1="453" x2="929" y2="465" stroke="#334155" stroke-width="1.2"/>
+  <rect x="660" y="605" width="330" height="115" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="825" y="628" text-anchor="middle" font-size="14" font-weight="700" fill="#155e75">FEEDER NODE 2  (Pen 2)</text>
+  <rect x="680" y="642" width="150" height="60" rx="6" fill="#0e7490"/>
+  <text x="755" y="668" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">ESP32-WROOM</text>
+  <text x="755" y="686" text-anchor="middle" font-size="10" fill="#cffafe">+ full sensor/actuator set</text>
+  <rect x="845" y="642" width="128" height="60" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+  <text x="909" y="672" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">MAX485</text>
+  <text x="909" y="689" text-anchor="middle" font-size="10" fill="#64748b">Slave</text>
+  <line x1="830" y1="672" x2="845" y2="672" stroke="#334155" stroke-width="1.8"/>
+  <rect x="660" y="735" width="330" height="115" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="825" y="758" text-anchor="middle" font-size="14" font-weight="700" fill="#155e75">FEEDER NODE 3  (Pen 3)  &#183;  120 &#937; term</text>
+  <rect x="680" y="772" width="150" height="60" rx="6" fill="#0e7490"/>
+  <text x="755" y="798" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">ESP32-WROOM</text>
+  <text x="755" y="816" text-anchor="middle" font-size="10" fill="#cffafe">+ full sensor/actuator set</text>
+  <rect x="845" y="772" width="128" height="60" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.8"/>
+  <text x="909" y="802" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">MAX485</text>
+  <text x="909" y="819" text-anchor="middle" font-size="10" fill="#64748b">Slave</text>
+  <line x1="830" y1="802" x2="845" y2="802" stroke="#334155" stroke-width="1.8"/>
+  <line x1="620" y1="425" x2="660" y2="425" stroke="#d97706" stroke-width="3"/>
+  <line x1="620" y1="672" x2="660" y2="672" stroke="#d97706" stroke-width="3"/>
+  <line x1="620" y1="802" x2="660" y2="802" stroke="#d97706" stroke-width="3"/>
+  <rect x="1035" y="360" width="255" height="220" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="1162" y="385" text-anchor="middle" font-size="14.5" font-weight="700" fill="#6d28d9">REMOTE LoRa-GSM GATEWAY</text>
+  <text x="1162" y="404" text-anchor="middle" font-size="11" fill="#64748b">Outdoors &#8212; cellular coverage</text>
+  <rect x="1060" y="418" width="205" height="52" rx="6" fill="#7c3aed"/>
+  <text x="1162" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ESP32 Gateway</text>
+  <text x="1162" y="458" text-anchor="middle" font-size="10.5" fill="#ede9fe">LoRa to SMS translator</text>
+  <rect x="1060" y="482" width="98" height="55" rx="6" fill="#fff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="1109" y="505" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Ra-02 Rx</text>
+  <text x="1109" y="523" text-anchor="middle" font-size="10" fill="#64748b">SPI &#183; 433MHz</text>
+  <rect x="1167" y="482" width="98" height="55" rx="6" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="1216" y="505" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">4G LTE GSM</text>
+  <text x="1216" y="523" text-anchor="middle" font-size="10" fill="#64748b">2A rail &#183; UART</text>
+  <line x1="1109" y1="470" x2="1109" y2="482" stroke="#334155" stroke-width="1.5"/>
+  <line x1="1216" y1="470" x2="1216" y2="482" stroke="#334155" stroke-width="1.5"/>
+  <rect x="1095" y="700" width="135" height="80" rx="10" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <rect x="1105" y="712" width="115" height="46" rx="4" fill="#e2e8f0"/>
+  <text x="1162" y="740" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Caretaker</text>
+  <text x="1162" y="772" text-anchor="middle" font-size="11" fill="#64748b">SMS Alert</text>
+  <path d="M475 697 C 560 300, 980 250, 1109 482" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowRF)"/>
+  <text x="770" y="245" text-anchor="middle" font-size="12.5" fill="#7c3aed" font-weight="700">433 MHz LoRa RF Link  (point-to-point alerts)</text>
+  <line x1="1216" y1="537" x2="1180" y2="700" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowRF)"/>
+  <text x="1150" y="630" text-anchor="end" font-size="11" fill="#7c3aed" font-weight="600">SMS via 4G LTE</text>
+  <path d="M157 275 C 157 340, 400 340, 265 430" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="300" y="345" font-size="10.5" fill="#b91c1c">5V to RPi</text>
+  <path d="M120 295 C 120 620, 620 640, 680 540" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="470" y="655" font-size="10.5" fill="#b91c1c" font-weight="600">12V Actuator Rail to DRV8825 / Solenoids (all nodes)</text>
+  <g font-size="11.5">
+    <line x1="1035" y1="612" x2="1075" y2="612" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <text x="1082" y="616" fill="#334155">Wired signal / data</text>
+    <line x1="1035" y1="636" x2="1075" y2="636" stroke="#d97706" stroke-width="3"/>
+    <text x="1082" y="640" fill="#334155">RS-485 differential bus</text>
+    <line x1="1035" y1="660" x2="1075" y2="660" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5"/>
+    <text x="1082" y="664" fill="#334155">Wireless (LoRa / GSM)</text>
+    <line x1="1035" y1="684" x2="1075" y2="684" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="1082" y="688" fill="#334155">Power distribution</text>
+  </g>
+</svg>

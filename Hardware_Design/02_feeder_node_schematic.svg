@@ -1,0 +1,127 @@
+<svg viewBox="0 0 1440 1020" xmlns="http://www.w3.org/2000/svg" font-family="Consolas, Menlo, monospace">
+  <rect x="0" y="0" width="1440" height="1020" fill="#ffffff"/>
+  <text x="720" y="36" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Feeder Node Wiring Schematic &#8212; ESP32-WROOM-32 (one per pen, &#215;3)</text>
+  <text x="720" y="58" text-anchor="middle" font-size="13" fill="#64748b" font-family="Segoe UI, Arial, sans-serif">3.3 V logic MCU &#183; 5 V sensor rail &#183; 12 V actuator rail &#183; red dividers step 5 V signals down to 3.3 V</text>
+  <rect x="560" y="180" width="320" height="640" rx="10" fill="#0e7490" stroke="#155e75" stroke-width="2.5"/>
+  <text x="720" y="212" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif">ESP32-WROOM-32</text>
+  <text x="720" y="232" text-anchor="middle" font-size="11" fill="#cffafe" font-family="Segoe UI, Arial, sans-serif">38-pin dev board</text>
+  <g font-size="12" fill="#ffffff">
+    <text x="575" y="270">3V3</text>
+    <text x="575" y="300">GPIO36  (Gas AO alt)</text>
+    <text x="575" y="330">GPIO34  MQ-135 AO</text>
+    <text x="575" y="360">GPIO32  HX711 DT</text>
+    <text x="575" y="390">GPIO33  HX711 SCK</text>
+    <text x="575" y="420">GPIO25  SR04T TRIG</text>
+    <text x="575" y="450">GPIO26  SR04T ECHO</text>
+    <text x="575" y="480">GPIO15  Override BTN</text>
+    <text x="575" y="510">GND</text>
+    <text x="575" y="540">VIN (5V)</text>
+  </g>
+  <g font-size="12" fill="#ffffff" text-anchor="end">
+    <text x="865" y="270">RX2 GPIO16  MAX485 RO</text>
+    <text x="865" y="300">TX2 GPIO17  MAX485 DI</text>
+    <text x="865" y="330">GPIO4   MAX485 DE/RE</text>
+    <text x="865" y="360">GPIO18  DRV STEP</text>
+    <text x="865" y="390">GPIO19  DRV DIR</text>
+    <text x="865" y="420">GPIO21  DRV ENABLE</text>
+    <text x="865" y="450">GPIO22  Feed-gate MOSFET</text>
+    <text x="865" y="480">GPIO23  Water-valve MOSFET</text>
+    <text x="865" y="510">GND</text>
+    <text x="865" y="540">3V3 &#8594; DRV M0/M1/M2, SLP/RST</text>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="1.5">
+    <line x1="560" y1="266" x2="540" y2="266"/><line x1="560" y1="296" x2="540" y2="296"/>
+    <line x1="560" y1="326" x2="540" y2="326"/><line x1="560" y1="356" x2="540" y2="356"/>
+    <line x1="560" y1="386" x2="540" y2="386"/><line x1="560" y1="416" x2="540" y2="416"/>
+    <line x1="560" y1="446" x2="540" y2="446"/><line x1="560" y1="476" x2="540" y2="476"/>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="1.5">
+    <line x1="880" y1="266" x2="900" y2="266"/><line x1="880" y1="296" x2="900" y2="296"/>
+    <line x1="880" y1="326" x2="900" y2="326"/><line x1="880" y1="356" x2="900" y2="356"/>
+    <line x1="880" y1="386" x2="900" y2="386"/><line x1="880" y1="416" x2="900" y2="416"/>
+    <line x1="880" y1="446" x2="900" y2="446"/><line x1="880" y1="476" x2="900" y2="476"/>
+  </g>
+  <rect x="80" y="330" width="180" height="90" rx="8" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="170" y="356" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">HX711 24-bit ADC</text>
+  <text x="90" y="380" font-size="11" fill="#334155">VCC 3V3 &#183; GND</text>
+  <text x="90" y="400" font-size="11" fill="#334155">DT &#8594; G32 &#183; SCK &#8594; G33</text>
+  <rect x="80" y="435" width="180" height="45" rx="6" fill="#fff" stroke="#0e7490" stroke-width="1.5"/>
+  <text x="170" y="462" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Strain-gauge Load Cell (trough)</text>
+  <line x1="170" y1="420" x2="170" y2="435" stroke="#0e7490" stroke-width="1.5"/>
+  <path d="M260 375 H 420 V 356 H 540" fill="none" stroke="#0e7490" stroke-width="1.6"/>
+  <path d="M260 400 H 400 V 386 H 540" fill="none" stroke="#0e7490" stroke-width="1.6"/>
+  <rect x="80" y="500" width="180" height="90" rx="8" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="170" y="526" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">JSN-SR04T</text>
+  <text x="90" y="550" font-size="11" fill="#334155">VCC 5V &#183; GND</text>
+  <text x="90" y="570" font-size="11" fill="#334155">TRIG&#8594;G25 &#183; ECHO&#8594;G26*</text>
+  <path d="M260 545 H 470 V 416 H 540" fill="none" stroke="#0e7490" stroke-width="1.6"/>
+  <rect x="360" y="560" width="150" height="34" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="435" y="582" text-anchor="middle" font-size="10.5" fill="#b91c1c">&#247; 1k&#937;/2k&#937; ECHO</text>
+  <path d="M260 570 H 360" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+  <path d="M510 577 H 525 V 446 H 540" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+  <rect x="80" y="620" width="180" height="90" rx="8" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="170" y="646" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">MQ-135 (NH3)</text>
+  <text x="90" y="670" font-size="11" fill="#334155">VCC 5V(heater) &#183; GND</text>
+  <text x="90" y="690" font-size="11" fill="#334155">AO &#8594; G34* &#183; DO = NC</text>
+  <rect x="360" y="640" width="150" height="34" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="435" y="662" text-anchor="middle" font-size="10.5" fill="#b91c1c">&#247; 10k&#937;/20k&#937; AO</text>
+  <path d="M260 660 H 360" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+  <path d="M510 657 H 525 V 326 H 540" stroke="#dc2626" stroke-width="1.6" fill="none"/>
+  <rect x="80" y="740" width="180" height="80" rx="8" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="170" y="766" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Override Button</text>
+  <text x="90" y="790" font-size="11" fill="#334155">3V3&#8212;[BTN]&#8212;G15</text>
+  <text x="90" y="808" font-size="11" fill="#334155">10k&#937; pulldown &#8594; GND</text>
+  <path d="M260 780 H 500 V 476 H 540" fill="none" stroke="#0e7490" stroke-width="1.6"/>
+  <rect x="960" y="240" width="200" height="110" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="1060" y="266" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">MAX485 (Slave)</text>
+  <text x="970" y="290" font-size="11" fill="#334155">VCC 5V &#183; GND</text>
+  <text x="970" y="310" font-size="11" fill="#334155">RO&#8594;G16* &#183; DI&#8594;G17</text>
+  <text x="970" y="330" font-size="11" fill="#334155">DE+RE &#8594; G4 &#183; A/B bus</text>
+  <path d="M900 266 H 960" stroke="#d97706" stroke-width="1.6" fill="none"/>
+  <path d="M900 296 H 940 V 300 H 960" stroke="#d97706" stroke-width="1.6" fill="none"/>
+  <path d="M900 326 H 960" stroke="#d97706" stroke-width="1.6" fill="none"/>
+  <path d="M1160 300 H 1230" stroke="#d97706" stroke-width="3" fill="none"/>
+  <text x="1245" y="296" font-size="12" font-weight="700" fill="#b45309" font-family="Segoe UI, Arial, sans-serif">A / B</text>
+  <text x="1245" y="314" font-size="10.5" fill="#b45309" font-family="Segoe UI, Arial, sans-serif">RS-485 bus</text>
+  <rect x="960" y="380" width="200" height="130" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="1060" y="406" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">DRV8825</text>
+  <text x="970" y="428" font-size="11" fill="#334155">STEP&#8592;G18 &#183; DIR&#8592;G19</text>
+  <text x="970" y="446" font-size="11" fill="#334155">ENABLE&#8592;G21</text>
+  <text x="970" y="464" font-size="11" fill="#334155">M0/M1/M2=3V3 (1/32)</text>
+  <text x="970" y="482" font-size="11" fill="#334155">VMOT=12V &#183; 100&#181;F cap</text>
+  <text x="970" y="500" font-size="11" fill="#334155">A1A2 B1B2 &#8594; NEMA17</text>
+  <path d="M900 356 H 930 V 400 H 960" stroke="#334155" stroke-width="1.5" fill="none"/>
+  <path d="M900 386 H 920 V 430 H 960" stroke="#334155" stroke-width="1.5" fill="none"/>
+  <path d="M900 416 H 910 V 460 H 960" stroke="#334155" stroke-width="1.5" fill="none"/>
+  <rect x="1200" y="405" width="110" height="80" rx="8" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="1255" y="440" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">NEMA 17</text>
+  <text x="1255" y="460" text-anchor="middle" font-size="11" fill="#64748b" font-family="Segoe UI, Arial, sans-serif">Auger motor</text>
+  <path d="M1160 460 H 1200" stroke="#dc2626" stroke-width="1.8" fill="none"/>
+  <rect x="960" y="540" width="200" height="105" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="1060" y="566" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">IRLZ44N Driver #1</text>
+  <text x="970" y="588" font-size="11" fill="#334155">Gate&#8592;G22 (220&#937;)</text>
+  <text x="970" y="606" font-size="11" fill="#334155">10k&#937; pulldown &#183; 1N4007</text>
+  <text x="970" y="624" font-size="11" fill="#334155">Drain &#8594; Feed-gate solenoid 12V</text>
+  <path d="M900 446 H 945 V 570 H 960" stroke="#334155" stroke-width="1.5" fill="none"/>
+  <rect x="1200" y="555" width="110" height="45" rx="6" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="1255" y="582" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Feed-gate Sol.</text>
+  <path d="M1160 578 H 1200" stroke="#dc2626" stroke-width="1.8" fill="none"/>
+  <rect x="960" y="675" width="200" height="105" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="1060" y="701" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">IRLZ44N Driver #2</text>
+  <text x="970" y="723" font-size="11" fill="#334155">Gate&#8592;G23 (220&#937;)</text>
+  <text x="970" y="741" font-size="11" fill="#334155">10k&#937; pulldown &#183; 1N4007</text>
+  <text x="970" y="759" font-size="11" fill="#334155">Drain &#8594; Water valve 12V</text>
+  <path d="M900 476 H 935 V 705 H 960" stroke="#334155" stroke-width="1.5" fill="none"/>
+  <rect x="1200" y="690" width="110" height="45" rx="6" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="1255" y="717" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Water Valve</text>
+  <path d="M1160 713 H 1200" stroke="#dc2626" stroke-width="1.8" fill="none"/>
+  <rect x="80" y="880" width="1280" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="100" y="908" font-size="14" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Node power &amp; ground</text>
+  <line x1="100" y1="930" x2="1340" y2="930" stroke="#dc2626" stroke-width="3"/>
+  <text x="110" y="924" font-size="11" fill="#b91c1c" font-family="Segoe UI, Arial, sans-serif">12 V Actuator Rail &#8594; DRV8825 VMOT, solenoid coils</text>
+  <line x1="100" y1="955" x2="1340" y2="955" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="110" y="949" font-size="11" fill="#c2410c" font-family="Segoe UI, Arial, sans-serif">5 V Logic Rail (LM2596) &#8594; ESP32 VIN, MAX485, JSN-SR04T, MQ-135 heater</text>
+  <line x1="100" y1="978" x2="1340" y2="978" stroke="#0f172a" stroke-width="2.5"/>
+  <text x="110" y="972" font-size="11" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif">Common GND (star point at SMPS) &#183; HX711 &amp; ESP32 3V3 from onboard regulator</text>
+  <text x="720" y="855" text-anchor="middle" font-size="12" fill="#b91c1c" font-family="Segoe UI, Arial, sans-serif">* Red blocks = resistor voltage dividers protecting 3.3 V ESP32 GPIO from 5 V sensor outputs (ECHO, MQ-135 AO, MAX485 RO)</text>
+</svg>
