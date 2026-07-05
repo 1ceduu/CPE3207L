@@ -1,0 +1,140 @@
+<svg viewBox="0 0 1340 1020" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#334155"/></marker>
+    <marker id="dg" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#16a34a"/></marker>
+    <marker id="dp" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1340" height="1020" fill="#ffffff"/>
+  <text x="670" y="40" text-anchor="middle" font-size="27" font-weight="700" fill="#0f172a">Software Architecture</text>
+  <text x="670" y="65" text-anchor="middle" font-size="14" fill="#64748b">Distributed, offline-first pipeline &#183; edge firmware &#8594; RS-485/MODBUS &#8594; Python backend &#8594; SQLite &#8594; dashboard, with LoRa-GSM alerts</text>
+
+  <!-- ============ TIER 1: EDGE FIRMWARE ============ -->
+  <rect x="30" y="90" width="990" height="205" rx="12" fill="#ecfeff" stroke="#0e7490" stroke-width="2.5"/>
+  <text x="50" y="116" font-size="15" font-weight="700" fill="#155e75">1 &#183; EDGE NODE FIRMWARE  &#8212;  ESP32-WROOM-32  (C/C++ on FreeRTOS, dual-core)  &#215; 3 nodes</text>
+  <!-- Core 0 -->
+  <rect x="55" y="132" width="360" height="145" rx="8" fill="#fff" stroke="#0e7490" stroke-width="1.8"/>
+  <text x="235" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Core 0 &#8212; Sensor Acquisition Task</text>
+  <text x="235" y="172" text-anchor="middle" font-size="10.5" fill="#64748b">hardware-interrupt driven &#183; high-frequency sampling</text>
+  <rect x="70" y="184" width="105" height="46" rx="5" fill="#ecfeff" stroke="#0e7490"/>
+  <text x="122" y="203" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">HX711</text>
+  <text x="122" y="219" text-anchor="middle" font-size="9" fill="#64748b">load cell</text>
+  <rect x="182" y="184" width="105" height="46" rx="5" fill="#ecfeff" stroke="#0e7490"/>
+  <text x="234" y="203" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">Ultrasonic</text>
+  <text x="234" y="219" text-anchor="middle" font-size="9" fill="#64748b">JSN-SR04T</text>
+  <rect x="294" y="184" width="105" height="46" rx="5" fill="#ecfeff" stroke="#0e7490"/>
+  <text x="346" y="203" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">MQ-135</text>
+  <text x="346" y="219" text-anchor="middle" font-size="9" fill="#64748b">air quality</text>
+  <text x="235" y="252" text-anchor="middle" font-size="10" fill="#0e7490" font-weight="600">samples &#8594; written to local register map</text>
+  <!-- Register map -->
+  <rect x="440" y="160" width="170" height="90" rx="8" fill="#0e7490"/>
+  <text x="525" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Local Register</text>
+  <text x="525" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Map (telemetry)</text>
+  <text x="525" y="240" text-anchor="middle" font-size="9" fill="#cffafe">shared, non-blocking</text>
+  <line x1="415" y1="205" x2="440" y2="205" stroke="#334155" stroke-width="1.8" marker-end="url(#d)"/>
+  <!-- Core 1 -->
+  <rect x="640" y="132" width="360" height="145" rx="8" fill="#fff" stroke="#0e7490" stroke-width="1.8"/>
+  <text x="820" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Core 1 &#8212; MODBUS RTU Slave Stack</text>
+  <text x="820" y="172" text-anchor="middle" font-size="10.5" fill="#64748b">answers master polls &#183; serves register map</text>
+  <rect x="660" y="184" width="320" height="46" rx="5" fill="#fffbeb" stroke="#d97706"/>
+  <text x="820" y="203" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">MAX485 half-duplex driver (DE/RE)</text>
+  <text x="820" y="219" text-anchor="middle" font-size="9" fill="#64748b">reads telemetry out &#183; receives dispensing commands</text>
+  <text x="820" y="252" text-anchor="middle" font-size="10" fill="#0e7490" font-weight="600">register map exposed to the RS-485 bus</text>
+  <line x1="610" y1="205" x2="640" y2="205" stroke="#334155" stroke-width="1.8" marker-end="url(#d)"/>
+
+  <!-- ============ TIER 2: TRANSPORT ============ -->
+  <rect x="30" y="315" width="990" height="66" rx="10" fill="#0f172a" stroke="#d97706" stroke-width="2.5"/>
+  <text x="525" y="343" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">2 &#183; TRANSPORT &#8212; MODBUS RTU over RS-485</text>
+  <text x="525" y="364" text-anchor="middle" font-size="11" fill="#fcd34d">master polls each node sequentially at 1-second intervals (telemetry up &#183; commands down)</text>
+  <line x1="525" y1="295" x2="525" y2="315" stroke="#334155" stroke-width="2" marker-end="url(#d)"/>
+  <text x="545" y="308" font-size="10" fill="#475569">poll / response</text>
+
+  <!-- ============ TIER 3: BACKEND ============ -->
+  <rect x="30" y="401" width="990" height="215" rx="12" fill="#eff6ff" stroke="#1e40af" stroke-width="2.5"/>
+  <text x="50" y="427" font-size="15" font-weight="700" fill="#1e3a8a">3 &#183; CENTRAL BACKEND  &#8212;  Raspberry Pi 5  (Python 3 &#183; PyModbus &#183; Flask)</text>
+  <text x="50" y="446" font-size="11" fill="#64748b">background orchestrator &#8212; fully offline capable, no internet dependency</text>
+  <!-- 4 services -->
+  <rect x="55" y="460" width="225" height="140" rx="8" fill="#fff" stroke="#1e40af" stroke-width="1.7"/>
+  <text x="167" y="482" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Poller Service</text>
+  <text x="167" y="503" text-anchor="middle" font-size="10" fill="#64748b">PyModbus read loops,</text>
+  <text x="167" y="518" text-anchor="middle" font-size="10" fill="#64748b">1 s per pen; writes raw</text>
+  <text x="167" y="533" text-anchor="middle" font-size="10" fill="#64748b">telemetry to SQLite</text>
+  <rect x="292" y="460" width="225" height="140" rx="8" fill="#fff" stroke="#1e40af" stroke-width="1.7"/>
+  <text x="404" y="482" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Analytical Engine</text>
+  <text x="404" y="503" text-anchor="middle" font-size="10" fill="#64748b">rolling-window anomaly</text>
+  <text x="404" y="518" text-anchor="middle" font-size="10" fill="#64748b">detection vs. persisted</text>
+  <text x="404" y="533" text-anchor="middle" font-size="10" fill="#64748b">baseline; flags deviations</text>
+  <rect x="529" y="460" width="225" height="140" rx="8" fill="#fff" stroke="#1e40af" stroke-width="1.7"/>
+  <text x="641" y="482" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Command Service</text>
+  <text x="641" y="503" text-anchor="middle" font-size="10" fill="#64748b">metered dispensing from</text>
+  <text x="641" y="518" text-anchor="middle" font-size="10" fill="#64748b">feeding schedule or</text>
+  <text x="641" y="533" text-anchor="middle" font-size="10" fill="#64748b">manual override &#8594; nodes</text>
+  <rect x="766" y="460" width="230" height="140" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.9"/>
+  <text x="881" y="482" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6d28d9">LoRa Alert Service</text>
+  <text x="881" y="503" text-anchor="middle" font-size="10" fill="#64748b">on flagged anomaly,</text>
+  <text x="881" y="518" text-anchor="middle" font-size="10" fill="#64748b">encodes lightweight</text>
+  <text x="881" y="533" text-anchor="middle" font-size="10" fill="#64748b">payload &#8594; LoRa (SPI)</text>
+  <!-- command back down to transport -->
+  <line x1="641" y1="600" x2="641" y2="381" stroke="#1e40af" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="651" y="636" font-size="9.5" fill="#1e3a8a">commands &#8593; to bus</text>
+  <line x1="410" y1="381" x2="410" y2="460" stroke="#334155" stroke-width="1.8" marker-end="url(#d)"/>
+  <text x="425" y="398" font-size="10" fill="#475569">telemetry</text>
+
+  <!-- ============ TIER 4: DATA STORE ============ -->
+  <rect x="55" y="640" width="460" height="95" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="285" y="666" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">4 &#183; DATA PERSISTENCE &#8212; SQLite</text>
+  <text x="285" y="688" text-anchor="middle" font-size="10.5" fill="#64748b">self-contained file DB &#183; timestamped telemetry, alerts &amp; feeding schedules</text>
+  <text x="285" y="708" text-anchor="middle" font-size="10.5" fill="#64748b">batched commits to protect the SD card from wear</text>
+  <line x1="167" y1="600" x2="167" y2="640" stroke="#334155" stroke-width="1.8" marker-end="url(#d)"/>
+  <text x="177" y="624" font-size="9.5" fill="#475569">write</text>
+  <line x1="404" y1="640" x2="404" y2="600" stroke="#334155" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="414" y="626" font-size="9.5" fill="#475569">baseline read</text>
+
+  <!-- ============ TIER 5: PRESENTATION ============ -->
+  <rect x="545" y="640" width="475" height="235" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
+  <text x="565" y="666" font-size="15" font-weight="700" fill="#3730a3">5 &#183; PRESENTATION LAYER</text>
+  <rect x="565" y="680" width="435" height="55" rx="8" fill="#fff" stroke="#4f46e5" stroke-width="1.7"/>
+  <text x="782" y="702" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Flask REST API endpoints</text>
+  <text x="782" y="720" text-anchor="middle" font-size="10" fill="#64748b">exposes latest SQLite data to the local network (no page refresh)</text>
+  <rect x="565" y="748" width="435" height="60" rx="8" fill="#fff" stroke="#4f46e5" stroke-width="1.7"/>
+  <text x="782" y="770" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Frontend &#8212; HTML5 / CSS3 / JS + Chart.js</text>
+  <text x="782" y="789" text-anchor="middle" font-size="10" fill="#64748b">AJAX pulls API &#8594; live time-series graphs &amp; alert gauges</text>
+  <rect x="565" y="820" width="435" height="42" rx="8" fill="#4f46e5"/>
+  <text x="782" y="846" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Chromium Kiosk Mode &#8212; 7" Touchscreen Dashboard</text>
+  <line x1="782" y1="735" x2="782" y2="748" stroke="#334155" stroke-width="1.6" marker-end="url(#d)"/>
+  <line x1="782" y1="808" x2="782" y2="820" stroke="#334155" stroke-width="1.6" marker-end="url(#d)"/>
+  <!-- data into presentation -->
+  <line x1="515" y1="688" x2="565" y2="702" stroke="#334155" stroke-width="1.8" marker-end="url(#d)"/>
+  <text x="512" y="672" font-size="9.5" fill="#475569" text-anchor="end">read</text>
+
+  <!-- ============ ALERT PATH (right column) ============ -->
+  <rect x="1045" y="401" width="270" height="474" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="1180" y="427" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">6 &#183; ALERT PATH</text>
+  <rect x="1065" y="445" width="230" height="70" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.7"/>
+  <text x="1180" y="470" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">LoRa RF Link</text>
+  <text x="1180" y="489" text-anchor="middle" font-size="10" fill="#64748b">433 MHz, point-to-point</text>
+  <text x="1180" y="505" text-anchor="middle" font-size="10" fill="#64748b">encoded alert payload</text>
+  <rect x="1065" y="545" width="230" height="120" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.7"/>
+  <text x="1180" y="568" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Gateway Firmware</text>
+  <text x="1180" y="587" text-anchor="middle" font-size="10" fill="#64748b">ESP32 (outdoor unit)</text>
+  <text x="1180" y="608" text-anchor="middle" font-size="10" fill="#334155">LoRa Rx &#8594; parse payload</text>
+  <text x="1180" y="626" text-anchor="middle" font-size="10" fill="#334155">&#8594; AT-command SMS encoder</text>
+  <text x="1180" y="647" text-anchor="middle" font-size="10" fill="#64748b">drives 4G LTE GSM module</text>
+  <rect x="1065" y="695" width="230" height="55" rx="8" fill="#7c3aed"/>
+  <text x="1180" y="719" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">GSM &#8594; SMS</text>
+  <text x="1180" y="737" text-anchor="middle" font-size="10" fill="#ede9fe">over cellular network</text>
+  <rect x="1110" y="785" width="140" height="72" rx="8" fill="#fff" stroke="#334155" stroke-width="2"/>
+  <rect x="1118" y="795" width="124" height="42" rx="4" fill="#e2e8f0"/>
+  <text x="1180" y="822" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Caretaker phone</text>
+  <text x="1180" y="850" text-anchor="middle" font-size="10" fill="#64748b">immediate notification</text>
+  <!-- alert arrows -->
+  <line x1="996" y1="530" x2="1065" y2="480" stroke="#7c3aed" stroke-width="2.2" marker-end="url(#dp)"/>
+  <line x1="1180" y1="515" x2="1180" y2="545" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#dp)"/>
+  <line x1="1180" y1="665" x2="1180" y2="695" stroke="#7c3aed" stroke-width="2" marker-end="url(#dp)"/>
+  <line x1="1180" y1="750" x2="1180" y2="785" stroke="#7c3aed" stroke-width="2" marker-end="url(#dp)"/>
+
+  <!-- pipeline caption -->
+  <text x="285" y="908" font-size="11.5" font-weight="700" fill="#16a34a">Normal path:</text>
+  <text x="360" y="908" font-size="11.5" fill="#334155">acquire &#8594; poll (RS-485) &#8594; persist (SQLite) &#8594; analyse &#8594; visualise on dashboard</text>
+  <text x="285" y="930" font-size="11.5" font-weight="700" fill="#7c3aed">Anomaly path:</text>
+  <text x="375" y="930" font-size="11.5" fill="#334155">Analytical Engine flags &#8594; touchscreen visual alert  +  LoRa &#8594; gateway &#8594; SMS to caretaker</text>
+</svg>

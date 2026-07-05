@@ -49,7 +49,19 @@ void setup() {
   scale.begin(DOUT_PIN, SCK_PIN);
 
   Serial.println("Testing connection to HX711...");
-  if (scale.is_ready()) {
+  
+  // Wait up to 1.5 seconds for the chip to wake up and perform its first conversion
+  unsigned long start_time = millis();
+  bool is_connected = false;
+  while (millis() - start_time < 1500) {
+    if (scale.is_ready()) {
+      is_connected = true;
+      break;
+    }
+    delay(10);
+  }
+
+  if (is_connected) {
     Serial.println("[SUCCESS] HX711 is responsive.");
   } else {
     Serial.println("[ERROR] HX711 not found! Please check your connections.");

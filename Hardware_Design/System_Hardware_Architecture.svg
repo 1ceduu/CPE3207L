@@ -1,0 +1,164 @@
+<svg viewBox="0 0 1340 1000" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#334155"/></marker>
+    <marker id="rf" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1340" height="1000" fill="#ffffff"/>
+  <text x="670" y="40" text-anchor="middle" font-size="27" font-weight="700" fill="#0f172a">System Hardware Architecture</text>
+  <text x="670" y="65" text-anchor="middle" font-size="14" fill="#64748b">Automated Feeding &amp; Watering System &#183; RS-485 MODBUS backbone &#183; LoRa-GSM alert path  (no water-flow sensor)</text>
+
+  <!-- POWER COLUMN -->
+  <rect x="30" y="95" width="150" height="810" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="105" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">POWER</text>
+  <rect x="45" y="135" width="120" height="70" rx="6" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="105" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">12 V / 10 A</text>
+  <text x="105" y="182" text-anchor="middle" font-size="11" fill="#64748b">SMPS</text>
+  <rect x="45" y="220" width="120" height="70" rx="6" fill="#fff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="105" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">LM2596</text>
+  <text x="105" y="267" text-anchor="middle" font-size="11" fill="#64748b">5 V Buck</text>
+  <line x1="105" y1="205" x2="105" y2="220" stroke="#dc2626" stroke-width="2"/>
+  <text x="105" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">12 V rail</text>
+  <text x="105" y="348" text-anchor="middle" font-size="10.5" fill="#b91c1c">actuators</text>
+  <text x="105" y="380" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">5 V rail</text>
+  <text x="105" y="398" text-anchor="middle" font-size="10.5" fill="#c2410c">logic</text>
+  <line x1="165" y1="335" x2="200" y2="335" stroke="#dc2626" stroke-width="3"/>
+  <line x1="165" y1="385" x2="200" y2="385" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="105" y="470" text-anchor="middle" font-size="10" fill="#64748b">Star ground</text>
+  <text x="105" y="486" text-anchor="middle" font-size="10" fill="#64748b">at SMPS</text>
+
+  <!-- ========== TIER 1: EDGE NODES ========== -->
+  <text x="205" y="112" font-size="15" font-weight="700" fill="#155e75">EDGE TIER &#8212; Feeder Nodes (one per pen &#215; 3)</text>
+  <!-- Node 1 detailed -->
+  <rect x="205" y="122" width="470" height="235" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2.5"/>
+  <text x="440" y="144" text-anchor="middle" font-size="13" font-weight="700" fill="#155e75">FEEDER NODE (representative)</text>
+  <!-- sensors row -->
+  <text x="220" y="168" font-size="10.5" font-weight="700" fill="#0e7490">SENSE</text>
+  <rect x="220" y="174" width="135" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+  <text x="287" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">HX711 + Load cell</text>
+  <text x="287" y="208" text-anchor="middle" font-size="9.5" fill="#64748b">trough weight</text>
+  <rect x="362" y="174" width="140" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+  <text x="432" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">JSN-SR04T</text>
+  <text x="432" y="208" text-anchor="middle" font-size="9.5" fill="#64748b">water level (ultrasonic)</text>
+  <rect x="509" y="174" width="150" height="46" rx="5" fill="#fff" stroke="#0e7490"/>
+  <text x="584" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">MQ-135</text>
+  <text x="584" y="208" text-anchor="middle" font-size="9.5" fill="#64748b">ammonia / air quality</text>
+  <!-- MCU -->
+  <rect x="280" y="234" width="320" height="46" rx="6" fill="#0e7490"/>
+  <text x="440" y="253" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ESP32-WROOM-32</text>
+  <text x="440" y="270" text-anchor="middle" font-size="9.5" fill="#cffafe">dual-core &#183; MODBUS RTU slave &#183; MAX485 transceiver</text>
+  <line x1="287" y1="220" x2="360" y2="234" stroke="#0e7490" stroke-width="1.3"/>
+  <line x1="432" y1="220" x2="440" y2="234" stroke="#0e7490" stroke-width="1.3"/>
+  <line x1="584" y1="220" x2="520" y2="234" stroke="#0e7490" stroke-width="1.3"/>
+  <!-- actuators -->
+  <text x="220" y="304" font-size="10.5" font-weight="700" fill="#dc2626">ACT</text>
+  <rect x="220" y="310" width="135" height="40" rx="5" fill="#fff" stroke="#dc2626"/>
+  <text x="287" y="328" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">DRV8825 + NEMA17</text>
+  <text x="287" y="343" text-anchor="middle" font-size="9.5" fill="#64748b">auger feed screw</text>
+  <rect x="362" y="310" width="140" height="40" rx="5" fill="#fff" stroke="#dc2626"/>
+  <text x="432" y="328" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">Feed-gate solenoid</text>
+  <text x="432" y="343" text-anchor="middle" font-size="9.5" fill="#64748b">MOSFET driver</text>
+  <rect x="509" y="310" width="150" height="40" rx="5" fill="#fff" stroke="#dc2626"/>
+  <text x="584" y="328" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">Water solenoid valve</text>
+  <text x="584" y="343" text-anchor="middle" font-size="9.5" fill="#64748b">MOSFET driver</text>
+  <line x1="360" y1="280" x2="287" y2="310" stroke="#dc2626" stroke-width="1.3"/>
+  <line x1="440" y1="280" x2="432" y2="310" stroke="#dc2626" stroke-width="1.3"/>
+  <line x1="520" y1="280" x2="584" y2="310" stroke="#dc2626" stroke-width="1.3"/>
+
+  <!-- Node 2 & 3 compact -->
+  <rect x="695" y="122" width="290" height="112" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="840" y="144" text-anchor="middle" font-size="12.5" font-weight="700" fill="#155e75">FEEDER NODE 2 (Pen 2)</text>
+  <rect x="715" y="156" width="160" height="58" rx="6" fill="#0e7490"/>
+  <text x="795" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">ESP32 node</text>
+  <text x="795" y="198" text-anchor="middle" font-size="9" fill="#cffafe">same sensor + actuator set</text>
+  <rect x="890" y="156" width="80" height="58" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.6"/>
+  <text x="930" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">MAX485</text>
+  <text x="930" y="199" text-anchor="middle" font-size="9" fill="#64748b">slave</text>
+
+  <rect x="1005" y="122" width="290" height="112" rx="10" fill="#ecfeff" stroke="#0e7490" stroke-width="2"/>
+  <text x="1150" y="144" text-anchor="middle" font-size="12.5" font-weight="700" fill="#155e75">FEEDER NODE 3 (Pen 3)</text>
+  <rect x="1025" y="156" width="160" height="58" rx="6" fill="#0e7490"/>
+  <text x="1105" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">ESP32 node</text>
+  <text x="1105" y="198" text-anchor="middle" font-size="9" fill="#cffafe">same set &#183; 120 &#937; term</text>
+  <rect x="1200" y="156" width="80" height="58" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.6"/>
+  <text x="1240" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">MAX485</text>
+  <text x="1240" y="199" text-anchor="middle" font-size="9" fill="#64748b">slave</text>
+
+  <!-- ========== TIER 2: RS-485 BACKBONE ========== -->
+  <rect x="205" y="392" width="1090" height="60" rx="10" fill="#0f172a" stroke="#d97706" stroke-width="3"/>
+  <text x="750" y="420" text-anchor="middle" font-size="15" font-weight="700" fill="#fbbf24">WIRED BACKBONE &#8212; RS-485 differential bus  (MODBUS RTU, shielded twisted pair)</text>
+  <text x="750" y="440" text-anchor="middle" font-size="11" fill="#fcd34d">120 &#937; termination at both ends &#183; half-duplex &#183; daisy-chained</text>
+  <!-- node taps to bus -->
+  <line x1="440" y1="357" x2="440" y2="392" stroke="#d97706" stroke-width="3"/>
+  <line x1="840" y1="234" x2="840" y2="392" stroke="#d97706" stroke-width="3"/>
+  <line x1="1150" y1="234" x2="1150" y2="392" stroke="#d97706" stroke-width="3"/>
+
+  <!-- ========== TIER 3: CENTRAL ========== -->
+  <text x="205" y="482" font-size="15" font-weight="700" fill="#1e3a8a">CENTRAL TIER &#8212; Main Control Module</text>
+  <rect x="205" y="492" width="740" height="180" rx="10" fill="#eff6ff" stroke="#1e40af" stroke-width="2.5"/>
+  <rect x="230" y="515" width="250" height="130" rx="8" fill="#1e40af"/>
+  <text x="355" y="560" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Raspberry Pi 5</text>
+  <text x="355" y="583" text-anchor="middle" font-size="10.5" fill="#dbeafe">MODBUS RTU master</text>
+  <text x="355" y="600" text-anchor="middle" font-size="10.5" fill="#dbeafe">Analytical engine &#183; SQLite</text>
+  <text x="355" y="617" text-anchor="middle" font-size="10.5" fill="#dbeafe">Dashboard host</text>
+  <rect x="500" y="515" width="200" height="40" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.8"/>
+  <text x="600" y="533" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">MAX485 (Master)</text>
+  <text x="600" y="548" text-anchor="middle" font-size="9.5" fill="#64748b">UART0 &#183; RS-485 driver</text>
+  <rect x="500" y="565" width="200" height="40" rx="6" fill="#fff" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="600" y="583" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Ra-02 LoRa Tx</text>
+  <text x="600" y="598" text-anchor="middle" font-size="9.5" fill="#64748b">SPI0 &#183; 433 MHz</text>
+  <rect x="500" y="615" width="200" height="42" rx="6" fill="#fff" stroke="#1e40af" stroke-width="1.6"/>
+  <text x="600" y="633" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">7" Touchscreen</text>
+  <text x="600" y="648" text-anchor="middle" font-size="9.5" fill="#64748b">local kiosk dashboard</text>
+  <rect x="720" y="515" width="200" height="142" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="820" y="537" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">Central hopper</text>
+  <text x="820" y="556" text-anchor="middle" font-size="9.5" fill="#64748b">0.18 m&#179; feed store</text>
+  <text x="820" y="576" text-anchor="middle" font-size="9.5" fill="#64748b">gravity-fed auger</text>
+  <text x="820" y="600" text-anchor="middle" font-size="9.5" fill="#64748b">to each feeder node</text>
+  <line x1="480" y1="535" x2="500" y2="535" stroke="#334155" stroke-width="1.5"/>
+  <line x1="480" y1="585" x2="500" y2="585" stroke="#334155" stroke-width="1.5"/>
+  <line x1="480" y1="636" x2="500" y2="636" stroke="#334155" stroke-width="1.5"/>
+  <!-- master to bus -->
+  <line x1="600" y1="515" x2="600" y2="452" stroke="#d97706" stroke-width="3"/>
+  <text x="612" y="478" font-size="10" fill="#b45309">A/B</text>
+
+  <!-- ========== TIER 4: REMOTE ========== -->
+  <text x="985" y="482" font-size="15" font-weight="700" fill="#6d28d9">REMOTE ALERT TIER</text>
+  <rect x="985" y="492" width="310" height="180" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="1140" y="516" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6d28d9">LoRa-GSM Gateway (outdoor)</text>
+  <rect x="1005" y="528" width="270" height="42" rx="6" fill="#7c3aed"/>
+  <text x="1140" y="554" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ESP32 Gateway</text>
+  <rect x="1005" y="580" width="130" height="46" rx="6" fill="#fff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="1070" y="600" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Ra-02 Rx</text>
+  <text x="1070" y="616" text-anchor="middle" font-size="9" fill="#64748b">433 MHz</text>
+  <rect x="1145" y="580" width="130" height="46" rx="6" fill="#fff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="1210" y="600" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">4G LTE GSM</text>
+  <text x="1210" y="616" text-anchor="middle" font-size="9" fill="#64748b">dedicated 2A rail</text>
+  <rect x="1095" y="636" width="110" height="0"/>
+  <!-- phone -->
+  <rect x="1095" y="700" width="110" height="70" rx="8" fill="#fff" stroke="#334155" stroke-width="2"/>
+  <rect x="1103" y="710" width="94" height="40" rx="4" fill="#e2e8f0"/>
+  <text x="1150" y="735" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Caretaker</text>
+  <text x="1150" y="762" text-anchor="middle" font-size="10" fill="#64748b">SMS Alert</text>
+  <line x1="1210" y1="626" x2="1180" y2="700" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#rf)"/>
+  <text x="1250" y="670" font-size="10" fill="#7c3aed" font-weight="600">SMS</text>
+
+  <!-- LoRa wireless link central Ra-02 -> gateway Ra-02 -->
+  <path d="M700 585 C 820 470, 960 470, 1070 580" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#rf)"/>
+  <text x="885" y="470" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">433 MHz LoRa RF link (alerts)</text>
+
+  <!-- power feeds (dashed) -->
+  <path d="M200 335 C 300 335, 150 300, 300 260" fill="none" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="205" y="365" font-size="9.5" fill="#b91c1c">12V &#8594; nodes (auger/solenoids)</text>
+  <path d="M200 385 C 260 385, 260 520, 230 545" fill="none" stroke="#ea580c" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="205" y="410" font-size="9.5" fill="#c2410c">5V &#8594; RPi &amp; logic</text>
+
+  <!-- legend -->
+  <g font-size="11">
+    <rect x="30" y="925" width="1265" height="55" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <line x1="50" y1="945" x2="90" y2="945" stroke="#d97706" stroke-width="3"/><text x="98" y="949" fill="#334155">RS-485 bus (A/B)</text>
+    <line x1="250" y1="945" x2="290" y2="945" stroke="#334155" stroke-width="1.8" marker-end="url(#a)"/><text x="298" y="949" fill="#334155">wired signal</text>
+    <line x1="430" y1="945" x2="470" y2="945" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5"/><text x="478" y="949" fill="#334155">wireless (LoRa / GSM)</text>
+    <line x1="680" y1="945" x2="720" y2="945" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 4"/><text x="728" y="949" fill="#334155">power distribution</text>
+    <text x="950" y="949" fill="#64748b">Sensors: HX711+load cell, JSN-SR04T ultrasonic, MQ-135 (no flow sensor)</text>
+  </g>
+</svg>
