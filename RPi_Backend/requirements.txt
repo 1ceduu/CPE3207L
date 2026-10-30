@@ -1,0 +1,13 @@
+# RPi Backend — Python Dependencies
+# CPE3207L Thesis: Integrated Automated Feeding and Watering System
+#
+# Install: pip install -r requirements.txt
+# On Raspberry Pi: pip3 install -r requirements.txt
+
+flask>=3.0
+flask-cors>=4.0
+pyserial>=3.5
+
+# Raspberry Pi only (will fail to install on Windows — that's OK)
+# Uncomment on the actual Raspberry Pi:
+# RPi.GPIO>=0.7

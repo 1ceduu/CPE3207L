@@ -13,30 +13,48 @@ export function toggleFullscreen() {
     }
 }
 
-/* Dashboard render */
+/* Dashboard render (Connected Pens Only) */
 export function renderDashboard() {
     const grid = document.getElementById("pen-grid");
     if (!grid) return;
+
+    const penIds = Object.keys(penData);
+    if (penIds.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-pen-card" style="grid-column: 1 / -1; text-align: center; padding: 48px 24px; background: rgba(15,23,42,0.6); border: 1px dashed rgba(56,189,248,0.3); border-radius: 16px;">
+                <div style="font-size: 2.5rem; margin-bottom: 12px;">📡</div>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--cyan); margin-bottom: 8px;">Searching for Connected Feeder Nodes...</h3>
+                <p style="color: var(--muted); font-size: 0.88rem; max-width: 480px; margin: 0 auto 18px; line-height: 1.5;">
+                    Connect an ESP32 Feeder Module via USB Serial (115200 baud) or RS-485 MODBUS RTU. The pen monitoring card will automatically appear here once live telemetry is detected.
+                </p>
+                <div class="system-pill" style="display: inline-flex;">
+                    <div class="pill-dot"></div> Listening on Serial / MODBUS
+                </div>
+            </div>
+        `;
+        return;
+    }
+
     grid.innerHTML = "";
 
-    Object.keys(penData).forEach(id => {
+    penIds.forEach(id => {
         const pen  = penData[id];
         const card = document.createElement("div");
-        card.className = `pen-card ${pen.cardClass}`;
+        card.className = `pen-card ${pen.cardClass || ""}`;
         card.onclick   = () => showScreen("pen-control-screen", id);
 
-        const waterFill = pen.waterLevel < 30 ? "critical" : pen.waterLevel < 40 ? "warning" : "";
+        const waterFill = pen.waterLevel < 30 ? "critical" : pen.waterLevel < 45 ? "warning" : "";
         const nh3Fill   = pen.nh3 >= CONFIG.NH3_LIMIT_PPM ? "critical" : pen.nh3 >= 20 ? "warning" : "";
 
         let alertsHTML = "";
-        if (pen.statusClass === "warning" || pen.statusClass === "critical") {
+        if (pen.alerts && (pen.statusClass === "warning" || pen.statusClass === "critical")) {
             const activeAlerts = pen.alerts.filter(a => a.type === "warning" || a.type === "critical");
             if (activeAlerts.length > 0) {
                 alertsHTML = `
                     <div class="card-alerts-box">
                         <div class="card-alerts-title">Active Alerts</div>
                         <div class="card-alerts-list">
-                            ${activeAlerts.map(a => `
+                            ${activeAlerts.slice(0, 2).map(a => `
                                 <div class="card-alert-item ${a.type}">
                                     <span class="card-alert-dot"></span>
                                     <span class="card-alert-text">${a.text}</span>
@@ -51,7 +69,7 @@ export function renderDashboard() {
         card.innerHTML = `
             <div class="pen-header">
                 <div class="pen-title">${pen.name}</div>
-                <div class="pen-id-badge">Feeder Module</div>
+                <div class="pen-id-badge">Feeder Module #${pen.pen_id}</div>
             </div>
             <div class="metric-stack">
                 <div class="metric-box">
@@ -121,65 +139,97 @@ export function onBackdropClick(event, modalId) {
     if (event.target === document.getElementById(modalId)) closeModal(modalId);
 }
 
-/* Pen control data loader */
-export function loadPenControlData(penId) {
+/* Real-Time Screen 2 Live DOM Synchronizer (Non-destructive) */
+export function updateLivePenControl(penId) {
     const pen = penData[penId];
-    document.getElementById("pen-control-title").textContent = `${pen.name} — Control`;
-    document.getElementById("footer-pen-status").textContent = `${pen.name} selected`;
+    if (!pen) return;
+
+    // Check if pen-control-screen is active
+    const screen = document.getElementById("pen-control-screen");
+    if (!screen || !screen.classList.contains("active")) return;
+
+    // Title & Status
+    const titleEl = document.getElementById("pen-control-title");
+    if (titleEl) titleEl.textContent = `${pen.name} — Control`;
+
+    const footerEl = document.getElementById("footer-pen-status");
+    if (footerEl) footerEl.textContent = `${pen.name} selected (Live)`;
 
     // Water gauge
     const gaugeText   = document.getElementById("water-gauge-text");
     const litersText  = document.getElementById("water-liters-text");
     const fill        = document.getElementById("water-bar-fill");
     const liters      = ((pen.waterLevel / 100) * CONFIG.MAX_WATER_L).toFixed(2);
-    gaugeText.textContent  = `${pen.waterLevel}%`;
-    litersText.textContent = `${liters} / ${CONFIG.MAX_WATER_L.toFixed(2)} L`;
-    fill.style.width       = `${pen.waterLevel}%`;
-    fill.className         = "progress-fill " + (pen.waterLevel < 30 ? "critical" : pen.waterLevel < 40 ? "warning" : "");
+
+    if (gaugeText)  gaugeText.textContent  = `${pen.waterLevel}%`;
+    if (litersText) litersText.textContent = `${liters} / ${CONFIG.MAX_WATER_L.toFixed(2)} L`;
+    if (fill) {
+        fill.style.width = `${pen.waterLevel}%`;
+        fill.className   = "progress-fill " + (pen.waterLevel < 30 ? "critical" : pen.waterLevel < 45 ? "warning" : "");
+    }
 
     // Refill threshold display
-    document.getElementById("refill-threshold-display").textContent = `${pen.refillThreshold}%`;
+    const threshEl = document.getElementById("refill-threshold-display");
+    if (threshEl) threshEl.textContent = `${pen.refillThreshold}%`;
 
-    // Alert log
+    // Alert log container update if alert items exist
     const alertContainer = document.getElementById("alert-log-container");
-    alertContainer.innerHTML = "";
-    document.getElementById("alert-count").textContent = `${pen.alerts.length} events`;
-    pen.alerts.forEach(alert => {
-        const div = document.createElement("div");
-        div.className = `alert-item ${alert.type === "status" ? "" : alert.type}`;
-        div.innerHTML = `
-            <span class="alert-time">${alert.time}</span>
-            <div class="alert-body">
-                <span class="alert-kind ${alert.type}">${alert.type}</span>
-                <span class="alert-text">${alert.text}</span>
-            </div>
-        `;
-        alertContainer.appendChild(div);
-    });
+    const alertCountEl   = document.getElementById("alert-count");
+    if (alertContainer && pen.alerts) {
+        if (alertCountEl) alertCountEl.textContent = `${pen.alerts.length} events`;
+        alertContainer.innerHTML = "";
+        pen.alerts.forEach(alert => {
+            const div = document.createElement("div");
+            div.className = `alert-item ${alert.type === "status" ? "" : alert.type}`;
+            div.innerHTML = `
+                <span class="alert-time">${alert.time}</span>
+                <div class="alert-body">
+                    <span class="alert-kind ${alert.type}">${alert.type}</span>
+                    <span class="alert-text">${alert.text}</span>
+                </div>
+            `;
+            alertContainer.appendChild(div);
+        });
+    }
 
-    // Schedule
+    // Live Chart update
+    if (pen.history && pen.dangerZone) {
+        drawConsumptionChart(pen.history, pen.dangerZone);
+    }
+}
+
+/* Pen control initial data loader */
+export function loadPenControlData(penId) {
+    const pen = penData[penId];
+    if (!pen) return;
+
+    updateLivePenControl(penId);
+
+    // Schedule list
     const schedContainer = document.getElementById("schedule-container");
-    schedContainer.innerHTML = "";
-    pen.schedule.forEach(s => {
-        const div = document.createElement("div");
-        div.className = "schedule-card";
-        div.innerHTML = `
-            <div>
-                <div class="metric-label">${s.label}</div>
-                <strong>${s.time}</strong>
-            </div>
-            <span class="schedule-amount">${s.amount}</span>
-        `;
-        schedContainer.appendChild(div);
-    });
-
-    drawConsumptionChart(pen.history, pen.dangerZone);
+    if (schedContainer && pen.schedule) {
+        schedContainer.innerHTML = "";
+        pen.schedule.forEach(s => {
+            const div = document.createElement("div");
+            div.className = "schedule-card";
+            div.innerHTML = `
+                <div>
+                    <div class="metric-label">${s.label}</div>
+                    <strong>${s.time}</strong>
+                </div>
+                <span class="schedule-amount">${s.amount}</span>
+            `;
+            schedContainer.appendChild(div);
+        });
+    }
 }
 
 /* Feed settings */
 export function loadFeedSettingsData(penId) {
-    const s = penData[penId].settings;
-    document.getElementById("feed-modal-title").textContent = `Edit Feeding Program — ${penData[penId].name}`;
+    const pen = penData[penId];
+    if (!pen || !pen.settings) return;
+    const s = pen.settings;
+    document.getElementById("feed-modal-title").textContent = `Edit Feeding Program — ${pen.name}`;
     document.getElementById("morning-hour").value   = String(s.mHour).padStart(2, "0");
     document.getElementById("morning-min").value    = String(s.mMin).padStart(2, "0");
     document.getElementById("morning-period").value = s.mPer;
@@ -210,7 +260,7 @@ export function clampTimeValues() {
     });
 }
 
-export function saveSettings() {
+export async function saveSettings() {
     clampTimeValues();
     const s = {
         mHour:   parseInt(document.getElementById("morning-hour").value, 10),
@@ -222,12 +272,26 @@ export function saveSettings() {
         aPer:    document.getElementById("midday-period").value,
         aAmount: parseFloat(document.getElementById("midday-amount").value || "0")
     };
-    penData[state.currentPen].settings = s;
-    penData[state.currentPen].schedule = [
-        { label: "Morning Cycle", time: `${String(s.mHour).padStart(2,"0")}:${String(s.mMin).padStart(2,"0")} ${s.mPer}`, amount: `${s.mAmount.toFixed(1)} kg` },
-        { label: "Midday Cycle",  time: `${String(s.aHour).padStart(2,"0")}:${String(s.aMin).padStart(2,"0")} ${s.aPer}`, amount: `${s.aAmount.toFixed(1)} kg` }
-    ];
-    showToast(`${penData[state.currentPen].name} feed schedule saved`);
+
+    if (penData[state.currentPen]) {
+        penData[state.currentPen].settings = s;
+        penData[state.currentPen].schedule = [
+            { label: "Morning Cycle", time: `${String(s.mHour).padStart(2,"0")}:${String(s.mMin).padStart(2,"0")} ${s.mPer}`, amount: `${s.mAmount.toFixed(1)} kg` },
+            { label: "Midday Cycle",  time: `${String(s.aHour).padStart(2,"0")}:${String(s.aMin).padStart(2,"0")} ${s.aPer}`, amount: `${s.aAmount.toFixed(1)} kg` }
+        ];
+    }
+
+    try {
+        await fetch(`/api/pens/${state.currentPen}/schedule`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ settings: s })
+        });
+        showToast(`${penData[state.currentPen]?.name || 'Pen'} feed schedule saved to database`);
+    } catch (err) {
+        showToast(`${penData[state.currentPen]?.name || 'Pen'} schedule updated locally`);
+    }
+
     closeModal("feed-modal");
     loadPenControlData(state.currentPen);
 }
@@ -235,8 +299,9 @@ export function saveSettings() {
 /* Water threshold */
 export function loadWaterSettingsData(penId) {
     const pen = penData[penId];
+    if (!pen) return;
     document.getElementById("water-modal-title").textContent = `Water Refill Threshold — ${pen.name}`;
-    syncThreshold(pen.refillThreshold);
+    syncThreshold(pen.refillThreshold || CONFIG.DEFAULT_THRESHOLD);
 }
 
 export function syncThreshold(v) {
@@ -274,18 +339,36 @@ export function adjustThreshold(delta) {
     syncThreshold(v);
 }
 
-export function saveWaterThreshold() {
+export async function saveWaterThreshold() {
     let v = parseInt(document.getElementById("water-threshold-input").value || String(CONFIG.DEFAULT_THRESHOLD), 10);
     v = Math.max(CONFIG.MIN_THRESHOLD, Math.min(CONFIG.MAX_THRESHOLD, v));
-    penData[state.currentPen].refillThreshold = v;
-    showToast(`${penData[state.currentPen].name} refill threshold set to ${v}% (${((v/100)*CONFIG.MAX_WATER_L).toFixed(2)} L)`);
+
+    if (penData[state.currentPen]) {
+        penData[state.currentPen].refillThreshold = v;
+    }
+
+    try {
+        await fetch(`/api/pens/${state.currentPen}/threshold`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ threshold: v })
+        });
+        showToast(`${penData[state.currentPen]?.name || 'Pen'} refill threshold set to ${v}% (${((v/100)*CONFIG.MAX_WATER_L).toFixed(2)} L)`);
+    } catch (err) {
+        if (window.sendHardwareCommand) {
+            window.sendHardwareCommand(`THRESH ${v}`);
+        }
+        showToast(`Refill threshold updated to ${v}%`);
+    }
+
     closeModal("water-modal");
     loadPenControlData(state.currentPen);
 }
 
 /* Manual override screen */
 export function loadOverrideScreen(penId) {
-    document.getElementById("override-modal-title").textContent = `⚡ Manual Override (RA0) — ${penData[penId].name}`;
+    const pen = penData[penId];
+    document.getElementById("override-modal-title").textContent = `⚡ Manual Override (RA0) — ${pen ? pen.name : 'Pen'}`;
     state.feedDispatch = 1.0;
     document.getElementById("feed-dispatch-val").textContent = state.feedDispatch.toFixed(1);
 }
@@ -301,21 +384,37 @@ export function adjustDispatch(type, delta) {
 }
 
 export function confirmDispatch(type) {
+    const pen = penData[state.currentPen];
+    const penName = pen ? pen.name : `Pen ${state.currentPen}`;
+
     if (type === "feed") {
-        showToast(`Dispensing ${state.feedDispatch.toFixed(1)} kg feed to ${penData[state.currentPen].name}`);
-        penData[state.currentPen].alerts.unshift({
-            time: currentTimeStr(),
-            type: "status",
-            text: `Manual override: ${state.feedDispatch.toFixed(1)} kg feed dispensed`
-        });
+        const grams = Math.round(state.feedDispatch * 1000);
+        showToast(`Dispensing ${state.feedDispatch.toFixed(1)} kg (${grams}g) feed to ${penName}`);
+        if (pen && pen.alerts) {
+            pen.alerts.unshift({
+                time: currentTimeStr(),
+                type: "status",
+                text: `Manual override: ${state.feedDispatch.toFixed(1)} kg feed dispensed`
+            });
+        }
+        if (window.sendHardwareCommand) {
+            window.sendHardwareCommand(`D ${grams}`);
+        }
     } else {
-        showToast(`Refilling trough to full (${CONFIG.MAX_WATER_L.toFixed(1)} L) — ${penData[state.currentPen].name}`);
-        penData[state.currentPen].alerts.unshift({
-            time: currentTimeStr(),
-            type: "status",
-            text: `Manual override: trough refilled to full (${CONFIG.MAX_WATER_L.toFixed(1)} L)`
-        });
-        penData[state.currentPen].waterLevel = 100;
+        showToast(`Refilling trough to full (${CONFIG.MAX_WATER_L.toFixed(1)} L) — ${penName}`);
+        if (pen) {
+            if (pen.alerts) {
+                pen.alerts.unshift({
+                    time: currentTimeStr(),
+                    type: "status",
+                    text: `Manual override: trough refilled to full (${CONFIG.MAX_WATER_L.toFixed(1)} L)`
+                });
+            }
+            pen.waterLevel = 100;
+        }
+        if (window.sendHardwareCommand) {
+            window.sendHardwareCommand('REFILL');
+        }
     }
     closeModal("override-modal");
     setTimeout(() => loadPenControlData(state.currentPen), 400);
