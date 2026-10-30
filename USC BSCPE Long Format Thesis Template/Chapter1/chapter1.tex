@@ -1,0 +1,81 @@
+%*******************************************************************************
+%*********************************** Chapter 1 *********************************
+%*******************************************************************************
+
+\chapter{Introduction}
+
+%********************************** Section 1.1 ********************************
+\section{Project Context and Background}
+
+Livestock farming is a significant component of global agriculture, food security, and economic activity. As the global population surpasses 8.2 billion in 2025, livestock farming continues to play a vital role in food security, rural livelihoods, and international trade \cite{piyush2025animal}\cite{livestockproduction2026}. Livestock also has substantial economic importance. The gross value of global livestock production is projected to increase by 14\% over the next decade, with the livestock sector leading this expansion with a 16\% rise \cite{oecdfao2025outlook}. Global dietary preferences are also shifting toward nutrient-rich animal proteins due to rising incomes and urbanization, especially in middle-income countries in Asia and Latin America \cite{livestockproduction2026}\cite{oecdfao2025outlook}. By 2034, daily per capita consumption of fish and livestock products is expected to increase by 25\% in lower-middle-income nations \cite{oecdfao2025outlook}\cite{livestockproduction2026}.
+
+Within the global livestock industry, swine production remains a major source of animal protein and an important contributor to food security \cite{livestockproduction2026}. Pork continues to hold a significant share of global meat production, ranking second only to poultry, with an estimated output of 116.27 million metric tons in 2025 \cite{usda2026pork}. This level of production is largely driven by a few major producers, particularly China, which maintains an inventory of approximately 400 million pigs and accounts for about 49\% of total global pork production. The European Union and the United States follow, contributing 19\% and 11\%, respectively \cite{usda2026pork}. These figures show the scale and concentration of the global pork industry, but they also highlight the importance of swine farming beyond large-scale producers. In many developing countries, pig production remains closely tied to local food supply, household income, and rural livelihoods. In the Philippines, for example, the swine industry is valued at around ₱191 billion and accounts for 78\% of the country's total livestock output \cite{livestockproduction2026}\cite{porcinews2026philippine}\cite{lo2025rebooting}\cite{villanueva2025philippine}. Around 71.1\% of the Philippine hog inventory is managed by backyard smallholder farmers, indicating the role of piggery farming in local economic activity \cite{lo2025rebooting}.
+
+The global swine industry is susceptible to transboundary diseases and production inefficiencies, making consistent health monitoring necessary for early disease detection, economic sustainability, improved animal welfare, and reduced dependence on antibiotics in agriculture \cite{beyondtech2025smart}. Although manual inspection of pens, pig behavior, and air quality remains common practice, modern swine farming is steadily shifting toward advanced, continuous monitoring technologies to achieve these goals \cite{beyondtech2025smart}. The Philippines, where the swine industry is valued at around ₱191 billion and accounts for 78\% of the country's total livestock output \cite{lo2025rebooting}\cite{livestockproduction2026}, has faced growing pressure to modernize farm-level health monitoring practices in light of recurring disease outbreaks and sustained livestock losses in recent years.
+
+Manual pig monitoring is time-consuming and prone to error, especially when caregivers are overworked. A pig's health status is closely linked to its feeding and drinking behavior, as measurable deviations in dietary intake are often among the first observable indicators of illness --- yet these deviations go undetected without a structured data-recording system. In a case study conducted in a piggery in Tuburan, Cebu, the inability of caretakers to constantly monitor every pig led to the death of 20 nursery pigs in a single month \cite{dingcong2017monitoring}. Furthermore, unmonitored air quality in piggery enclosures poses a risk of respiratory illness among swine, adding to the effects of insufficient caretaker oversight \cite{lo2025rebooting}\cite{livestockproduction2026}. Meanwhile, commercial operations in regions such as Central Luzon and CALABARZON are increasingly adopting climate-controlled, tunnel-ventilated housing with digital sensors as the sector modernizes, with these monitoring conditions helping reduce pre-weaning mortality from 10\% to 9.43\% while improving productivity and reproductive performance \cite{lo2025rebooting}\cite{livestockproduction2026}.
+
+
+%********************************** Section 1.2 ********************************
+\section{Statement of the Problem}
+
+Inconsistent feeding and drinking practices in pigs can lead to significant health risks and feed wastage \cite{oecdfao2025outlook}. Early detection of illness through physical or manual observation is often unreliable because subtle symptoms may go unnoticed \cite{usda2026pork}. Without a consistent feed and water tracking system, caretakers must rely on labor-intensive observation, which can lead to inaccurate records and delays in identifying symptoms or other issues. A pig's health status is closely linked to its feeding and drinking behavior, as measurable deviations in dietary intake are often among the first observable indicators of illness \cite{dingcong2017monitoring}. However, without a data-recording system, individual feeding patterns are not established or tracked over time, making it difficult to distinguish normal behavioral variation from significant decline. In addition, unmonitored air quality in piggery environments poses an unnecessary and preventable risk of common respiratory illnesses such as coughs and colds among pigs \cite{livestockproduction2026}.
+
+This study addresses these issues by proposing a system that establishes per-module consumption baselines using a rolling time window and flags deviations beyond a defined threshold as potential signs of abnormal behavior requiring immediate caretaker attention. Air-quality readings from integrated sensors are also compared against safe-range standards, with alerts generated when toxicity levels within the pig-pen environment exceed acceptable limits. This approach aims to reduce reliance on subjective visual observation and provide a more consistent and reliable basis for early health monitoring.
+
+
+%********************************** Section 1.3 ********************************
+\section{Objectives of the Study}
+
+\subsection{General Objective}
+The main goal of this project is to design and develop an integrated automated swine feeding and watering system with centralized data monitoring and control for commercial piggeries.
+
+\subsection{Specific Objectives}
+To achieve this general goal, the system must fulfill the following specific objectives:
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Implement a programmable central control unit} capable of real-time monitoring and control of feed storage, scheduled feed dispensing, water level monitoring, and automatic water dispensing when the level falls below the required threshold.
+  \item \textbf{Design individual feeder modules} capable of monitoring feed consumption, water level, and ammonia levels, with defined validation baselines for feeding, water availability, and air-quality thresholds.
+  \item \textbf{Develop a centralized touchscreen user interface} for system monitoring, data acquisition, historical logging, and graphical visualization of events relevant to final project checking.
+  \item \textbf{Integrate and validate a multi-channel alert system} that notifies caretakers of consumption and environmental anomalies through the local dashboard and SMS notifications via a LoRa-GSM gateway, and evaluate its improvement over manual monitoring through controlled comparison, owner user-acceptance testing (UAT), Likert-scale confidence ratings, response-time measurements, and caretaker feedback.
+\end{enumerate}
+
+
+%********************************** Section 1.4 ********************************
+\section{Scope and Limitations}
+
+This study focuses on the design and development of an automated feeding and watering system with data monitoring for commercial piggeries. The system is intended to support swine management by combining scheduled feed and water dispensing, sensor-based environmental monitoring, and digital record-keeping within a farrowing piggery prototype setup.
+
+This study is subject to the following technical and operational limitations:
+\begin{itemize}
+    \item The system does not perform direct veterinary diagnosis or laboratory disease confirmation.
+    \item Implementation is limited to the system configuration used, with dimensions based on the farrowing pen setup; performance may vary across different farm layouts.
+    \item System operation may be affected by interruptions in electrical power.
+    \item Air quality monitoring is limited to sensors integrated within the feeder modules and covers only the immediate environment of each pen, not the entire piggery facility.
+    \item Remote SMS alerts are limited by GSM signal availability, SIM card functionality, and mobile network service. During cellular service interruptions, alerts remain available through the local dashboard.
+    \item The target thresholds for feeding, water level, and air quality will be established during calibration and baseline testing, and may require adjustment for different pig ages, pen sizes, feed types, trough geometry, ventilation conditions, and farm-management practices.
+    \item Improvement over manual labor will be evaluated using controlled comparison with manual monitoring, time-and-motion logs, caretaker response-time measurements, owner UAT, and Likert-scale feedback. These measures evaluate operational support and user confidence, not veterinary diagnosis.
+    \item Final deployment validation depends on access to a local partner piggery or farm owner who permits installation, observation, and UAT. If full deployment is not allowed, the study will document the limitation and conduct partner-observed bench or pilot testing using the same event-recording protocol.
+\end{itemize}
+
+
+%********************************** Section 1.5 ********************************
+\section{Significance of the Study}
+
+This study holds significant value for multiple sectors, ranging from small-scale backyard farmers to major commercial piggery operators, as well as broader agricultural and technological stakeholders:
+
+\subsection*{Swine Farmers and Caretakers}
+By replacing manual feeding with a sensor-based dispensing and monitoring system, the proposed solution directly addresses feeding problems such as inconsistent rationing, excess feed distribution, feed wastage, and difficulty tracking actual feed intake per pen. The system measures the amount of feed dispensed and consumed through the load cell, allowing caretakers to compare current consumption with previous feeding records. When feed intake drops below the established baseline, the system flags the change as a feeding irregularity that requires inspection. In this way, the system helps improve feeding consistency, reduce feed waste, and provide caretakers with a clearer basis for identifying pens that need attention.
+
+\subsection*{Animal Health and Biosecurity}
+The proposed system provides caretakers with continuous records of feed consumption, water level, and air-quality conditions in each monitored pen. These records allow caretakers to compare current pen conditions with previous readings instead of relying only on manual observation. When the system detects abnormal feed consumption, low water level, or air-quality readings beyond the set threshold, it generates an alert for caretaker inspection.
+
+Through automated alerts and structured data records, caretakers can respond more promptly to feeding irregularities, water supply issues, or unsafe air-quality conditions. These alerts provide caretakers with timestamped information on the type and location of the detected abnormal condition, allowing them to inspect the affected pen based on recorded sensor readings rather than manual observation alone. In this way, the system supports organized record-keeping and consistent monitoring of feeding, watering, and environmental conditions.
+
+\subsection*{The Philippine Swine Industry}
+With approximately 71.1\% of the Philippine hog inventory managed by smallholder backyard farmers, the local swine sector remains highly vulnerable to disruptions caused by disease and inefficient farm management. A reliable, centralized automated system could help stabilize domestic pork production, reduce dependence on imported meat, which reached a record 1.64 million metric tons in 2025, and support the national goal of rebuilding the country's swine population to pre-ASF levels.
+
+\subsection*{Field of Agricultural Automation and Embedded Systems}
+This study contributes to the growing body of research on IoT and precision agriculture applied to livestock management. By demonstrating a fully hardwired, sensor-integrated feeding and monitoring system designed specifically for the Philippine piggery context, the project provides a practical reference for future engineering work in agricultural automation, particularly in environments where wireless reliability may be a concern.
+
+\subsection*{Future Researchers}
+The system's data logging and analytics capabilities generate structured, timestamped records of feed consumption, water intake, and environmental conditions. This dataset can serve as a foundation for future studies on swine behavioral patterns, machine learning-based health prediction models, and the broader integration of precision livestock farming technologies in developing agricultural economies.

@@ -1,0 +1,57 @@
+\thispagestyle {empty}
+\contentsline {chapter}{List of Figures}{xi}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{xiii}{chapter*.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Project Context and Background}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Statement of the Problem}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objectives of the Study}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}General Objective}{3}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Specific Objectives}{3}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Scope and Limitations}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Significance of the Study}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Review of Related Literature}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Automated Feeding and Watering Systems}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Health Monitoring Through Behavioral and Consumption Data}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Air Quality Sensing in Swine Environments}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Wired Communication for Embedded Livestock Systems}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Centralized Data Monitoring and User Interface Design}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Disease Outbreaks and Farm-Level Monitoring in Swine Production}{10}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Scalability and Deployment Considerations in Philippine Piggeries}{10}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Methodology}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conceptual Framework}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}System Architecture: Distributed Software Workflow}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Software Architecture and Technology Stack}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Volume and Structural Calculations}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Dispensing Mechanism}{24}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Sensing Strategy and Component Selection}{25}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Wired Communication: RS-485 / MODBUS RTU}{29}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Application Layer and Data Persistence}{30}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Dashboard User Interface Design}{33}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Consumption Baseline and Anomaly Detection}{38}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Evaluation Metrics and Verification Protocol}{41}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Testing and Checking}{44}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Deployment Plan}{53}{section.3.13}%
+\contentsline {chapter}{\numberline {4}Results and Discussion}{55}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Master Verification and Testing Matrix}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Objective 1: Automated Dispensing and Central Storage Performance}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Feed Dispensing Accuracy (FDA) Across 30 Trials}{56}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Scheduled Feeding Execution Verification}{56}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Objective 2: Feeder Node Multi-Sensor Calibration and Accuracy}{58}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Load Cell Calibration and Linearity Evaluation}{58}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Ultrasonic Water Level Accuracy and Refill Automation}{58}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Air Quality Sensor Calibration and Exposure Response}{59}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Objective 3: Central UI, Data Persistence, and System Availability}{60}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Display Latency and 72-Hour System Uptime}{60}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}User Acceptance Testing (UAT) Survey Framework}{60}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Objective 4: Multi-Channel Alert and Remote Notification Pipeline}{60}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Alert Response Accuracy (ARA) Under 20 Induced Events}{61}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Remote LoRa-to-GSM SMS Delivery Rate and Latency}{62}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Operational Impact: Labor Reduction and Record Completeness}{62}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Chapter Summary}{63}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusions and Recommendations}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Findings}{65}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Conclusions}{66}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Recommendations}{66}{section.5.3}%
+\contentsline {chapter}{References}{69}{chapter*.46}%
+\contentsline {chapter}{Appendix \numberline {A}Signed Approval Sheet}{73}{appendix.1.A}%
+\contentsline {chapter}{Appendix \numberline {B}Technical Schematics, Netlists, and Supplementary Documentation}{75}{appendix.1.B}%

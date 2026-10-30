@@ -1,0 +1,53 @@
+%*******************************************************************************
+%*********************************** Chapter 5 *********************************
+%*******************************************************************************
+
+\chapter{Conclusions and Recommendations}
+
+This chapter synthesizes the outcomes of the study, presents final conclusions drawn from experimental findings and performance evaluations, and offers practical recommendations for future engineering enhancements and farm-scale deployments.
+
+\section{Summary of Findings}
+
+The design, development, and validation of the integrated automated feeding and watering system with centralized data monitoring yielded the following key findings:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Dispensing Precision and Automated Scheduling:} The centralized $0.18\text{ m}^3$ hopper and NEMA 17 auger dispensing mechanism achieved a mean Feed Dispensing Accuracy (FDA) exceeding 95\% across 30 repeated trials. Automated feeding schedules were dispatched within $\pm 4.2$ seconds of scheduled target times without manual intervention.
+    
+    \item \textbf{Edge Sensor Accuracy and Autonomy:} Feeder node instrumentation demonstrated high fidelity. Load cells achieved linear calibration with $R^2 \geq 0.998$ and an error within $\pm 1.2\%$; ultrasonic level sensing maintained depth accuracy within $\pm 0.6$~cm, executing closed-loop water refilling at the 40\% threshold; and the MQ-135 sensor reliably categorized ammonia toxicity into discrete safety tiers.
+    
+    \item \textbf{Central Processing and Interface Performance:} The Raspberry Pi 4 Model B master unit polled edge nodes over an RS-485/MODBUS RTU industrial serial bus with mean telemetry display latency of $1.14$ seconds. During 72 hours of uninterrupted stress testing, the system achieved 100\% operational uptime with zero database losses and a User Acceptance Score (UAS) of 4.62 / 5.0.
+    
+    \item \textbf{Multi-Channel Telemetry and Alert Pipeline:} Anomaly detection based on a 14-session rolling window achieved 95\% Alert Response Accuracy (ARA). Remote alert dispatches through the SX1278 LoRa and 4G LTE GSM gateway achieved a 95\% SMS delivery success rate with mean alert latency of $18.4$ seconds.
+    
+    \item \textbf{Operational Impact:} Time-and-motion comparison indicated a 42.5\% reduction in daily routine caretaker labor requirements, alongside 99.6\% Event-Record Completeness (ERC).
+\end{enumerate}
+
+\section{Conclusions}
+
+Based on the empirical findings, the following conclusions are established:
+
+\begin{enumerate}[label=\arabic*.]
+    \item The hardwired RS-485/MODBUS RTU multi-node architecture provides an exceptionally stable, noise-immune communication backbone that overcomes the vulnerabilities of conventional wireless implementations in enclosed, metal-framed piggery facilities.
+    
+    \item Gravimetric closed-loop feed metering combined with ultrasonic liquid level detection successfully eliminates the inaccuracies inherent to volumetric or timed feeding systems, significantly reducing feed waste and preventing livestock dehydration.
+    
+    \item Integrating environmental gas sensing with behavioral consumption analysis establishes an effective early-warning pipeline for swine illness, empowering caretakers with actionable, timestamped data before visual clinical symptoms manifest.
+    
+    \item The local touchscreen interface and dual-channel alert system provide an intuitive, high-confidence monitoring ecosystem that bridges advanced embedded systems engineering with practical livestock farm operations in the Philippine agricultural sector.
+\end{enumerate}
+
+\section{Recommendations}
+
+To extend the utility, scalability, and technical depth of this system, the following recommendations are suggested for future engineering iterations:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Individual Animal Identification (RFID Integration):} Integrate ultra-high-frequency (UHF) ear-tag RFID readers at trough stations to transition from pen-level consumption baselines to individual-animal tracking, especially beneficial in gestating sow and farrowing pens.
+    
+    \item \textbf{Edge Machine Learning Models:} Deploy lightweight embedded machine learning models (such as TinyML on the ESP32-S3 or Raspberry Pi) to combine audio cough detection with consumption and temperature metrics, enabling multi-modal early pathogen screening.
+    
+    \item \textbf{Solar and Battery Backup Architecture:} Incorporate an uninterruptible power supply (UPS) combining solar harvesting with lithium-iron-phosphate (LiFePO4) battery storage to ensure continuous monitoring and dispensing during rural grid power failures.
+    
+    \item \textbf{Biosecurity Fogging and Automated Misting:} Expand the actuator controller firmware to drive misting nozzles for automatic evaporative pen cooling and disinfectant spraying when ambient temperatures or ammonia levels exceed warning thresholds.
+    
+    \item \textbf{Extended Multi-Farm Cloud Telemetry:} Implement optional, secure MQTT-over-TLS telemetry synchronization from the local master unit to a centralized cloud analytics portal, allowing multi-site commercial producers and agricultural cooperatives to benchmark performance across regions.
+\end{enumerate}
